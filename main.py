@@ -26,7 +26,7 @@ def main():
     if job.get("rank_score", 0) >= MIN_RANK_SCORE
     ][:MAX_AI_JOBS]
 
-    print(f"Scoring top {len(jobs_to_score)} ranked jobs with AI")
+    print(f"Scoring top {len(jobs_to_score)} ranked jobs with AI (limit: {MAX_AI_JOBS})")
 
     scored_jobs = []
     for job in jobs_to_score:

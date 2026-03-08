@@ -1,4 +1,11 @@
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MAX_AI_JOBS = int(os.getenv("MAX_AI_JOBS", 10))
+
 
 # Base paths
 BASE_DIR = Path(__file__).resolve().parent
@@ -149,8 +156,6 @@ MAYBE_THRESHOLD = 70
 
 # Runtime settings
 MAX_JOBS_PER_RUN = 50
-
-MAX_AI_JOBS = 40
 
 MIN_RANK_SCORE = 16
 
