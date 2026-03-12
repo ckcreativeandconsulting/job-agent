@@ -6,6 +6,12 @@ load_dotenv()
 
 MAX_AI_JOBS = int(os.getenv("MAX_AI_JOBS", 10))
 
+AI_MODE = os.getenv("AI_MODE", "openai_only")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+OLLAMA_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", 90))
+HYBRID_OPENAI_THRESHOLD = int(os.getenv("HYBRID_OPENAI_THRESHOLD", 90))
 
 # Base paths
 BASE_DIR = Path(__file__).resolve().parent
@@ -85,6 +91,8 @@ RANKING_TITLE_WEIGHTS = {
     "product manager": 2,
     "strategy": 1,
     "operations": 1,
+    "infrastructure": 5,
+    "internal systems": 5,
 }
 
 RANKING_SUMMARY_WEIGHTS = {
@@ -100,6 +108,12 @@ RANKING_SUMMARY_WEIGHTS = {
     "wealth": 3,
     "platform": 3,
     "transformation": 4,
+    "internal systems": 5,
+    "infrastructure": 5,
+    "api-first": 4,
+    "control plane": 6,
+    "harmonize": 5,
+    "unify": 4,
 }
 
 RANKING_EMPLOYMENT_WEIGHTS = {
@@ -124,6 +138,12 @@ RANKING_NEGATIVE_TITLE_WEIGHTS = {
     "campaign": -7,
     "growth": -5,
     "account executive": -10,
+    "regulatory": -3,
+    "risk": -2,
+    "alliances": -5,
+    "channels": -5,
+    "claims": -6,
+    "delivery lead": -2,
 }
 
 RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
@@ -139,6 +159,19 @@ RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
     "demand generation": -7,
     "product-led growth": -6,
     "customer lifecycle": -5,
+    "claims": -6,
+    "third party risk": -5,
+    "regulatory risk": -5,
+    "alliances": -5,
+    "channels": -5,
+    "content development": -6,
+    "training": -4,
+    "adoption": -3,
+    "communication": -3,
+    "within the claims organization": -8,
+    "risk operations": -4,
+    "content solutions": -5,
+    "alliances and channels": -6,
 }
 
 GREENHOUSE_COMPANIES = [
@@ -157,6 +190,6 @@ MAYBE_THRESHOLD = 70
 # Runtime settings
 MAX_JOBS_PER_RUN = 50
 
-MIN_RANK_SCORE = 16
+MIN_RANK_SCORE = 18
 
 MAX_JOBS_PER_COMPANY = 4

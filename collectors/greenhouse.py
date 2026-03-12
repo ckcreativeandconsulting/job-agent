@@ -1,8 +1,23 @@
 import json
+import html
+import re
 from urllib.request import urlopen
 from urllib.error import URLError, HTTPError
 
 from config import GREENHOUSE_COMPANIES
+
+
+def clean_html_text(raw_html: str) -> str:
+    if not raw_html:
+        return ""
+
+    text = html.unescape(raw_html)
+    text = text.replace("\xa0", " ")
+    text = re.sub(r"<br\s*/?>", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"</p>|</li>|</h1>|</h2>|</h3>|</h4>", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
 
 def fetch_greenhouse_jobs() -> list[dict]:
@@ -17,14 +32,16 @@ def fetch_greenhouse_jobs() -> list[dict]:
 
             for job in data.get("jobs", []):
                 location = (job.get("location") or {}).get("name", "Unknown")
-                content = job.get("content", "") or ""
+                raw_content = job.get("content", "") or ""
+                summary = clean_html_text(raw_content)
 
                 jobs.append({
+                    "job_id": f"greenhouse:{company}:{job.get('id', '')}",
                     "title": job.get("title", "").strip(),
                     "company": company.title(),
-                    "summary": content[:4000],
+                    "summary": summary[:4000],
                     "link": job.get("absolute_url", "").strip(),
-                    "source": "Greenhouse",
+                    "source": "greenhouse",
                     "location": location,
                     "employment_type": "Unknown",
                 })

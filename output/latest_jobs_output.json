@@ -1,77 +1,78 @@
 {
-  "generated_at": "2026-03-12T19:35:57.138201+00:00",
-  "jobs_after_filtering": 6,
+  "generated_at": "2026-03-12T21:48:50.804573+00:00",
+  "jobs_after_filtering": 8,
   "ranked_jobs": [
+    {
+      "title": "Product Manager, Stripe Infrastructure",
+      "company": "Stripe",
+      "score": 83,
+      "rank_score": 30,
+      "action": "Maybe",
+      "why": [
+        "Role focuses on large-scale infrastructure and distributed systems supporting Stripe\u2019s products, aligning well with enterprise platform transformation and system modernization.",
+        "Responsibilities include guiding architecture and investment decisions with trade-offs between build vs buy and platform vs point solution, which matches platform governance and operating model redesign preferences.",
+        "Position is fully remote in the US, which fits the preferred remote work arrangement.",
+        "Role requires managing diverse stakeholders and driving cross-functional alignment, consistent with enterprise-scale impact."
+      ],
+      "link": "https://stripe.com/jobs/search?gh_jid=6651889"
+    },
     {
       "title": "Product Manager, Commerce Systems",
       "company": "Stripe",
-      "score": 90,
-      "rank_score": 23,
-      "action": "Apply",
+      "score": 82,
+      "rank_score": 44,
+      "action": "Maybe",
       "why": [
-        "Role is focused on enterprise platform transformation by harmonizing disparate systems into a unified financial infrastructure platform",
-        "Strong emphasis on backend systems and API-first mindset aligns with platform infrastructure expertise",
-        "Cross-functional leadership and architecting control planes address system modernization and operating model improvement at scale",
-        "Remote work with a high-leverage team and strategic impact on Stripe's revenue platform",
-        "Involves large-scale system consolidation across billing, financial data warehouses, and seller systems"
+        "Focus on harmonizing and unifying multiple disparate internal systems into a single platform fits enterprise platform transformation and modernization",
+        "Role requires working across multiple internal stakeholders (engineering, GTM, finance, legal), indicating cross-functional operating model design",
+        "Remote full-time role with strong emphasis on large-scale backend systems and platform infrastructure",
+        "Responsibility for reducing integration friction and accelerating time-to-market aligns with platform consolidation and modernization principles",
+        "Preferred qualifications around fintech and multi-product platforms align well with enterprise-scale platform work"
       ],
       "link": "https://stripe.com/jobs/search?gh_jid=7561551"
     },
     {
-      "title": "AI Delivery Lead",
-      "company": "HMH",
-      "score": 88,
-      "rank_score": 20,
-      "action": "Apply",
-      "why": [
-        "Role involves managing the adoption and integration of AI/automation capabilities across multiple products and programs, indicating enterprise-wide transformation.",
-        "Focus on governance, coordination, SOP/guideline development aligns with operating model redesign and platform modernization.",
-        "Remote position, which fits preferred work location.",
-        "Responsibilities include sequencing and capacity planning with agile practices indicating senior delivery leadership rather than junior or purely customer-facing work."
-      ],
-      "link": "https://www.linkedin.com/jobs/view/4376923993/?eBP=CwEAAAGcybqL3u967msXmO8c_FMUoBqJS3yhfjcuPW8sdh5xKG6CBG1ZiwrbWf59J5MFXGcXvdNcPz6n_ADtEo8K8Oc-UaB1xB5gazfCK39FyXehb64HwUct6xuH9rYydgLOOGJbv179XKVP6fXH3DtCDVH2T7JiOognkN-HTfWEyELJ_pGkMGNBV20QyhykPSBDxKgCgn_RgzdBo0DV7X_kDtY6iMXxDMI-39t4WcMJYZWN0mQXwI5w6VSN-sDVd0BKl5F24C6qr6EqnrndSkE0K-fS0NNj8s6BuxTN6ltT1a2sNf7_CLtAV3LMS5_5lgnsaR_EwPdwauuvAeTflqsPc0I5YcDHDNp-dSmHTd2902TR8Udkhf_jInlQvit1IChr__m54o4ed99Fvf9-usPRSFyBLchFoXLU8HCZjJAjtctqQif5OzzQFIljvUV4_BcHIkO0jqi9l5IUmBsWgJHw2RKoEB2t35aNDkdZwTaH2EOKdjTnKm5xgmIMpuFKn5DJJqjp36UI5tAvYUFWwhtzGM7nKWiCY1Jc&trk=flagship3_search_srp_jobs&refId=pP273TyKe29ehzdos3wvJg%3D%3D&trackingId=qEToZfPHQM2dsi2014FJjw%3D%3D"
-    },
-    {
-      "title": "Credit Risk Program Manager, Risk Foundations",
-      "company": "Stripe",
-      "score": 88,
-      "rank_score": 20,
-      "action": "Apply",
-      "why": [
-        "Role involves driving program and process incubation within a critical credit risk pillar and the broader risk organization, indicating enterprise-wide impact.",
-        "Focus on designing and implementing scalable risk-wide frameworks and foundational policies aligns with platform modernization and governance.",
-        "Cross-functional collaboration with Strategy, Product, Engineering, and Operations aligns well with large-scale system modernization and operating model redesign.",
-        "Remote role with significant execution and strategic planning responsibilities matches candidate's preference for remote, enterprise transformation work."
-      ],
-      "link": "https://stripe.com/jobs/search?gh_jid=7540441"
-    },
-    {
-      "title": "Strategy & Operations Program Manager, Risk Ops",
+      "title": "Technical Program Manager, Internal Systems",
       "company": "Stripe",
       "score": 80,
-      "rank_score": 22,
+      "rank_score": 35,
       "action": "Maybe",
       "why": [
-        "Role involves leading complex global programs and high-impact strategic initiatives within Risk Operations, indicating experience with enterprise-wide operational improvements",
-        "Strong emphasis on cross-functional collaboration with multiple teams including Risk Product, Risk Engineering, Policy, and Data Science, suggesting broad organizational impact",
-        "Focus on operational excellence at scale and designing step-change improvements which aligns with platform transformation and modernization goals",
-        "Position is fully remote, which aligns with preferred remote roles"
+        "Role is a full-time, US remote Technical Program Manager position at a major enterprise platform company (Stripe), matching remote and platform criteria.",
+        "The job focuses on managing large-scale technical programs spanning multiple engineering teams, indicating a broad, cross-functional scope aligned with platform transformation and system modernization.",
+        "Responsibilities include shaping technical design, identifying trade-offs, and driving consensus across dynamic teams, suggesting engagement with operating model and governance aspects.",
+        "The role involves working with internal systems and finance domains, implying internal platform and system consolidation focus rather than external customer implementations."
       ],
-      "link": "https://stripe.com/jobs/search?gh_jid=7214197"
+      "link": "https://stripe.com/jobs/search?gh_jid=7680365"
     },
     {
-      "title": "Product Manager, Banking as a Service",
+      "title": "Technical Program Manager, People Solutions",
       "company": "Stripe",
+      "score": 80,
+      "rank_score": 27,
+      "action": "Maybe",
+      "why": [
+        "Role involves strategic technical roadmapping and system design aligned with enterprise platform transformation principles",
+        "Strong cross-functional collaboration across multiple business units including People, Finance, Corporate Technology, indicating enterprise-wide impact",
+        "Emphasis on process and technical solutions delivery to enhance employee experience, which aligns with platform modernization",
+        "Remote and multiple US and Canada locations available, increasing candidate flexibility"
+      ],
+      "link": "https://stripe.com/jobs/search?gh_jid=7594208"
+    },
+    {
+      "title": "Staff Product Manager",
+      "company": "Brex",
       "score": 80,
       "rank_score": 20,
       "action": "Maybe",
       "why": [
-        "Role involves ownership of core APIs and platform products, which aligns with platform transformation and system modernization.",
-        "Involves collaboration across multiple internal teams (engineering, design, legal, risk, compliance), indicating cross-functional impact beyond a single business function.",
-        "Remote work option is available, which is preferred.",
-        "Focus on delivering scalable, performant financial services products with complex integration, supporting platform modernization."
+        "Role involves leading complex, cross-functional initiatives spanning multiple teams and systems, indicating enterprise-scale scope and transformation",
+        "Focus on defining multi-quarter product vision and strategy aligned to highest company priorities indicates strategic rigor",
+        "Requires deep domain expertise in financial infrastructure and technical fluency, suitable for platform modernization",
+        "Opportunity to work on scalable technical systems and architectural tradeoffs, which aligns with platform/system consolidation and modernization",
+        "Role includes elevating product craft and operating standards across the organization, intersecting with operating model redesign"
       ],
-      "link": "https://stripe.com/jobs/search?gh_jid=7561053"
+      "link": "https://www.brex.com/careers/8432698002?gh_jid=8432698002"
     }
   ]
 }
