@@ -8,19 +8,19 @@
     "location": "Remote",
     "employment_type": "Full-time",
     "rank_score": 25,
-    "score": 65,
+    "score": 70,
     "why_match": [
-      "Role involves working closely with Technology teams to extend impact of existing tools and identify new technical opportunities",
-      "Focus on building a more adaptive, data-driven operating model",
-      "Remote position"
+      "Role focuses on bridging operational reality with technological capability, indicating some element of transformation",
+      "Involves partnership with Technology teams to extend tool impact and identify new technical opportunities",
+      "Role is remote, which aligns with preference for remote jobs"
     ],
     "concerns": [
-      "Role is embedded directly within the Claims organization, indicating a primary focus on a single business function",
-      "Lacks clear enterprise-wide platform transformation or large-scale system modernization scope",
-      "AI focus is limited to ensuring AI systems work within Claims function, not broader enterprise transformation"
+      "Position is embedded directly within the Claims organization, a single business function, limiting enterprise-wide impact",
+      "Emphasis on AI systems working with claims talent suggests a narrower focus rather than broad platform transformation or modernization",
+      "No explicit indication of enterprise-scale platform transformation, governance, or operating model redesign across multiple teams or systems"
     ],
     "employment_type_label": "Full-time",
-    "action": "Ignore"
+    "action": "Maybe"
   },
   {
     "title": "Product Manager, Commerce Systems",
@@ -33,15 +33,13 @@
     "rank_score": 23,
     "score": 90,
     "why_match": [
-      "Role focuses on harmonizing and modernizing core backend commerce and financial systems at scale",
-      "Involves building platform infrastructure and unified control planes serving multiple internal stakeholders",
-      "Aligns with enterprise platform transformation and system consolidation across Stripe’s products",
-      "Remote role in well-known tech company with strong product management and backend infrastructure emphasis",
-      "High-leverage cross-functional leadership and strategic responsibilities suitable for senior PM"
+      "Role focuses on harmonizing and unifying complex internal billing, seller systems, and financial data warehouses into a single platform, aligning well with enterprise platform transformation and system consolidation.",
+      "Involves leadership in designing infrastructure control planes that serve multiple disparate stakeholders (internal product teams, finance, legal), which maps to building and modernizing platform infrastructure at scale.",
+      "Remote full-time role with a strong emphasis on backend systems and API-first mindset, aligning well with candidate’s preference for remote product management roles focused on platform modernization.",
+      "Role requires driving strategy and navigating complexity across multiple teams and systems, which ties into operating model redesign and enterprise-wide system modernization."
     ],
     "concerns": [
-      "Role is heavily technical with backend and API-first focus, which might require deep domain expertise",
-      "Requires navigating complex internal systems and multiple stakeholders, potentially a challenging onboarding curve"
+      "Role is heavily internal and focused on Stripe’s product teams rather than traditional external enterprise customers, though this is typical in strong platform PM roles at product companies."
     ],
     "employment_type_label": "Full-time",
     "action": "Apply"
@@ -57,15 +55,15 @@
     "rank_score": 22,
     "score": 80,
     "why_match": [
-      "Role involves leading complex global programs with strategic impact on Risk Operations.",
-      "Requires partnering cross-functionally across multiple risk and adjacent teams, indicating enterprise-wide influence.",
-      "Focus on improving operational processes and business outcomes aligns with system modernization and operating model redesign.",
-      "Position is fully remote and at a reputable enterprise platform company (Stripe)."
+      "Role focuses on leading complex global risk operations programs that impact business processes and operational excellence at scale",
+      "Strong emphasis on cross-functional collaboration across multiple teams and stakeholders, aligning with enterprise-wide transformation initiatives",
+      "Remote US-based role",
+      "Program management responsibilities include transforming operations and designing new processes, consistent with platform transformation and operating model redesign"
     ],
     "concerns": [
-      "Role is functionally centered within Risk Operations which may limit exposure to broader enterprise platform transformation beyond risk.",
-      "Job summary emphasizes operational excellence and risk user experience improvements rather than explicit large-scale platform modernization or system consolidation.",
-      "No clear emphasis on governance or technology transformation at scale beyond the Risk domain."
+      "Role is embedded within Risk Operations which may limit broader enterprise platform impact",
+      "Focus on risk and operational user experience may be narrower than full enterprise platform modernization",
+      "No explicit mention of large-scale system consolidation or modernization across multiple enterprise platforms"
     ],
     "employment_type_label": "Full-time",
     "action": "Maybe"
@@ -79,19 +77,20 @@
     "location": "Remote",
     "employment_type": "Full-time",
     "rank_score": 20,
-    "score": 88,
+    "score": 82,
     "why_match": [
-      "Role focuses on coordinating and managing AI and automation adoption across multiple products and programs, implying enterprise-wide scope",
-      "Involves governance of AI initiatives and development of SOPs/guidelines, indicating operating model redesign",
-      "Supports integration of AI capabilities aligned with capacity, sequencing, and agile practices ensuring predictable delivery and measurable impact",
-      "Remote role suitable for platform transformation and modernization focus"
+      "Role involves coordinating and managing adoption and operational integration of AI/automation capabilities across multiple products and programs, suggesting enterprise-wide impact",
+      "Focus on governance, organization, SOPs, and guidelines aligns with operating model redesign responsibilities",
+      "Role supports communication, training, and adoption across division, implying cross-team influence and transformation",
+      "Remote role"
     ],
     "concerns": [
-      "Potential lack of explicit emphasis on large-scale system consolidation or modernization beyond AI and automation integration",
-      "Possible overlap with product-level implementation rather than purely enterprise platform transformation"
+      "No explicit mention of platform modernization or system consolidation",
+      "Role appears focused specifically on AI Delivery and adoption rather than broader enterprise platform transformation",
+      "Potentially more program coordination than technical platform transformation leadership"
     ],
     "employment_type_label": "Full-time",
-    "action": "Apply"
+    "action": "Maybe"
   },
   {
     "title": "Credit Risk Program Manager, Risk Foundations",
@@ -102,18 +101,16 @@
     "location": "Chicago, US-Remote, Toronto",
     "employment_type": "Unknown",
     "rank_score": 20,
-    "score": 80,
+    "score": 78,
     "why_match": [
-      "Role involves designing and implementing scalable risk-wide frameworks which aligns with platform transformation and modernization",
-      "Requires orchestrating cross-functional initiatives and aligning diverse workstreams, relevant for enterprise-wide operating model redesign",
-      "Remote role with a focus on financial infrastructure platform, fitting the preference for remote enterprise platform roles",
-      "Strong emphasis on governance and risk management processes and policies, which maps well to preferred experience areas"
+      "The role is a Program Manager position focused on credit risk, requiring program and process incubation across a broad Risk organization which aligns with enterprise-wide system and process improvements.",
+      "Responsibilities include designing and implementing scalable risk-wide frameworks and foundational policies, indicating involvement in governance and operating model redesign at scale.",
+      "The job is remote-eligible and involves partnering with multiple internal teams, supporting cross-functional initiatives and strategic commercial shifts."
     ],
     "concerns": [
-      "Primarily focused within the credit risk domain, which may limit the breadth of enterprise-wide platform transformation",
-      "Role appears more specialized towards program management within risk rather than large-scale system consolidation or modernization at an enterprise scale",
-      "Focus on credit risk and merchant risk management might be seen as embedded within a specific business function rather than cross-enterprise",
-      "Does not explicitly mention managing or leading platform modernization or enterprise system consolidation initiatives"
+      "The role focuses primarily on credit risk management and associated processes, which may be more specialized and embedded within a specific business function (Risk) rather than broad enterprise platform transformation.",
+      "There is less explicit emphasis on modernization or system consolidation at a large enterprise scale compared to roles preferred in the criteria.",
+      "The job description does not highlight leading large-scale technology platform transformation or consolidation efforts explicitly."
     ],
     "employment_type_label": "Full-time",
     "action": "Maybe"
@@ -127,18 +124,18 @@
     "location": "Chicago / Remote",
     "employment_type": "Unknown",
     "rank_score": 20,
-    "score": 70,
+    "score": 75,
     "why_match": [
-      "Role involves owning core APIs and platform products, which aligns with platform product management experience.",
-      "Position is remote/full-time, which is a preferred work arrangement.",
-      "Focus on collaboration across multiple teams including engineering, design, legal, risk, compliance aligns with cross-functional enterprise roles.",
-      "Involves building scalable, performant financial infrastructure, touching on system modernization."
+      "Role involves owning core APIs and partner integrations, aligning with platform product management",
+      "Focus on delivering scalable, performant financial services products with complex technical and operational elements",
+      "Works cross-functionally with engineering, design, legal, risk, and compliance teams, indicating broad collaboration beyond a single business function",
+      "Remote or Chicago location offers flexibility"
     ],
     "concerns": [
-      "Role is focused on product management within a specific financial domain (Banking as a Service), which may be narrower than broad enterprise platform transformation roles.",
-      "Emphasis on end-user experience, onboarding, and direct customer engagement which can be considered more customer-facing than enterprise-focused.",
-      "Does not explicitly emphasize large-scale platform transformation, governance, or operating model redesign across multiple enterprise functions.",
-      "Focus appears more on product development and API integration rather than system consolidation or enterprise modernization."
+      "Role emphasizes customer and user experience heavily, including direct interaction with external developers and end users, leaning towards customer-facing product roles",
+      "Limited mention of large-scale enterprise platform transformation or system consolidation; focus is on BaaS product growth and feature development",
+      "Primarily focused on banking as a service vertical, may not cover wider enterprise platform transformation or governance at scale",
+      "Position appears to be a full-time product management role without explicit senior leadership over operating model redesign or governance"
     ],
     "employment_type_label": "Full-time",
     "action": "Maybe"
