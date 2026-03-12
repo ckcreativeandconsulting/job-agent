@@ -1,6 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 
@@ -77,7 +77,7 @@ def append_jobs(jobs):
     )[:5]
 
     export_data = {
-        "generated_at": datetime.utcnow().isoformat(),
+        "generated_at": datetime.now(timezone.utc).isoformat(),
         "jobs_after_filtering": len(jobs),
         "ranked_jobs": [
             {
