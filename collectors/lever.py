@@ -17,17 +17,23 @@ def fetch_lever_jobs() -> list[dict]:
 
             for job in data:
                 categories = job.get("categories", {}) or {}
-                location = categories.get("location", "Unknown")
-                description = job.get("descriptionPlain", "") or ""
+                description = (
+                    job.get("descriptionPlain")
+                    or job.get("description")
+                    or ""
+                )
 
                 jobs.append({
+                    "job_id": f"lever:{company}:{job.get('id', '')}".strip(),
                     "title": job.get("text", "").strip(),
                     "company": company.title(),
                     "summary": description[:4000],
                     "link": job.get("hostedUrl", "").strip(),
-                    "source": "Lever",
-                    "location": location,
-                    "employment_type": "Unknown",
+                    "source": "lever",
+                    "location": categories.get("location", "Unknown").strip(),
+                    "employment_type": categories.get("commitment", "Unknown").strip() or "Unknown",
+                    "department": categories.get("team", "").strip(),
+                    "posted_at": job.get("createdAt"),
                 })
 
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as e:

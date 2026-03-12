@@ -15,6 +15,7 @@ def compute_rank_score(job: dict) -> int:
     summary = job.get("summary", "").lower()
     location = job.get("location", "").lower()
     employment_type = job.get("employment_type", "").lower()
+    department = job.get("department", "").lower()
 
     score = 0
 
@@ -23,7 +24,7 @@ def compute_rank_score(job: dict) -> int:
             score += weight
 
     for keyword, weight in RANKING_SUMMARY_WEIGHTS.items():
-        if keyword in summary:
+        if keyword in summary or keyword in department:
             score += weight
 
     for keyword, weight in RANKING_EMPLOYMENT_WEIGHTS.items():

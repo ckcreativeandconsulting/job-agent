@@ -30,7 +30,34 @@ def main():
 
     scored_jobs = []
     for job in jobs_to_score:
-        result = score_job(job)
+        try:
+            result = score_job(job)
+        except Exception as e:
+            result = {
+                "score": 50,
+                "why_match": ["Scoring failed"],
+                "concerns": [str(e)],
+                "employment_type_label": job.get("employment_type", "Unknown"),
+                "action": "Ignore",
+                "backend": "error",
+                "model": "none",
+            }
+
+        backend = result.get("backend", "unknown")
+        pre_backend = result.get("pre_backend")
+        score = result.get("score")
+
+        if pre_backend:
+            print(
+                f"[AI] {job.get('company', 'Unknown')} — {job.get('title', 'Unknown')} "
+                f"=> final={backend}, pre={pre_backend}, score={score}, pre_score={result.get('pre_score')}"
+            )
+        else:
+            print(
+                f"[AI] {job.get('company', 'Unknown')} — {job.get('title', 'Unknown')} "
+                f"=> backend={backend}, score={score}"
+            )
+
         scored_job = {**job, **result}
         scored_jobs.append(scored_job)
 
