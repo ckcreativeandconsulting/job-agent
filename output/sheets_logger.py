@@ -1,6 +1,8 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+import json
+from pathlib import Path
 
 
 SHEET_NAME = "Job Agent Tracker"
@@ -62,3 +64,34 @@ def append_jobs(jobs):
         print(f"Added {len(rows_to_add)} new jobs to sheet")
     else:
         print("No new jobs to add (all duplicates)")
+
+        # --- Export job summary for AI ops system ---
+
+    output_dir = Path("output")
+    output_dir.mkdir(exist_ok=True)
+
+    ranked_jobs = sorted(
+        jobs,
+        key=lambda j: j.get("rank_score", 0),
+        reverse=True
+    )[:5]
+
+    export_data = {
+        "generated_at": datetime.utcnow().isoformat(),
+        "jobs_after_filtering": len(jobs),
+        "ranked_jobs": [
+            {
+                "title": job.get("title"),
+                "company": job.get("company"),
+                "score": job.get("rank_score"),
+                "why": job.get("why_match", []),
+                "link": job.get("link")
+            }
+            for job in ranked_jobs
+        ]
+    }
+
+    with open(output_dir / "latest_jobs_output.json", "w", encoding="utf-8") as f:
+        json.dump(export_data, f, indent=2)
+
+    print("Exported jobs summary for AI ops")
