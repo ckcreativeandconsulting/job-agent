@@ -9,24 +9,22 @@
     "location": "SF, SEA, NYC, US - Remote",
     "employment_type": "Unknown",
     "rank_score": 44,
-    "score": 82,
+    "score": 80,
     "why_match": [
-      "Focus on harmonizing and unifying multiple disparate internal systems into a single platform fits enterprise platform transformation and modernization",
-      "Role requires working across multiple internal stakeholders (engineering, GTM, finance, legal), indicating cross-functional operating model design",
-      "Remote full-time role with strong emphasis on large-scale backend systems and platform infrastructure",
-      "Responsibility for reducing integration friction and accelerating time-to-market aligns with platform consolidation and modernization principles",
-      "Preferred qualifications around fintech and multi-product platforms align well with enterprise-scale platform work"
+      "Role focuses on enterprise-wide platform transformation by harmonizing disparate billing, seller systems, and financial data warehouses into a unified infrastructure",
+      "Strong emphasis on system consolidation and modernization of legacy systems within a large organization",
+      "Role requires cross-functional leadership with multiple teams including engineering, finance, legal, and go-to-market, indicating broad enterprise impact",
+      "Fully remote US-based role at a top-tier fintech company known for large-scale, complex platform infrastructure"
     ],
     "concerns": [
-      "Role is very Stripe-internal focused and not explicitly about external client delivery or commercialization, which may or may not match candidate's background",
-      "Moderate complexity and cross-team coordination but not explicitly about governance or enterprise-wide operating model redesign beyond Stripe internal scope",
-      "No explicit mention of legacy system modernization, mostly about harmonizing and building unifying control planes",
-      "Use of AI is peripheral and not the core focus, so no extra weighting for AI"
+      "Role is somewhat specialized around commerce and billing systems which may limit direct generalization to broader platform governance or operating model redesign beyond Stripe's internal revenue engine",
+      "Heavy technical product management experience required but focus is primarily on backend and API platform rather than explicit governance or operating model transformation",
+      "No explicit mention of responsibilities deeply involving AI-related transformation beyond strategic alignment, so limited weight for recent enterprise AI transformation trends"
     ],
     "employment_type_label": "Full-time",
     "backend": "openai",
     "model": "gpt-4.1-mini",
-    "action": "Maybe",
+    "action": "Apply",
     "pre_score": 92,
     "pre_backend": "ollama"
   },
@@ -40,23 +38,56 @@
     "location": "US Remote",
     "employment_type": "Unknown",
     "rank_score": 35,
-    "score": 80,
+    "score": 82,
     "why_match": [
-      "Role is a full-time, US remote Technical Program Manager position at a major enterprise platform company (Stripe), matching remote and platform criteria.",
-      "The job focuses on managing large-scale technical programs spanning multiple engineering teams, indicating a broad, cross-functional scope aligned with platform transformation and system modernization.",
-      "Responsibilities include shaping technical design, identifying trade-offs, and driving consensus across dynamic teams, suggesting engagement with operating model and governance aspects.",
-      "The role involves working with internal systems and finance domains, implying internal platform and system consolidation focus rather than external customer implementations."
+      "Role involves technical program management across multiple engineering teams and systems, indicating large-scale coordination",
+      "Focus on internal systems platform and product solutions, aligning with enterprise platform and system modernization",
+      "Responsibilities include cross-functional strategy, planning, and execution of large-scale technical programs",
+      "Remote position fitting candidate preference for remote roles",
+      "Strong emphasis on process improvements, governance, and building frictionless internal user experiences, which is related to internal operating model improvements"
     ],
     "concerns": [
-      "The role is focused specifically on internal systems primarily supporting Sellers and Finance Engineering, which might imply a more embedded function rather than broad enterprise-wide transformation.",
-      "No explicit mention of large-scale platform modernization or multi-enterprise system consolidation; scope may be narrower than ideal for highest scores.",
-      "Role appears focused mostly on program management and execution rather than direct technical leadership or engineering ownership of platform transformation."
+      "Role is focused on internal systems serving Sellers and Finance Engineering rather than broad enterprise platform transformation",
+      "Some emphasis on internal users and domains such as GTM and Finance, which might be more functionally embedded rather than truly enterprise-wide platform transformation",
+      "No explicit mention of enterprise-wide platform consolidation or operating model redesign across multiple large, diverse business functions",
+      "Company is a technology platform company, but role seems internally focused and may not involve full-scale modernization across multiple client or external-facing enterprise systems"
+    ],
+    "employment_type_label": "Full-time",
+    "backend": "openai",
+    "model": "gpt-4.1-mini",
+    "action": "Apply",
+    "pre_score": 92,
+    "pre_backend": "ollama"
+  },
+  {
+    "job_id": "greenhouse:coinbase:7706215",
+    "title": "Program Manager, Contracts & Analytics",
+    "company": "Coinbase",
+    "summary": "Ready to be pushed beyond what you think you’re capable of? At Coinbase, our mission is to increase economic freedom in the world. It’s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform — and with it, the future global financial system. To achieve our mission, we’re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial system. We want someone who is eager to leave their mark on the world, who relishes the pressure and privilege of working with high caliber colleagues, and who actively seeks feedback to keep leveling up. We want someone who will run towards, not away from, solving the company’s hardest problems. Our work culture is intense and isn’t for everyone. But if you want to build the future alongside others who excel in their disciplines and expect the same from you, there’s no better place to be. While many roles at Coinbase are remote-first, we are not remote-only. In-person participation is required throughout the year. Team and company-wide offsites are held multiple times annually to foster collaboration, connection, and alignment. Attendance is expected and fully supported. Coinbase Legal Operations is looking for aProgram Manager, Contracts &amp; Analytics to join our team focused on the hands-on configuration and ongoing optimization of our Contract Lifecycle Management (CLM) systems. The primary mission is to provide deep technical and operational support to the Institutional Sales team, ensuring seamless, compliant, and highly efficient client contracting processes. You will be the key driver in building, maintaining, and integrating CLM technologies like Ironclad, Evisort, and Salesforce, as well as developing and managing the comprehensive contracts reporting framework and system of record for all agreements. What you’ll be doing (ie. job duties): Build and maintain contracting workflows within Ironclad, with a focus on accelerating the Institutional Sales contract pipeline. Lead project management of large, cross-functional contracts-focused initiatives, ensuring delivery on time and within scope. Support integration planning and execution between CLM systems (e.g., Ironclad, Evisort) and other core business systems (e.g., Salesforce), specifically to streamline the institutional contracting process. Develop and manage a comprehensive contracts reporting framework, including data extraction, metadata integrity, and building data models to maintain the system of record for all agreements. Partner with Institutional Sales to surface contract insights and analytics from their client agreements.&nbsp; What we look for in you (ie. job requirements): 5 - 7+ years proven program or project management experience, preferably within Legal Operations or a related field. Direct experience supporting a fast-paced Institutional Sales or similar B2B client-facing team, with a deep understanding of their contracting needs and priorities. Expert-level hands-on experience with Contract Lifecycle Management (CLM) systems, specifically Ironclad. Strong working knowledge of legal technology, including AI tooling for contract review and data extraction and analytics (e.g., Evisort). Ability to communicate technical concepts to a non-technical audience and translate business needs into technical requirements. Demonstrated experience with data management, reporting, and building data models for contracts or other structured business data. Nice to haves: Experience with integration planning and implementation for core business systems like Salesforce. Experience in the financial services or technology industry, particularly with legal/compliance requirements related to institutional clients. Familiarity with the legal, regulatory, and technical landscape of cryptocurrency and Web3. Familiarity with building dashboards, program governance and creat",
+    "link": "https://www.coinbase.com/careers/positions/7706215?gh_jid=7706215",
+    "source": "greenhouse",
+    "location": "Remote - USA",
+    "employment_type": "Unknown",
+    "rank_score": 34,
+    "score": 75,
+    "why_match": [
+      "Role involves program management with focus on Contract Lifecycle Management (CLM) systems like Ironclad and Evisort, aligned with platform modernization",
+      "Emphasis on integration planning and execution between CLM and core business systems such as Salesforce, supporting system consolidation efforts",
+      "Engagement with data management, reporting, and data modeling for contract systems, indicating governance and operational improvements",
+      "Remote role with some in-person requirements, fitting the preferred remote work factor"
+    ],
+    "concerns": [
+      "Role appears embedded within Institutional Sales function rather than cross-enterprise operating model redesign",
+      "Focus is on supporting a specific business function (Institutional Sales contracting) rather than broad enterprise-wide platform transformation",
+      "No clear indication of leading large-scale or multi-system modernization initiatives beyond CLM and related systems",
+      "Role contains customer-facing and operational support elements which reduce alignment with purely strategic enterprise transformation",
+      "AI mentioned but not central to transformative system design or governance"
     ],
     "employment_type_label": "Full-time",
     "backend": "openai",
     "model": "gpt-4.1-mini",
     "action": "Maybe",
-    "pre_score": 92,
+    "pre_score": 88,
     "pre_backend": "ollama"
   },
   {
@@ -69,23 +100,23 @@
     "location": "Remote in the US",
     "employment_type": "Unknown",
     "rank_score": 30,
-    "score": 83,
+    "score": 82,
     "why_match": [
-      "Role focuses on large-scale infrastructure and distributed systems supporting Stripe’s products, aligning well with enterprise platform transformation and system modernization.",
-      "Responsibilities include guiding architecture and investment decisions with trade-offs between build vs buy and platform vs point solution, which matches platform governance and operating model redesign preferences.",
-      "Position is fully remote in the US, which fits the preferred remote work arrangement.",
-      "Role requires managing diverse stakeholders and driving cross-functional alignment, consistent with enterprise-scale impact."
+      "Role is a remote full-time Product Manager position at Stripe focused on infrastructure, which aligns with preference for remote and platform transformation roles.",
+      "Responsibilities include partnership with multiple engineering teams on major systems, focusing on systemic architecture decisions, build vs buy trade-offs, and sustainable ecosystem design which are relevant to enterprise platform transformation and system consolidation.",
+      "Candidate would work on distributed, high availability infrastructure and internal AI agents aimed at productivity and customer experience, adding some relevance to modernization and AI usage in enterprise contexts.",
+      "Requires 7+ years of Product Management experience ideally in enterprise or B2B, including launching and scaling complex products and managing diverse stakeholders, which matches enterprise transformation expectations."
     ],
     "concerns": [
-      "Role emphasizes developer experience and delivering user-facing infrastructure, which may tilt somewhat towards product user focus rather than purely platform transformation at enterprise-wide scale.",
-      "While AI is mentioned (internal AI agents), it is a smaller component and not the primary focus; AI does not elevate the score significantly.",
-      "The role is a mid-to-senior product management role but not clearly described as primarily focused on multi-enterprise platform consolidation across broad business functions, which limits the score.",
-      "The position is not a contract role, which is only slightly favored."
+      "The role, while infrastructure focused, is heavily developer/user-facing and product-experience-centric rather than explicitly focused on large-scale enterprise operating model redesign or governance.",
+      "Some mention of AI-related responsibilities is present but not clearly tied to large scale platform transformation or operating model redesign, so AI aspects should not lead to over-scoring.",
+      "No explicit mention of leading a large-scale modernization program or governance function beyond typical product roadmap and system design decisions.",
+      "Focus on developer infrastructure and product experience might limit the breadth of enterprise-wide platform transformation impact compared to broader operating model redesign roles."
     ],
     "employment_type_label": "Full-time",
     "backend": "openai",
     "model": "gpt-4.1-mini",
-    "action": "Maybe",
+    "action": "Apply",
     "pre_score": 92,
     "pre_backend": "ollama"
   },
@@ -99,18 +130,18 @@
     "location": "US-Remote; US-Chicago; US-Atlanta; CA-Toronto",
     "employment_type": "Unknown",
     "rank_score": 27,
-    "score": 80,
+    "score": 75,
     "why_match": [
-      "Role involves strategic technical roadmapping and system design aligned with enterprise platform transformation principles",
-      "Strong cross-functional collaboration across multiple business units including People, Finance, Corporate Technology, indicating enterprise-wide impact",
-      "Emphasis on process and technical solutions delivery to enhance employee experience, which aligns with platform modernization",
-      "Remote and multiple US and Canada locations available, increasing candidate flexibility"
+      "Role involves strategic technical roadmapping and system design, aligning with platform transformation and modernization aspects.",
+      "Responsibilities include vendor evaluation and build vs. buy recommendations, indicating involvement in platform and system decisions.",
+      "Focus on cross-functional collaboration and partnership with multiple organizational stakeholders, implying broader enterprise impact.",
+      "Remote work options and full-time employment align well with preferred work arrangements."
     ],
     "concerns": [
-      "Role is focused on People Solutions, which may be considered embedding within a single major business function (HR/People)",
-      "Primary scope centers on employee experience technology rather than broad platform transformation or governance across diverse enterprise functions",
-      "No explicit mention of large-scale system consolidation or operating model redesign",
-      "Job summary emphasizes flexibility and nimbleness over structured enterprise program management or platform governance"
+      "The role is embedded within the People Solutions team, which might limit scope primarily to HR/People systems rather than broad enterprise-wide platform transformation.",
+      "Primary focus appears to be improving employee experience technologies rather than large-scale system consolidation or governance across diverse enterprise systems.",
+      "Role emphasizes internal employee experience technology rather than customer-facing or external platform transformation.",
+      "Responsibilities include user interviews and mockups, which indicate tactical/operational elements that may lessen strategic scale."
     ],
     "employment_type_label": "Full-time",
     "backend": "openai",
@@ -120,29 +151,27 @@
     "pre_backend": "ollama"
   },
   {
-    "job_id": "greenhouse:brex:8432698002",
-    "title": "Staff Product Manager",
-    "company": "Brex",
-    "summary": "Why join us Brex is the AI-powered spend platform. We help companies spend with confidence with integrated corporate cards, banking, and global payments, plus intuitive software for travel and expenses. Tens of thousands of companies from startups to enterprises — including DoorDash, Flexport, and Compass — use Brex to proactively control spend, reduce costs, and increase efficiency on a global scale. Working at Brex allows you to push your limits, challenge the status quo, and collaborate with some of the brightest minds in the industry. We’re committed to building a diverse team and inclusive culture and believe your potential should only be limited by how big you can dream. We make this a reality by empowering you with the tools, resources, and support you need to grow your career. Product at Brex The Product team is at the forefront of Brex's mission to empower employees anywhere to make better financial decisions. With a deep understanding of the business, we identify and scope out the most impactful opportunities for Brex to tackle. We are responsible for aligning cross-functional teams — such as Engineering, Legal, Compliance, and Design — on key decisions. We set strategy and drive products from inception to launch, enabling Brex to grow rapidly and help our customers reach their full potential. What you’ll do As a Staff Product Manager at Brex, you will operate at the intersection of product strategy, technical depth, and business impact. You will define and drive multi-quarter strategy within one of Brex’s most critical product domains, leading initiatives that materially shape the company’s trajectory. You will be expected to identify the highest-leverage problems, frame them with rigor, and mobilize cross-functional teams to deliver step-function improvements in customer value, revenue, efficiency, or distribution. You will work directly with senior leaders across Product, Engineering, Design, Data, Risk, Legal, Compliance, Finance, and GTM. You will influence decisions beyond your immediate team and elevate the standards of product thinking across the organization. Where you’ll work This role will be based in either our San Francisco, Seattle or New York City office. You must be willing to work in the office at least 3 days per week on Monday, Wednesday and Thursday. Employees will be able to work remotely for up to 4 weeks per year, for a minimum of one week at a time. Responsibilities Define and own a multi-quarter product vision and strategy aligned to Brex’s highest company priorities. Identify high-leverage opportunities that create durable competitive advantage, not just incremental improvements. Lead complex, cross-functional initiatives that span multiple teams, systems, and stakeholder groups. Develop deep domain expertise in your area (e.g., financial infrastructure, risk systems, growth systems, payables ecosystem, etc.) and use it to inform product direction. Partner closely with Engineering to design scalable technical systems, engaging meaningfully in architectural discussions and tradeoffs. Set clear success metrics tied to company-level outcomes and hold teams accountable to measurable impact. Drive structured decision-making in ambiguous environments, balancing speed with rigor. Influence senior leaders and executives through clear thinking, strong written narratives, and data-backed recommendations. Improve product craft and operating standards across the organization, mentoring PMs and elevating how we build. Requirements Experience: 7–10+ years of product management experience, with a demonstrated track record of leading complex, high-impact product initiatives in high-growth B2B or fintech environments. Experience building platform or financial infrastructure products is strongly preferred. Strategic rigor: Proven ability to define product strategy that translates into measurable business outcomes. Technical depth: Strong fluency in technical systems and architecture. You are comfortable discu",
-    "link": "https://www.brex.com/careers/8432698002?gh_jid=8432698002",
+    "job_id": "greenhouse:coinbase:7694499",
+    "title": "CX Security Program Manager",
+    "company": "Coinbase",
+    "summary": "Ready to be pushed beyond what you think you’re capable of? At Coinbase, our mission is to increase economic freedom in the world. It’s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform — and with it, the future global financial system. To achieve our mission, we’re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial system. We want someone who is eager to leave their mark on the world, who relishes the pressure and privilege of working with high caliber colleagues, and who actively seeks feedback to keep leveling up. We want someone who will run towards, not away from, solving the company’s hardest problems. Our work culture is intense and isn’t for everyone. But if you want to build the future alongside others who excel in their disciplines and expect the same from you, there’s no better place to be. While many roles at Coinbase are remote-first, we are not remote-only. In-person participation is required throughout the year. Team and company-wide offsites are held multiple times annually to foster collaboration, connection, and alignment. Attendance is expected and fully supported. &nbsp; As part of the Customer Experience organization, the Vendor Governance &amp; Site Operations (VGSO) team is responsible for Customer Experience vendor strategy, third‑party and captive site lifecycle governance, security compliance standards, and financial cohesion across the CX organization. This CX Security Program Manager will own CX’s security and access governance programs across our BPO network, CX hubs, and COE sites, with a primary focus on strengthening technology access controls, standardizing security review processes for CX tools, and tightening vendor security controls in close partnership with Security, IT, Enterprise Applications, and Vendor Management teams. What you’ll be doing:&nbsp; Own the CX security &amp; access governance program across Consumer and Compliance operations, spanning physical security protocols, logical access controls, and sensitive workflow protections for BPOs, COEs, and CX Hubs. Program manage CX‑wide access governance initiatives end‑to‑end: drive the multi‑quarter roadmap, requirements, and implementation plan to standardize how FTE, CTR, and BPO access is requested, evaluated, approved, and monitored across all CX tools, in partnership with IT Solution Engineering, Enterprise Applications, IAM, Security, and People teams. Lead CX security risk review processes for new and existing tools: establish repeatable intake, triage, and tracking mechanisms for exception and deviation requests across the CX team; partner with Security and CX leadership on calibration, prioritization, and remediation plans; and ensure review outcomes are reflected in access controls, site standards, and vendor contracts where applicable. Scale BPO security governance frameworks by owning the roadmap and execution for security attestation and audit processes, and developing scalable mechanisms to track, review, and resolve security deviations and exception requests, in partnership with Physical Security and Vendor Management. Maintain device governance standards for CX BPOs, including CX’s standardized device lifecycle procedures for BPO endpoints, ensuring that enrollment, inventory, offboarding, and device movement controls are consistently applied across all CX BPO sites in alignment with IT and Physical Security standards. Build and maintain central CX security &amp; access inventories (e.g., access‑control matrices, security review trackers, vendor security posture views) that connect sites, roles, tools, and entitlements, enabling faster impact analysis, access reviews, and audit responses. Drive cross‑functional program management and stakeholder alignment: Run working groups and steering forums across Security, IT, Enterprise Appl",
+    "link": "https://www.coinbase.com/careers/positions/7694499?gh_jid=7694499",
     "source": "greenhouse",
-    "location": "San Francisco, California, United States",
+    "location": "Remote - USA",
     "employment_type": "Unknown",
-    "rank_score": 20,
-    "score": 80,
+    "rank_score": 27,
+    "score": 75,
     "why_match": [
-      "Role involves leading complex, cross-functional initiatives spanning multiple teams and systems, indicating enterprise-scale scope and transformation",
-      "Focus on defining multi-quarter product vision and strategy aligned to highest company priorities indicates strategic rigor",
-      "Requires deep domain expertise in financial infrastructure and technical fluency, suitable for platform modernization",
-      "Opportunity to work on scalable technical systems and architectural tradeoffs, which aligns with platform/system consolidation and modernization",
-      "Role includes elevating product craft and operating standards across the organization, intersecting with operating model redesign"
+      "Role focuses on security governance and program management across multiple CX platforms and BPOs, showing cross-functional and enterprise-scale exposure",
+      "Involves governance, access controls, and vendor security controls which align with platform security modernization and operating model enhancements",
+      "Remote work model with some in-person requirements is consistent with preferred work arrangements",
+      "Engages with multiple stakeholders across IT, Security, Vendor Management, Enterprise Applications, which indicates broad enterprise coordination"
     ],
     "concerns": [
-      "Role is onsite (3 days per week) rather than fully remote, which is less preferred",
-      "Primary focus is product management rather than direct platform engineering or transformation leadership, so may be less technical than ideal",
-      "Company is a fintech spend platform, which is somewhat narrow; may not cover broad enterprise platform transformation across multiple unrelated business functions",
-      "No explicit mention of governance or system consolidation at scale beyond product leadership",
-      "No indication that role is contract, slightly less preferred"
+      "Primarily embedded within Customer Experience organization and CX vendor/BPO operations rather than broad enterprise platform transformation",
+      "Role is more specialized in security and access governance rather than core platform modernization or system consolidation",
+      "Focus on security compliance and BPO/captive site lifecycle governance is somewhat niche and not a clear enterprise-wide platform transformation",
+      "Does not clearly highlight responsibilities for large-scale system modernization or operating model redesign beyond security controls"
     ],
     "employment_type_label": "Full-time",
     "backend": "openai",
@@ -152,85 +181,65 @@
     "pre_backend": "ollama"
   },
   {
-    "job_id": "greenhouse:brex:8432702002",
-    "title": "Staff Product Manager",
-    "company": "Brex",
-    "summary": "Why join us Brex is the AI-powered spend platform. We help companies spend with confidence with integrated corporate cards, banking, and global payments, plus intuitive software for travel and expenses. Tens of thousands of companies from startups to enterprises — including DoorDash, Flexport, and Compass — use Brex to proactively control spend, reduce costs, and increase efficiency on a global scale. Working at Brex allows you to push your limits, challenge the status quo, and collaborate with some of the brightest minds in the industry. We’re committed to building a diverse team and inclusive culture and believe your potential should only be limited by how big you can dream. We make this a reality by empowering you with the tools, resources, and support you need to grow your career. Product at Brex The Product team is at the forefront of Brex's mission to empower employees anywhere to make better financial decisions. With a deep understanding of the business, we identify and scope out the most impactful opportunities for Brex to tackle. We are responsible for aligning cross-functional teams — such as Engineering, Legal, Compliance, and Design — on key decisions. We set strategy and drive products from inception to launch, enabling Brex to grow rapidly and help our customers reach their full potential. What you’ll do As a Staff Product Manager at Brex, you will operate at the intersection of product strategy, technical depth, and business impact. You will define and drive multi-quarter strategy within one of Brex’s most critical product domains, leading initiatives that materially shape the company’s trajectory. You will be expected to identify the highest-leverage problems, frame them with rigor, and mobilize cross-functional teams to deliver step-function improvements in customer value, revenue, efficiency, or distribution. You will work directly with senior leaders across Product, Engineering, Design, Data, Risk, Legal, Compliance, Finance, and GTM. You will influence decisions beyond your immediate team and elevate the standards of product thinking across the organization. Where you’ll work This role will be based in either our San Francisco, Seattle or New York City office. You must be willing to work in the office at least 3 days per week on Monday, Wednesday and Thursday. Employees will be able to work remotely for up to 4 weeks per year, for a minimum of one week at a time. Responsibilities Define and own a multi-quarter product vision and strategy aligned to Brex’s highest company priorities. Identify high-leverage opportunities that create durable competitive advantage, not just incremental improvements. Lead complex, cross-functional initiatives that span multiple teams, systems, and stakeholder groups. Develop deep domain expertise in your area (e.g., financial infrastructure, risk systems, growth systems, payables ecosystem, etc.) and use it to inform product direction. Partner closely with Engineering to design scalable technical systems, engaging meaningfully in architectural discussions and tradeoffs. Set clear success metrics tied to company-level outcomes and hold teams accountable to measurable impact. Drive structured decision-making in ambiguous environments, balancing speed with rigor. Influence senior leaders and executives through clear thinking, strong written narratives, and data-backed recommendations. Improve product craft and operating standards across the organization, mentoring PMs and elevating how we build. Requirements Experience: 7–10+ years of product management experience, with a demonstrated track record of leading complex, high-impact product initiatives in high-growth B2B or fintech environments. Experience building platform or financial infrastructure products is strongly preferred. Strategic rigor: Proven ability to define product strategy that translates into measurable business outcomes. Technical depth: Strong fluency in technical systems and architecture. You are comfortable discu",
-    "link": "https://www.brex.com/careers/8432702002?gh_jid=8432702002",
+    "job_id": "greenhouse:databricks:8445428002",
+    "title": "Sr. Staff Technical Program Manager - Reliability",
+    "company": "Databricks",
+    "summary": "P-1489 About Databricks At Databricks, we are passionate about empowering data teams to tackle the world's most complex challenges — from bringing the next mode of transportation to reality to accelerating the development of medical breakthroughs. We achieve this by building and operating the world's best data and AI infrastructure platform, enabling our customers to leverage deep data insights and enhance their business. The Role We are seeking an exceptional Senior Staff Technical Program Manager (TPM) for Reliability to lead the strategy, execution, and continuous improvement of our most critical Reliability initiatives across infrastructure and product engineering teams at Databricks. As Databricks scales to support thousands of customers and the world’s most data-intensive workloads, Reliability is foundational to our mission. In this role, you will lead cross-company programs that significantly enhance the reliability, performance, and operational excellence of our multi-cloud infrastructure. This is a high-visibility, high-impact leadership role partnering closely with our most senior engineering leaders, including Reliability Program executive sponsors, senior TLs, and Engineering Managers to define Reliability strategy, set long-term goals, and execute multi-quarter programs to build the most reliable cloud platform on the planet to help our customers run their mission-critical workloads on.&nbsp; To be successful, you must possess a deep understanding of large-scale distributed systems, cloud infrastructure, and engineering principles that drive operational excellence. You will leverage your background to anticipate risks, shape technical direction, and deliver complex programs across product, engineering, SRE, and cloud partner teams. You will have the opportunity to: Lead Reliability Strategy + Multi-Quarter Roadmaps Partner with senior engineering leadership to define the long-term Reliability roadmap, influence technical direction, and ensure alignment across teams. Ensure clarity and alignment on priorities across engineering teams, including Platform Engineering, Compute Fleet Management, SRE, Security, and Cloud Partnerships. Drive Execution of Critical Reliability Programs Own program execution end-to-end: planning, risk management, dependency mapping, trade-off decisions, status reporting, and delivery. Identify gaps in process or architecture and work with TLs to proactively drive organizational or technical improvements. Partner Deeply with Engineering &amp; Influence Technical Direction Using your background in infrastructure, distributed systems, or SRE to help teams make sound design and prioritization decisions. Facilitate alignment between cross-functional teams to ensure programs are technically grounded and execution-ready. Bring systems thinking to diagnose reliability bottlenecks and drive improvements to scalability, fault tolerance, automation, and operational tooling. Elevate Reliability Culture Across the Organization Drive adoption of reliability best practices across engineering teams - including error budgets, incident reviews, design-for-resilience patterns, and operational readiness. Define and implement program governance, repeatable processes, metrics, and documentation to scale reliability efforts across teams. Evangelize reliability expectations and engineer-empowering processes that reduce operational load and improve incident preparedness. What we look for: Required Experience &amp; Qualifications 10+ years of experience managing and delivering large-scale technical programs in cloud infrastructure, distributed systems, SRE, or platform engineering environments. Experience developing infrastructure at two or more hyperscale cloud providers (e.g., AWS, Azure, GCP), with knowledge of cloud primitives, multi-AZ/region architecture, and control plane/data plane patterns. Demonstrated success leading Reliability Programs at scale -&nbsp; including availability, failover, operational exce",
+    "link": "https://databricks.com/company/careers/open-positions/job?gh_jid=8445428002",
     "source": "greenhouse",
-    "location": "New York, New York, United States",
+    "location": "Mountain View, California; San Francisco, California",
     "employment_type": "Unknown",
-    "rank_score": 20,
-    "score": 80,
+    "rank_score": 27,
+    "score": 83,
     "why_match": [
-      "Experience in high-growth B2B or fintech environments",
-      "Definition of product strategy that translates into measurable business outcomes",
-      "Strong fluency in technical systems and architecture"
+      "Senior Staff level program management in cloud infrastructure and distributed systems aligns well with enterprise platform transformation",
+      "Focus on multi-quarter reliability roadmaps and cross-company programs indicates experience with large-scale system modernization and governance",
+      "Requires collaboration with senior engineering leaders and multiple teams which fits multi-team operating model redesign",
+      "Emphasis on improving reliability culture and organizational processes matches with governance and operating model evolution",
+      "Experience preferred in hyperscale cloud providers aligns with enterprise-grade infrastructure environments"
     ],
     "concerns": [
-      "Role is primarily within a specific product domain",
-      "Emphasis on 'high-leverage problems' may lead to a focus on incremental improvements rather than transformative change"
-    ],
-    "employment_type_label": "Full-time",
-    "backend": "ollama",
-    "model": "llama3.1:8b",
-    "action": "Maybe"
-  },
-  {
-    "job_id": "greenhouse:brex:8432703002",
-    "title": "Staff Product Manager",
-    "company": "Brex",
-    "summary": "Why join us Brex is the AI-powered spend platform. We help companies spend with confidence with integrated corporate cards, banking, and global payments, plus intuitive software for travel and expenses. Tens of thousands of companies from startups to enterprises — including DoorDash, Flexport, and Compass — use Brex to proactively control spend, reduce costs, and increase efficiency on a global scale. Working at Brex allows you to push your limits, challenge the status quo, and collaborate with some of the brightest minds in the industry. We’re committed to building a diverse team and inclusive culture and believe your potential should only be limited by how big you can dream. We make this a reality by empowering you with the tools, resources, and support you need to grow your career. Product at Brex The Product team is at the forefront of Brex's mission to empower employees anywhere to make better financial decisions. With a deep understanding of the business, we identify and scope out the most impactful opportunities for Brex to tackle. We are responsible for aligning cross-functional teams — such as Engineering, Legal, Compliance, and Design — on key decisions. We set strategy and drive products from inception to launch, enabling Brex to grow rapidly and help our customers reach their full potential. What you’ll do As a Staff Product Manager at Brex, you will operate at the intersection of product strategy, technical depth, and business impact. You will define and drive multi-quarter strategy within one of Brex’s most critical product domains, leading initiatives that materially shape the company’s trajectory. You will be expected to identify the highest-leverage problems, frame them with rigor, and mobilize cross-functional teams to deliver step-function improvements in customer value, revenue, efficiency, or distribution. You will work directly with senior leaders across Product, Engineering, Design, Data, Risk, Legal, Compliance, Finance, and GTM. You will influence decisions beyond your immediate team and elevate the standards of product thinking across the organization. Where you’ll work This role will be based in either our San Francisco, Seattle or New York City office. You must be willing to work in the office at least 3 days per week on Monday, Wednesday and Thursday. Employees will be able to work remotely for up to 4 weeks per year, for a minimum of one week at a time. Responsibilities Define and own a multi-quarter product vision and strategy aligned to Brex’s highest company priorities. Identify high-leverage opportunities that create durable competitive advantage, not just incremental improvements. Lead complex, cross-functional initiatives that span multiple teams, systems, and stakeholder groups. Develop deep domain expertise in your area (e.g., financial infrastructure, risk systems, growth systems, payables ecosystem, etc.) and use it to inform product direction. Partner closely with Engineering to design scalable technical systems, engaging meaningfully in architectural discussions and tradeoffs. Set clear success metrics tied to company-level outcomes and hold teams accountable to measurable impact. Drive structured decision-making in ambiguous environments, balancing speed with rigor. Influence senior leaders and executives through clear thinking, strong written narratives, and data-backed recommendations. Improve product craft and operating standards across the organization, mentoring PMs and elevating how we build. Requirements Experience: 7–10+ years of product management experience, with a demonstrated track record of leading complex, high-impact product initiatives in high-growth B2B or fintech environments. Experience building platform or financial infrastructure products is strongly preferred. Strategic rigor: Proven ability to define product strategy that translates into measurable business outcomes. Technical depth: Strong fluency in technical systems and architecture. You are comfortable discu",
-    "link": "https://www.brex.com/careers/8432703002?gh_jid=8432703002",
-    "source": "greenhouse",
-    "location": "Seattle, Washington, United States",
-    "employment_type": "Unknown",
-    "rank_score": 20,
-    "score": 80,
-    "why_match": [
-      "Role involves leading multi-quarter product strategy and defining high-leverage opportunities that create durable competitive advantage, aligned with large-scale platform transformation and modernization",
-      "Position is at the intersection of product strategy, technical depth, and business impact, working on critical product domains such as financial infrastructure, risk systems, and payables ecosystem",
-      "Requires coordination of complex, cross-functional initiatives spanning multiple teams and stakeholder groups, consistent with enterprise-wide system and operating model redesign",
-      "Strong emphasis on partnering with engineering on scalable technical systems and architectural tradeoffs, indicating relevance to platform and infrastructure modernization",
-      "Senior-level position (Staff Product Manager) demands strategic rigor and measurable business outcomes, fitting experienced candidate profiles focused on platform transformation"
-    ],
-    "concerns": [
-      "Role is full-time rather than contract; slightly less preferred but still acceptable",
-      "Role is partially on-site (3 days/week in Seattle), which is less flexible than fully remote, reducing score",
-      "While fintech and AI-powered spend platform context is relevant, the description lacks explicit scale indicating enterprise-wide system consolidation or governance overhaul",
-      "No explicit mention of governance, operating model redesign, or enterprise platform transformation beyond product strategy scope, so potential risk of narrower domain focus",
-      "The product focus may still primarily relate to product growth and customer value improvements rather than deep platform modernization or system consolidation"
+      "Role is location-specific (Mountain View / San Francisco) rather than remote, which is less preferred",
+      "Focus is heavily on reliability and operational excellence rather than broader platform transformation or modernization",
+      "The job is internal-facing and engineering-focused rather than strategic enterprise-wide transformation",
+      "Role primarily concerns reliability within infrastructure/product engineering teams, which might limit applicability for broader platform consolidation or governance",
+      "Job description is truncated, missing detail on contract vs full-time or extent of transformation scope"
     ],
     "employment_type_label": "Full-time",
     "backend": "openai",
     "model": "gpt-4.1-mini",
-    "action": "Maybe",
-    "pre_score": 92,
+    "action": "Apply",
+    "pre_score": 87,
     "pre_backend": "ollama"
   },
   {
-    "job_id": "greenhouse:brex:8433764002",
-    "title": "Staff Product Manager",
-    "company": "Brex",
-    "summary": "Why join us Brex is the AI-powered spend platform. We help companies spend with confidence with integrated corporate cards, banking, and global payments, plus intuitive software for travel and expenses. Tens of thousands of companies from startups to enterprises — including DoorDash, Flexport, and Compass — use Brex to proactively control spend, reduce costs, and increase efficiency on a global scale. Working at Brex allows you to push your limits, challenge the status quo, and collaborate with some of the brightest minds in the industry. We’re committed to building a diverse team and inclusive culture and believe your potential should only be limited by how big you can dream. We make this a reality by empowering you with the tools, resources, and support you need to grow your career. Product at Brex The Product team is at the forefront of Brex's mission to empower employees anywhere to make better financial decisions. With a deep understanding of the business, we identify and scope out the most impactful opportunities for Brex to tackle. We are responsible for aligning cross-functional teams — such as Engineering, Legal, Compliance, and Design — on key decisions. We set strategy and drive products from inception to launch, enabling Brex to grow rapidly and help our customers reach their full potential. What you’ll do As a Staff Product Manager at Brex, you will operate at the intersection of product strategy, technical depth, and business impact. You will define and drive multi-quarter strategy within one of Brex’s most critical product domains, leading initiatives that materially shape the company’s trajectory. You will be expected to identify the highest-leverage problems, frame them with rigor, and mobilize cross-functional teams to deliver step-function improvements in customer value, revenue, efficiency, or distribution. You will work directly with senior leaders across Product, Engineering, Design, Data, Risk, Legal, Compliance, Finance, and GTM. You will influence decisions beyond your immediate team and elevate the standards of product thinking across the organization. Where you’ll work This role will be based in either our San Francisco, Seattle or New York City office. You must be willing to work in the office at least 3 days per week on Monday, Wednesday and Thursday. Employees will be able to work remotely for up to 4 weeks per year, for a minimum of one week at a time. Responsibilities Define and own a multi-quarter product vision and strategy aligned to Brex’s highest company priorities. Identify high-leverage opportunities that create durable competitive advantage, not just incremental improvements. Lead complex, cross-functional initiatives that span multiple teams, systems, and stakeholder groups. Develop deep domain expertise in your area (e.g., financial infrastructure, risk systems, growth systems, payables ecosystem, etc.) and use it to inform product direction. Partner closely with Engineering to design scalable technical systems, engaging meaningfully in architectural discussions and tradeoffs. Set clear success metrics tied to company-level outcomes and hold teams accountable to measurable impact. Drive structured decision-making in ambiguous environments, balancing speed with rigor. Influence senior leaders and executives through clear thinking, strong written narratives, and data-backed recommendations. Improve product craft and operating standards across the organization, mentoring PMs and elevating how we build. Requirements Experience: 7–10+ years of product management experience, with a demonstrated track record of leading complex, high-impact product initiatives in high-growth B2B or fintech environments. Experience building platform or financial infrastructure products is strongly preferred. Strategic rigor: Proven ability to define product strategy that translates into measurable business outcomes. Technical depth: Strong fluency in technical systems and architecture. You are comfortable discu",
-    "link": "https://www.brex.com/careers/8433764002?gh_jid=8433764002",
+    "job_id": "greenhouse:databricks:8445423002",
+    "title": "Sr. Staff Technical Program Manager - Reliability",
+    "company": "Databricks",
+    "summary": "P-1489 About Databricks At Databricks, we are passionate about empowering data teams to tackle the world's most complex challenges — from bringing the next mode of transportation to reality to accelerating the development of medical breakthroughs. We achieve this by building and operating the world's best data and AI infrastructure platform, enabling our customers to leverage deep data insights and enhance their business. The Role We are seeking an exceptional Senior Staff Technical Program Manager (TPM) for Reliability to lead the strategy, execution, and continuous improvement of our most critical Reliability initiatives across infrastructure and product engineering teams at Databricks. As Databricks scales to support thousands of customers and the world’s most data-intensive workloads, Reliability is foundational to our mission. In this role, you will lead cross-company programs that significantly enhance the reliability, performance, and operational excellence of our multi-cloud infrastructure. This is a high-visibility, high-impact leadership role partnering closely with our most senior engineering leaders, including Reliability Program executive sponsors, senior TLs, and Engineering Managers to define Reliability strategy, set long-term goals, and execute multi-quarter programs to build the most reliable cloud platform on the planet to help our customers run their mission-critical workloads on.&nbsp; To be successful, you must possess a deep understanding of large-scale distributed systems, cloud infrastructure, and engineering principles that drive operational excellence. You will leverage your background to anticipate risks, shape technical direction, and deliver complex programs across product, engineering, SRE, and cloud partner teams. You will have the opportunity to: Lead Reliability Strategy + Multi-Quarter Roadmaps Partner with senior engineering leadership to define the long-term Reliability roadmap, influence technical direction, and ensure alignment across teams. Ensure clarity and alignment on priorities across engineering teams, including Platform Engineering, Compute Fleet Management, SRE, Security, and Cloud Partnerships. Drive Execution of Critical Reliability Programs Own program execution end-to-end: planning, risk management, dependency mapping, trade-off decisions, status reporting, and delivery. Identify gaps in process or architecture and work with TLs to proactively drive organizational or technical improvements. Partner Deeply with Engineering &amp; Influence Technical Direction Using your background in infrastructure, distributed systems, or SRE to help teams make sound design and prioritization decisions. Facilitate alignment between cross-functional teams to ensure programs are technically grounded and execution-ready. Bring systems thinking to diagnose reliability bottlenecks and drive improvements to scalability, fault tolerance, automation, and operational tooling. Elevate Reliability Culture Across the Organization Drive adoption of reliability best practices across engineering teams - including error budgets, incident reviews, design-for-resilience patterns, and operational readiness. Define and implement program governance, repeatable processes, metrics, and documentation to scale reliability efforts across teams. Evangelize reliability expectations and engineer-empowering processes that reduce operational load and improve incident preparedness. What we look for: Required Experience &amp; Qualifications 10+ years of experience managing and delivering large-scale technical programs in cloud infrastructure, distributed systems, SRE, or platform engineering environments. Experience developing infrastructure at two or more hyperscale cloud providers (e.g., AWS, Azure, GCP), with knowledge of cloud primitives, multi-AZ/region architecture, and control plane/data plane patterns. Demonstrated success leading Reliability Programs at scale -&nbsp; including availability, failover, operational exce",
+    "link": "https://databricks.com/company/careers/open-positions/job?gh_jid=8445423002",
     "source": "greenhouse",
-    "location": "Vancouver, British Columbia, Canada",
+    "location": "Bellevue, Washington; Seattle, Washington",
     "employment_type": "Unknown",
-    "rank_score": 20,
-    "score": 80,
+    "rank_score": 27,
+    "score": 82,
     "why_match": [
-      "The role involves leading complex, cross-functional initiatives that span multiple teams, systems, and stakeholder groups, which aligns with enterprise platform transformation preferences.",
-      "The role is based in Vancouver, which is a remote location.",
-      "The role requires a deep understanding of technical systems and architecture, which suggests some level of technical depth."
+      "Role focuses on leading large-scale Reliability programs across infrastructure and product engineering at a hyperscale cloud platform",
+      "Strong emphasis on cloud infrastructure, distributed systems, and platform engineering",
+      "Involves cross-company multi-quarter strategic roadmaps and organizational change, aligning with enterprise platform transformation and modernization",
+      "Technical program management at senior staff level, requiring deep domain expertise and cross-functional influence"
     ],
     "concerns": [
-      "The role may involve some customer implementation or client delivery aspects, as the product team is responsible for aligning cross-functional teams on key decisions.",
-      "The role requires working in the office at least 3 days per week, which may limit remote work options."
+      "Role is focused on reliability and operational excellence rather than broader enterprise platform transformation or modernization initiatives",
+      "Position is not explicitly remote, but location-based in Bellevue/Seattle which may reduce flexibility",
+      "Heavy emphasis on technical reliability and SRE best practices rather than governance or operating model redesign",
+      "No clear indication of involvement with multiple business functions or broad operating model change beyond reliability engineering teams"
     ],
     "employment_type_label": "Full-time",
-    "backend": "ollama",
-    "model": "llama3.1:8b",
-    "action": "Maybe"
+    "backend": "openai",
+    "model": "gpt-4.1-mini",
+    "action": "Apply",
+    "pre_score": 92,
+    "pre_backend": "ollama"
   }
 ]
