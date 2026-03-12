@@ -177,14 +177,20 @@ RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
 GREENHOUSE_COMPANIES = [
     "stripe",
     "brex",
+    "figma",
+    "airbnb",
+    "coinbase",
+    "robinhood",
+    "databricks",
+    "asana",
 ]
 
 LEVER_COMPANIES = [
-    # add later as needed
+    "plaid",
 ]
 
 # Scoring thresholds
-APPLY_THRESHOLD = 85
+APPLY_THRESHOLD = 80
 MAYBE_THRESHOLD = 70
 
 # Runtime settings
