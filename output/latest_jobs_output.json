@@ -1,64 +1,76 @@
 {
-  "generated_at": "2026-03-12T17:54:37.009913",
+  "generated_at": "2026-03-12T18:06:55.147701",
   "jobs_after_filtering": 6,
   "ranked_jobs": [
     {
-      "title": "AI Transformation & Operations Lead",
-      "company": "Devoted Health",
-      "score": 25,
-      "why": [
-        "Role focuses on bridging operational reality with technological capability, indicating some element of transformation",
-        "Involves partnership with Technology teams to extend tool impact and identify new technical opportunities",
-        "Role is remote, which aligns with preference for remote jobs"
-      ],
-      "link": "https://www.linkedin.com/jobs/view/4370745256/?eBP=CwEAAAGcybqL39iT0Fvzs-KaKOhHamMJhrTTqZOtZHX8d6ShD4gnxUMdbjLTTRTM16vlwJIDnjzsaNi2hlXr9UbOrqx5kMZYOn35gDesy1bhL0vIkSYEtiAhCE-qeuRpAE1eG1BTIvu92m6rpYp2kRkQO5VLP8zWREBge591jFyr76k3rSrtFPhbtokR9yIncb5XglMJcMWGSeXOM1zRZxdlClof74i6Cj5SRw3e-Pflxu1ZVcBZpIFSmaG3ZE1e1go1cAyYT7lJmbtqqYPd3QLdNP5vM8Xp7gUWaxTmJ3CZLVpRIQhkeb38KpMfnBgy93ffoZi7k1dHDwoZSbM3YlYD5-HAXKk6zzlgwOcxdw9YE_xc4JcbZp0Zoo91KoXUQtnLrNyTziH84QACeF-hdCUGhjppLTV_D_1StozqXHWr466aAsxYUrWdd9fwqCWLJYOlDJrCklIDIMal5XNkWj4kJYdnKH3EQPf7tbpLaugPcHjzk9wyMzuq-XsVZuW7DiPYYE1EdOwcAvnGTXA206ubVE7g&trk=flagship3_search_srp_jobs&refId=pP273TyKe29ehzdos3wvJg%3D%3D&trackingId=YcxP0OG2rdmEa12sdA7Tdg%3D%3D"
-    },
-    {
       "title": "Product Manager, Commerce Systems",
       "company": "Stripe",
-      "score": 23,
+      "score": 90,
+      "rank_score": 23,
+      "action": "Apply",
       "why": [
-        "Role focuses on harmonizing and unifying complex internal billing, seller systems, and financial data warehouses into a single platform, aligning well with enterprise platform transformation and system consolidation.",
-        "Involves leadership in designing infrastructure control planes that serve multiple disparate stakeholders (internal product teams, finance, legal), which maps to building and modernizing platform infrastructure at scale.",
-        "Remote full-time role with a strong emphasis on backend systems and API-first mindset, aligning well with candidate\u2019s preference for remote product management roles focused on platform modernization.",
-        "Role requires driving strategy and navigating complexity across multiple teams and systems, which ties into operating model redesign and enterprise-wide system modernization."
+        "Role focuses on harmonizing and consolidating large-scale backend systems and platform infrastructure, aligning with enterprise platform transformation and system consolidation.",
+        "Emphasis on building unified control planes and reducing integration friction matches experience in platform modernization.",
+        "Role is remote and based in major hubs, fitting candidate preference for remote work.",
+        "Involvement with cross-functional leadership and strategic planning aligns with high-level platform transformation responsibilities."
       ],
       "link": "https://stripe.com/jobs/search?gh_jid=7561551"
     },
     {
+      "title": "Credit Risk Program Manager, Risk Foundations",
+      "company": "Stripe",
+      "score": 88,
+      "rank_score": 20,
+      "action": "Apply",
+      "why": [
+        "Role focuses on designing systems, policies, and processes for credit risk at scale, indicating enterprise platform and operating model work.",
+        "Involves partnering with cross-functional teams including Risk Strategy, Product, Engineering, and Operations, indicating broad enterprise impact.",
+        "Emphasis on orchestrating strategic commercial shifts and scalable risk-wide frameworks aligns with platform transformation and modernization.",
+        "Role is execution-oriented and involves leading complex, cross-functional initiatives with a focus on governance and scalable risk management.",
+        "The position is fully remote, which aligns well with preferred work arrangements."
+      ],
+      "link": "https://stripe.com/jobs/search?gh_jid=7540441"
+    },
+    {
       "title": "Strategy & Operations Program Manager, Risk Ops",
       "company": "Stripe",
-      "score": 22,
+      "score": 80,
+      "rank_score": 22,
+      "action": "Maybe",
       "why": [
-        "Role focuses on leading complex global risk operations programs that impact business processes and operational excellence at scale",
-        "Strong emphasis on cross-functional collaboration across multiple teams and stakeholders, aligning with enterprise-wide transformation initiatives",
-        "Remote US-based role",
-        "Program management responsibilities include transforming operations and designing new processes, consistent with platform transformation and operating model redesign"
+        "Role involves leading complex global programs impacting operational excellence within Risk Operations, which relates to enterprise-wide operational transformation",
+        "Collaboration across multiple cross-functional teams including Risk Product, Risk Engineering, Policy, and Data Science indicates broad scope",
+        "Fully remote role in the US, which aligns with preferred remote work criteria",
+        "Strong focus on strategic initiatives and operational process improvements which are central to platform transformation and governance"
       ],
       "link": "https://stripe.com/jobs/search?gh_jid=7214197"
     },
     {
       "title": "AI Delivery Lead",
       "company": "HMH",
-      "score": 20,
+      "score": 80,
+      "rank_score": 20,
+      "action": "Maybe",
       "why": [
-        "Role involves coordinating and managing adoption and operational integration of AI/automation capabilities across multiple products and programs, suggesting enterprise-wide impact",
-        "Focus on governance, organization, SOPs, and guidelines aligns with operating model redesign responsibilities",
-        "Role supports communication, training, and adoption across division, implying cross-team influence and transformation",
-        "Remote role"
+        "Role focuses on AI adoption and operational integration across multiple products and state programs, indicating enterprise-wide scope.",
+        "Involves organization and governance of AI initiatives, including SOPs and guidelines, which aligns with governance and operating model responsibilities.",
+        "Supports communication, training, and adoption, which is important for enterprise transformation and change management.",
+        "Remote role, which fits preference for remote work."
       ],
       "link": "https://www.linkedin.com/jobs/view/4376923993/?eBP=CwEAAAGcybqL3u967msXmO8c_FMUoBqJS3yhfjcuPW8sdh5xKG6CBG1ZiwrbWf59J5MFXGcXvdNcPz6n_ADtEo8K8Oc-UaB1xB5gazfCK39FyXehb64HwUct6xuH9rYydgLOOGJbv179XKVP6fXH3DtCDVH2T7JiOognkN-HTfWEyELJ_pGkMGNBV20QyhykPSBDxKgCgn_RgzdBo0DV7X_kDtY6iMXxDMI-39t4WcMJYZWN0mQXwI5w6VSN-sDVd0BKl5F24C6qr6EqnrndSkE0K-fS0NNj8s6BuxTN6ltT1a2sNf7_CLtAV3LMS5_5lgnsaR_EwPdwauuvAeTflqsPc0I5YcDHDNp-dSmHTd2902TR8Udkhf_jInlQvit1IChr__m54o4ed99Fvf9-usPRSFyBLchFoXLU8HCZjJAjtctqQif5OzzQFIljvUV4_BcHIkO0jqi9l5IUmBsWgJHw2RKoEB2t35aNDkdZwTaH2EOKdjTnKm5xgmIMpuFKn5DJJqjp36UI5tAvYUFWwhtzGM7nKWiCY1Jc&trk=flagship3_search_srp_jobs&refId=pP273TyKe29ehzdos3wvJg%3D%3D&trackingId=qEToZfPHQM2dsi2014FJjw%3D%3D"
     },
     {
-      "title": "Credit Risk Program Manager, Risk Foundations",
-      "company": "Stripe",
-      "score": 20,
+      "title": "AI Transformation & Operations Lead",
+      "company": "Devoted Health",
+      "score": 75,
+      "rank_score": 25,
+      "action": "Maybe",
       "why": [
-        "The role is a Program Manager position focused on credit risk, requiring program and process incubation across a broad Risk organization which aligns with enterprise-wide system and process improvements.",
-        "Responsibilities include designing and implementing scalable risk-wide frameworks and foundational policies, indicating involvement in governance and operating model redesign at scale.",
-        "The job is remote-eligible and involves partnering with multiple internal teams, supporting cross-functional initiatives and strategic commercial shifts."
+        "Role involves bridging operational reality and technological capabilities within Claims organization, indicating some operational leadership.",
+        "Focus on extending impact of existing tools and identifying new technical development opportunities suggests involvement in platform enhancement.",
+        "Responsibilities include ensuring seamless collaboration between AI systems and claims staff, implying some degree of operating model adaptation."
       ],
-      "link": "https://stripe.com/jobs/search?gh_jid=7540441"
+      "link": "https://www.linkedin.com/jobs/view/4370745256/?eBP=CwEAAAGcybqL39iT0Fvzs-KaKOhHamMJhrTTqZOtZHX8d6ShD4gnxUMdbjLTTRTM16vlwJIDnjzsaNi2hlXr9UbOrqx5kMZYOn35gDesy1bhL0vIkSYEtiAhCE-qeuRpAE1eG1BTIvu92m6rpYp2kRkQO5VLP8zWREBge591jFyr76k3rSrtFPhbtokR9yIncb5XglMJcMWGSeXOM1zRZxdlClof74i6Cj5SRw3e-Pflxu1ZVcBZpIFSmaG3ZE1e1go1cAyYT7lJmbtqqYPd3QLdNP5vM8Xp7gUWaxTmJ3CZLVpRIQhkeb38KpMfnBgy93ffoZi7k1dHDwoZSbM3YlYD5-HAXKk6zzlgwOcxdw9YE_xc4JcbZp0Zoo91KoXUQtnLrNyTziH84QACeF-hdCUGhjppLTV_D_1StozqXHWr466aAsxYUrWdd9fwqCWLJYOlDJrCklIDIMal5XNkWj4kJYdnKH3EQPf7tbpLaugPcHjzk9wyMzuq-XsVZuW7DiPYYE1EdOwcAvnGTXA206ubVE7g&trk=flagship3_search_srp_jobs&refId=pP273TyKe29ehzdos3wvJg%3D%3D&trackingId=YcxP0OG2rdmEa12sdA7Tdg%3D%3D"
     }
   ]
 }

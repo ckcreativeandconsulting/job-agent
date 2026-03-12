@@ -72,7 +72,7 @@ def append_jobs(jobs):
 
     ranked_jobs = sorted(
         jobs,
-        key=lambda j: j.get("rank_score", 0),
+        key=lambda j: j.get("score", 0),
         reverse=True
     )[:5]
 
@@ -83,7 +83,9 @@ def append_jobs(jobs):
             {
                 "title": job.get("title"),
                 "company": job.get("company"),
-                "score": job.get("rank_score"),
+                "score": job.get("score"),
+                "rank_score": job.get("rank_score"),
+                "action": job.get("action"),
                 "why": job.get("why_match", []),
                 "link": job.get("link")
             }
