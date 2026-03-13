@@ -7,6 +7,7 @@ from config import (
     RANKING_NEGATIVE_TITLE_WEIGHTS,
     RANKING_NEGATIVE_SUMMARY_WEIGHTS,
     MAX_JOBS_PER_COMPANY,
+    COMPANY_PRIORITY,
 )
 
 
@@ -15,7 +16,7 @@ def compute_rank_score(job: dict) -> int:
     summary = job.get("summary", "").lower()
     location = job.get("location", "").lower()
     employment_type = job.get("employment_type", "").lower()
-    department = job.get("department", "").lower()
+    company = job.get("company", "").lower()
 
     score = 0
 
@@ -24,7 +25,7 @@ def compute_rank_score(job: dict) -> int:
             score += weight
 
     for keyword, weight in RANKING_SUMMARY_WEIGHTS.items():
-        if keyword in summary or keyword in department:
+        if keyword in summary:
             score += weight
 
     for keyword, weight in RANKING_EMPLOYMENT_WEIGHTS.items():
@@ -41,6 +42,8 @@ def compute_rank_score(job: dict) -> int:
     for keyword, weight in RANKING_NEGATIVE_SUMMARY_WEIGHTS.items():
         if keyword in summary:
             score += weight
+
+    score += COMPANY_PRIORITY.get(company, 0)
 
     return score
 

@@ -174,6 +174,19 @@ RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
     "alliances and channels": -6,
 }
 
+COMPANY_PRIORITY = {
+    "stripe": 4,
+    "databricks": 3,
+    "coinbase": 3,
+    "brex": 2,
+    "figma": 2,
+    "airbnb": 2,
+    "asana": 2,
+    "plaid": 2,
+    "robinhood": 2,
+    "affirm": 2,
+}
+
 GREENHOUSE_COMPANIES = [
     "stripe",
     "brex",
