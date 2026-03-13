@@ -175,16 +175,45 @@ RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
 }
 
 COMPANY_PRIORITY = {
-    "stripe": 4,
-    "databricks": 3,
-    "coinbase": 3,
-    "brex": 2,
-    "figma": 2,
-    "airbnb": 2,
-    "asana": 2,
-    "plaid": 2,
-    "robinhood": 2,
-    "affirm": 2,
+
+    # Tier 1 – top targets
+    "stripe": 15,
+    "databricks": 15,
+    "snowflake": 15,
+    "openai": 15,
+    "anthropic": 15,
+
+    # Tier 2 – very strong companies
+    "coinbase": 12,
+    "mongodb": 12,
+    "cloudflare": 12,
+    "okta": 12,
+    "confluent": 12,
+
+    # Tier 3 – strong tech companies
+    "figma": 10,
+    "notion": 10,
+    "airbnb": 10,
+    "asana": 10,
+    "flexport": 10,
+    "instacart": 10,
+    "samsara": 10,
+    "brex": 10,
+    "affirm": 10,
+    "plaid": 10,
+
+    # Tier 4 – solid companies
+    "chime": 7,
+    "bill.com": 7,
+    "webflow": 7,
+    "launchdarkly": 7,
+    "fastly": 7,
+    "new relic": 7,
+    "checkr": 7,
+    "scale ai": 7,
+
+    # Tier 5 – neutral companies
+    # (anything not listed gets 0)
 }
 
 GREENHOUSE_COMPANIES = [
