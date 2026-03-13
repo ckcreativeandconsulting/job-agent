@@ -1,5 +1,6 @@
 from collections import defaultdict
 from datetime import datetime, timezone
+from utils.company_learning import learned_company_boost
 
 from config import (
     RANKING_TITLE_WEIGHTS,
@@ -68,6 +69,7 @@ def compute_rank_score(job: dict) -> int:
             score += weight
 
     score += COMPANY_PRIORITY.get(company, 0)
+    score += learned_company_boost(company)
     score += freshness_boost(posted_date)
 
     return score

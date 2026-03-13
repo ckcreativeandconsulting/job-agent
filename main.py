@@ -67,6 +67,8 @@ def main():
         scored_job = {**job, **result}
         scored_jobs.append(scored_job)
 
+    from utils.company_learning import update_company_outcomes
+    update_company_outcomes(scored_jobs)
     append_jobs(scored_jobs)
 
     save_json(SCORED_JOBS_FILE, scored_jobs)
