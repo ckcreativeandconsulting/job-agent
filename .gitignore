@@ -16,6 +16,6 @@ Thumbs.db
 # IDE
 .vscode/
 
-data/filtered_jobs.json
-data/scored:jobs.json
-output/latest_jobs_output.json
+# runtime job agent data
+data/*.json
+output/*.json
