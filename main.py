@@ -23,6 +23,8 @@ def main():
     ranked_jobs = dedupe_same_company_title(ranked_jobs)
     save_json(FILTERED_JOBS_FILE, ranked_jobs)
 
+    deduped_count = len(ranked_jobs)
+
     jobs_to_score = [
         job for job in ranked_jobs
         if job.get("rank_score", 0) >= MIN_RANK_SCORE
@@ -68,6 +70,21 @@ def main():
     save_json(SCORED_JOBS_FILE, scored_jobs)
 
     digest = build_digest(scored_jobs, ignored_jobs)
+
+    apply_count = sum(1 for job in scored_jobs if job.get("action") == "Apply")
+    maybe_count = sum(1 for job in scored_jobs if job.get("action") == "Maybe")
+    ignore_count = len(ignored_jobs) + sum(1 for job in scored_jobs if job.get("action") == "Ignore")
+
+    print("\nRUN SUMMARY")
+    print("--------------------------------------------------")
+    print(f"Collected: {len(jobs)}")
+    print(f"After keyword filter: {len(filtered_jobs)}")
+    print(f"Ignored before scoring: {len(ignored_jobs)}")
+    print(f"After dedupe: {deduped_count}")
+    print(f"AI scored: {len(scored_jobs)}")
+    print(f"Apply: {apply_count}")
+    print(f"Maybe: {maybe_count}")
+    print(f"Ignore: {ignore_count}")
 
     print("\n" + digest + "\n")
 
