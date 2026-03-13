@@ -20,10 +20,12 @@ def main():
     print(f"Jobs ignored before scoring: {len(ignored_jobs)}")
 
     ranked_jobs = rank_jobs(filtered_jobs)
-    ranked_jobs = dedupe_same_company_title(ranked_jobs)
-    save_json(FILTERED_JOBS_FILE, ranked_jobs)
+    after_rank_count = len(ranked_jobs)
 
-    deduped_count = len(ranked_jobs)
+    ranked_jobs = dedupe_same_company_title(ranked_jobs)
+    after_dedupe_count = len(ranked_jobs)
+
+    save_json(FILTERED_JOBS_FILE, ranked_jobs)
 
     jobs_to_score = [
         job for job in ranked_jobs
@@ -80,7 +82,8 @@ def main():
     print(f"Collected: {len(jobs)}")
     print(f"After keyword filter: {len(filtered_jobs)}")
     print(f"Ignored before scoring: {len(ignored_jobs)}")
-    print(f"After dedupe: {deduped_count}")
+    print(f"After ranking/company cap: {after_rank_count}")
+    print(f"After dedupe: {after_dedupe_count}")
     print(f"AI scored: {len(scored_jobs)}")
     print(f"Apply: {apply_count}")
     print(f"Maybe: {maybe_count}")

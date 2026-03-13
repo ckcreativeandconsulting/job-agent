@@ -3,7 +3,8 @@ import re
 
 def normalize_title(title: str) -> str:
     """
-    Normalize job titles so small wording differences don't bypass dedupe.
+    Normalize job titles conservatively so obvious formatting differences
+    don't bypass dedupe, without collapsing distinct roles too aggressively.
     """
 
     if not title:
@@ -11,19 +12,15 @@ def normalize_title(title: str) -> str:
 
     title = title.lower()
 
-    # normalize common abbreviations
     replacements = {
         "sr.": "senior",
         "sr ": "senior ",
-        "staff+": "staff",
-        "tpm": "technical program manager",
-        "pm ": "product manager ",
     }
 
-    for k, v in replacements.items():
-        title = title.replace(k, v)
+    for old, new in replacements.items():
+        title = title.replace(old, new)
 
-    # remove punctuation
+    # normalize punctuation/dashes
     title = re.sub(r"[^\w\s]", " ", title)
 
     # collapse whitespace
@@ -41,7 +38,6 @@ def dedupe_same_company_title(jobs: list[dict]) -> list[dict]:
     best_by_key = {}
 
     for job in jobs:
-
         company = job.get("company", "").strip().lower()
         title = normalize_title(job.get("title", ""))
 
@@ -53,7 +49,6 @@ def dedupe_same_company_title(jobs: list[dict]) -> list[dict]:
             best_by_key[key] = job
 
     deduped = list(best_by_key.values())
-
     removed = len(jobs) - len(deduped)
 
     if removed:
