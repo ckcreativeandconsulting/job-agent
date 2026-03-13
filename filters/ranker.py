@@ -23,11 +23,11 @@ def freshness_boost(posted_date):
         return 0
 
     if age_days <= 2:
-        return 15
+        return 20
     elif age_days <= 5:
-        return 10
+        return 12
     elif age_days <= 10:
-        return 5
+        return 6
     elif age_days <= 20:
         return 2
     else:
