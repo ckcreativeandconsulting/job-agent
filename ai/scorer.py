@@ -58,6 +58,10 @@ def extract_json(text: str) -> dict:
     except Exception:
         return {
             "score": 50,
+            "resume_fit_score": 50,
+            "transformation_fit_score": 50,
+            "domain_fit_score": 50,
+            "scope_fit_score": 50,
             "why_match": ["Model response parsing failed"],
             "concerns": ["Could not parse JSON"],
             "employment_type_label": "Unknown",
@@ -81,6 +85,10 @@ Respond ONLY with JSON like this:
 
 {{
   "score": 85,
+  "resume_fit_score": 82,
+  "transformation_fit_score": 90,
+  "domain_fit_score": 75,
+  "scope_fit_score": 80,
   "why_match": ["reason1", "reason2"],
   "concerns": ["issue1"],
   "employment_type_label": "Full-time"
@@ -88,6 +96,10 @@ Respond ONLY with JSON like this:
 
 Rules:
 - score from 0 to 100
+- resume_fit_score from 0 to 100
+- transformation_fit_score from 0 to 100
+- domain_fit_score from 0 to 100
+- scope_fit_score from 0 to 100
 - prefer enterprise platform transformation, modernization, system consolidation, governance, and operating model roles
 - prefer remote roles
 - slightly favor contract roles
@@ -98,6 +110,11 @@ Rules:
 - penalize roles that are primarily embedded within a single business function (for example claims, customer operations, or customer implementation) unless they clearly involve enterprise-wide platform transformation, large-scale system modernization, or operating model redesign across multiple teams or systems
 - do not over-score roles solely because they mention AI
 - for prescoring, be strict and avoid scores above 85 unless the role is an unusually strong fit
+- resume_fit_score: how well the candidate's background matches the role overall
+- transformation_fit_score: fit for enterprise platform transformation, modernization, system consolidation, governance, and operating model work
+- domain_fit_score: fit for the company/domain/problem space
+- scope_fit_score: fit for level, complexity, and cross-functional scale
+- overall score should reflect the total opportunity, but do not inflate it solely because one subscore is high
 - be especially strict: only assign scores above 90 for unusually strong matches, and use 70-85 for decent but not exceptional fits
 - AI-related roles should only receive high scores if they involve enterprise platform transformation, operating model redesign, governance, or large-scale system modernization
 """.strip()
@@ -107,6 +124,10 @@ def normalize_parsed_result(parsed: dict) -> dict:
     score = coerce_score(parsed.get("score", 50))
     parsed["score"] = score
     parsed["action"] = classify_action(score)
+    parsed["resume_fit_score"] = coerce_score(parsed.get("resume_fit_score", parsed.get("score", 50)))
+    parsed["transformation_fit_score"] = coerce_score(parsed.get("transformation_fit_score", parsed.get("score", 50)))
+    parsed["domain_fit_score"] = coerce_score(parsed.get("domain_fit_score", parsed.get("score", 50)))
+    parsed["scope_fit_score"] = coerce_score(parsed.get("scope_fit_score", parsed.get("score", 50)))
 
     if not isinstance(parsed.get("why_match"), list):
         parsed["why_match"] = ["Model did not return valid why_match list"]
