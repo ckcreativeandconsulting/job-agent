@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-
+from datetime import datetime
 
 COMPANY_OUTCOMES_FILE = Path("data/company_outcomes.json")
 
@@ -39,10 +39,12 @@ def update_company_outcomes(scored_jobs: list[dict]) -> None:
             "apply": 0,
             "maybe": 0,
             "average_score": 0.0,
+            "last_seen": None,
         })
 
         record["seen"] += 1
         record["scored"] += 1
+        record["last_seen"] = datetime.utcnow().date().isoformat()
 
         action = job.get("action")
         if action == "Apply":
@@ -75,16 +77,16 @@ def learned_company_boost(company: str) -> int:
     apply_count = record.get("apply", 0)
     avg_score = record.get("average_score", 0)
 
-    if scored < 3:
+    if scored < 4:
         return 0
 
     boost = 0
 
-    if apply_count >= 3:
-        boost += 2
+    if apply_count >= 2:
+        boost += 1
     if avg_score >= 80:
         boost += 2
-    elif avg_score >= 75:
+    elif avg_score >= 70:
         boost += 1
 
-    return min(boost, 4)
+    return min(boost, 3)
