@@ -6,6 +6,7 @@ from output.digest import build_digest
 from utils.file_utils import save_json
 from config import FILTERED_JOBS_FILE, SCORED_JOBS_FILE, MAX_AI_JOBS, MIN_RANK_SCORE
 from output.sheets_logger import append_jobs
+from utils.dedupe import dedupe_same_company_title
 
 
 def main():
@@ -19,11 +20,12 @@ def main():
     print(f"Jobs ignored before scoring: {len(ignored_jobs)}")
 
     ranked_jobs = rank_jobs(filtered_jobs)
+    ranked_jobs = dedupe_same_company_title(ranked_jobs)
     save_json(FILTERED_JOBS_FILE, ranked_jobs)
 
     jobs_to_score = [
-    job for job in ranked_jobs
-    if job.get("rank_score", 0) >= MIN_RANK_SCORE
+        job for job in ranked_jobs
+        if job.get("rank_score", 0) >= MIN_RANK_SCORE
     ][:MAX_AI_JOBS]
 
     print(f"Scoring top {len(jobs_to_score)} ranked jobs with AI (limit: {MAX_AI_JOBS})")
