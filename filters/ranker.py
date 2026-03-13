@@ -1,4 +1,5 @@
 from collections import defaultdict
+from datetime import datetime, timezone
 
 from config import (
     RANKING_TITLE_WEIGHTS,
@@ -11,12 +12,35 @@ from config import (
 )
 
 
+def freshness_boost(posted_date):
+    if not posted_date:
+        return 0
+
+    try:
+        posted = datetime.fromisoformat(posted_date.replace("Z", "+00:00"))
+        age_days = (datetime.now(timezone.utc) - posted).days
+    except Exception:
+        return 0
+
+    if age_days <= 2:
+        return 15
+    elif age_days <= 5:
+        return 10
+    elif age_days <= 10:
+        return 5
+    elif age_days <= 20:
+        return 2
+    else:
+        return 0
+
+
 def compute_rank_score(job: dict) -> int:
     title = job.get("title", "").lower()
     summary = job.get("summary", "").lower()
     location = job.get("location", "").lower()
     employment_type = job.get("employment_type", "").lower()
     company = job.get("company", "").lower()
+    posted_date = job.get("posted_date")
 
     score = 0
 
@@ -44,6 +68,7 @@ def compute_rank_score(job: dict) -> int:
             score += weight
 
     score += COMPANY_PRIORITY.get(company, 0)
+    score += freshness_boost(posted_date)
 
     return score
 

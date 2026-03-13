@@ -43,6 +43,7 @@ def fetch_greenhouse_jobs(sources: list[dict]) -> list[dict]:
                     "source": "greenhouse",
                     "location": location,
                     "employment_type": "Unknown",
+                    "posted_date": job.get("updated_at") or job.get("created_at"),
                 })
 
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as e:
