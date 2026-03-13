@@ -179,15 +179,42 @@ GREENHOUSE_COMPANIES = [
     "brex",
     "figma",
     "airbnb",
-    "coinbase",
-    "robinhood",
     "databricks",
     "asana",
-]
+    "coinbase",
+    "instacart",
+    "flexport",
+    "lyft",
+    "robinhood",
+    "coursera",
+    "affirm",
+    "gusto",
+    "discord",
+    "samsara",
+    "scaleai",
+    "hudl",
+    "tripactions",
+    "checkr",
+    "chime",
+    "blend",
+    "alchemy",
+    "webflow",
+    "calendly",
+    "apollo",
+    "launchdarkly",
+    "fastly",
+    "newrelic",
+    ]
 
 LEVER_COMPANIES = [
     "plaid",
-]
+    "kpmg",
+    "spotify",
+    "medium",
+    "attentive",
+    "stackadapt",
+    ]
+
 
 # Scoring thresholds
 APPLY_THRESHOLD = 80

@@ -1,65 +1,7 @@
 {
-  "generated_at": "2026-03-12T22:03:52.625719+00:00",
+  "generated_at": "2026-03-12T23:55:09.175445+00:00",
   "jobs_after_filtering": 8,
   "ranked_jobs": [
-    {
-      "title": "Sr. Staff Technical Program Manager - Reliability",
-      "company": "Databricks",
-      "score": 83,
-      "rank_score": 27,
-      "action": "Apply",
-      "why": [
-        "Senior Staff level program management in cloud infrastructure and distributed systems aligns well with enterprise platform transformation",
-        "Focus on multi-quarter reliability roadmaps and cross-company programs indicates experience with large-scale system modernization and governance",
-        "Requires collaboration with senior engineering leaders and multiple teams which fits multi-team operating model redesign",
-        "Emphasis on improving reliability culture and organizational processes matches with governance and operating model evolution",
-        "Experience preferred in hyperscale cloud providers aligns with enterprise-grade infrastructure environments"
-      ],
-      "link": "https://databricks.com/company/careers/open-positions/job?gh_jid=8445428002"
-    },
-    {
-      "title": "Technical Program Manager, Internal Systems",
-      "company": "Stripe",
-      "score": 82,
-      "rank_score": 35,
-      "action": "Apply",
-      "why": [
-        "Role involves technical program management across multiple engineering teams and systems, indicating large-scale coordination",
-        "Focus on internal systems platform and product solutions, aligning with enterprise platform and system modernization",
-        "Responsibilities include cross-functional strategy, planning, and execution of large-scale technical programs",
-        "Remote position fitting candidate preference for remote roles",
-        "Strong emphasis on process improvements, governance, and building frictionless internal user experiences, which is related to internal operating model improvements"
-      ],
-      "link": "https://stripe.com/jobs/search?gh_jid=7680365"
-    },
-    {
-      "title": "Product Manager, Stripe Infrastructure",
-      "company": "Stripe",
-      "score": 82,
-      "rank_score": 30,
-      "action": "Apply",
-      "why": [
-        "Role is a remote full-time Product Manager position at Stripe focused on infrastructure, which aligns with preference for remote and platform transformation roles.",
-        "Responsibilities include partnership with multiple engineering teams on major systems, focusing on systemic architecture decisions, build vs buy trade-offs, and sustainable ecosystem design which are relevant to enterprise platform transformation and system consolidation.",
-        "Candidate would work on distributed, high availability infrastructure and internal AI agents aimed at productivity and customer experience, adding some relevance to modernization and AI usage in enterprise contexts.",
-        "Requires 7+ years of Product Management experience ideally in enterprise or B2B, including launching and scaling complex products and managing diverse stakeholders, which matches enterprise transformation expectations."
-      ],
-      "link": "https://stripe.com/jobs/search?gh_jid=6651889"
-    },
-    {
-      "title": "Sr. Staff Technical Program Manager - Reliability",
-      "company": "Databricks",
-      "score": 82,
-      "rank_score": 27,
-      "action": "Apply",
-      "why": [
-        "Role focuses on leading large-scale Reliability programs across infrastructure and product engineering at a hyperscale cloud platform",
-        "Strong emphasis on cloud infrastructure, distributed systems, and platform engineering",
-        "Involves cross-company multi-quarter strategic roadmaps and organizational change, aligning with enterprise platform transformation and modernization",
-        "Technical program management at senior staff level, requiring deep domain expertise and cross-functional influence"
-      ],
-      "link": "https://databricks.com/company/careers/open-positions/job?gh_jid=8445423002"
-    },
     {
       "title": "Product Manager, Commerce Systems",
       "company": "Stripe",
@@ -67,12 +9,71 @@
       "rank_score": 44,
       "action": "Apply",
       "why": [
-        "Role focuses on enterprise-wide platform transformation by harmonizing disparate billing, seller systems, and financial data warehouses into a unified infrastructure",
-        "Strong emphasis on system consolidation and modernization of legacy systems within a large organization",
-        "Role requires cross-functional leadership with multiple teams including engineering, finance, legal, and go-to-market, indicating broad enterprise impact",
-        "Fully remote US-based role at a top-tier fintech company known for large-scale, complex platform infrastructure"
+        "Role focuses on harmonizing and unifying multiple internal systems into a single platform, aligning with enterprise platform transformation and modernization",
+        "Strong emphasis on cross-functional leadership partnering with engineering, finance, legal, and go-to-market teams indicates broad enterprise scope rather than a single business function",
+        "Remote US locations available, matching preference for remote roles",
+        "Responsibilities include architecting for velocity and reducing integration friction, which aligns with system consolidation and operating model efficiency",
+        "Preferred qualifications include experience in fintech and managing technical software products from infancy to scale, which aligns well with enterprise transformation"
       ],
       "link": "https://stripe.com/jobs/search?gh_jid=7561551"
+    },
+    {
+      "title": "Technical Program Manager, Internal Systems",
+      "company": "Stripe",
+      "score": 80,
+      "rank_score": 35,
+      "action": "Apply",
+      "why": [
+        "Role involves large-scale technical program management across multiple teams and systems, aligning with platform transformation and system consolidation.",
+        "Focus on building frictionless internal platforms for internal users (Sellers and Finance Engineering) fits the enterprise platform modernization context.",
+        "Remote full-time position fitting candidate's preferred work location and employment type.",
+        "Responsibilities include driving engineering execution, defining cross-functional strategy, and operationalizing critical cross-functional programs, all relevant to enterprise transformation."
+      ],
+      "link": "https://stripe.com/jobs/search?gh_jid=7680365"
+    },
+    {
+      "title": "Senior Program Manager, Product & Platform Compliance",
+      "company": "Discord",
+      "score": 80,
+      "rank_score": 35,
+      "action": "Apply",
+      "why": [
+        "Role involves large-scale regulatory compliance program management across multiple jurisdictions, indicating complex, cross-functional program execution",
+        "Focus on building scalable compliance infrastructure and frameworks aligns with enterprise platform transformation and governance",
+        "Remote role within a technology company fits preferred location and sector",
+        "Strong emphasis on compliance, audit methodologies, and regulatory risk assessment aligns with governance and operating model redesign",
+        "Independent ownership of strategic compliance programs involving multiple key stakeholders indicates senior program management level"
+      ],
+      "link": "https://job-boards.greenhouse.io/discord/jobs/8332350002"
+    },
+    {
+      "title": "Senior/Staff Design Program Manager",
+      "company": "Instacart",
+      "score": 80,
+      "rank_score": 31,
+      "action": "Apply",
+      "why": [
+        "Senior Design Program Manager role focused on complex, multi-quarter, cross-functional initiatives involving Design, Product, Engineering, Marketing, Legal, and Business Development.",
+        "Strong emphasis on operational excellence, programmatic execution, governance, and building scalable systems for capacity planning and resource allocation.",
+        "Involves working with design systems and technical fluency with design tooling platforms, aligning with system evolution and component adoption which matches system consolidation and governance focus.",
+        "Remote role within Canada, matching remote preference."
+      ],
+      "link": "https://instacart.careers/job/?gh_jid=7673109"
+    },
+    {
+      "title": "Product Manager, Stripe Infrastructure",
+      "company": "Stripe",
+      "score": 80,
+      "rank_score": 30,
+      "action": "Apply",
+      "why": [
+        "Role involves enterprise-scale platform transformation with a focus on modernizing Stripe's core infrastructure and systems",
+        "Responsibilities include system and design principles for building and operating Seller Systems, indicating governance and sustainable ecosystem design",
+        "Focus on delivering reliable, scalable infrastructure and developer experience aligns with platform modernization priorities",
+        "Remote role, suitable for distributed work",
+        "Strong cross-functional collaboration with engineering, product, and leadership aligns well with enterprise environment"
+      ],
+      "link": "https://stripe.com/jobs/search?gh_jid=6651889"
     }
   ]
 }
