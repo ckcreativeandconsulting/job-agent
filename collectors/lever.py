@@ -2,14 +2,14 @@ import json
 from urllib.request import urlopen
 from urllib.error import URLError, HTTPError
 
-from config import LEVER_COMPANIES
 
-
-def fetch_lever_jobs() -> list[dict]:
+def fetch_lever_jobs(sources: list[dict]) -> list[dict]:
     jobs = []
 
-    for company in LEVER_COMPANIES:
-        url = f"https://api.lever.co/v0/postings/{company}?mode=json"
+    for source in sources:
+        slug = source["slug"]
+        company_name = source["name"]
+        url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
 
         try:
             with urlopen(url, timeout=10) as response:
@@ -17,16 +17,12 @@ def fetch_lever_jobs() -> list[dict]:
 
             for job in data:
                 categories = job.get("categories", {}) or {}
-                description = (
-                    job.get("descriptionPlain")
-                    or job.get("description")
-                    or ""
-                )
+                description = job.get("descriptionPlain") or job.get("description") or ""
 
                 jobs.append({
-                    "job_id": f"lever:{company}:{job.get('id', '')}".strip(),
+                    "job_id": f"lever:{slug}:{job.get('id', '')}",
                     "title": job.get("text", "").strip(),
-                    "company": company.title(),
+                    "company": company_name,
                     "summary": description[:4000],
                     "link": job.get("hostedUrl", "").strip(),
                     "source": "lever",
@@ -37,6 +33,6 @@ def fetch_lever_jobs() -> list[dict]:
                 })
 
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as e:
-            print(f"Lever fetch failed for {company}: {e}")
+            print(f"Lever fetch failed for {slug}: {e}")
 
     return jobs
