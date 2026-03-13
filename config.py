@@ -228,6 +228,16 @@ LEVER_COMPANIES = [
     "stackadapt",
     ]
 
+COMPANY_SOURCES = [
+    {"name": "Stripe", "ats": "greenhouse", "slug": "stripe"},
+    {"name": "Brex", "ats": "greenhouse", "slug": "brex"},
+    {"name": "Databricks", "ats": "greenhouse", "slug": "databricks"},
+    {"name": "Coinbase", "ats": "greenhouse", "slug": "coinbase"},
+    {"name": "Figma", "ats": "greenhouse", "slug": "figma"},
+    {"name": "Airbnb", "ats": "greenhouse", "slug": "airbnb"},
+    {"name": "Asana", "ats": "greenhouse", "slug": "asana"},
+]
+
 
 # Scoring thresholds
 APPLY_THRESHOLD = 80

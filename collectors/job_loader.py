@@ -1,19 +1,21 @@
-from collectors.manual_linkedin import load_manual_linkedin_jobs
+from config import COMPANY_SOURCES
 from collectors.greenhouse import fetch_greenhouse_jobs
 from collectors.lever import fetch_lever_jobs
+from collectors.manual_linkedin import load_manual_linkedin_jobs
 
 
 def load_all_jobs() -> list[dict]:
     jobs = []
 
-    for loader in [
-        load_manual_linkedin_jobs,
-        fetch_greenhouse_jobs,
-        fetch_lever_jobs,
-    ]:
-        try:
-            jobs.extend(loader())
-        except Exception as e:
-            print(f"Collector failed: {loader.__name__}: {e}")
+    jobs.extend(load_manual_linkedin_jobs())
+
+    greenhouse_sources = [c for c in COMPANY_SOURCES if c["ats"] == "greenhouse"]
+    lever_sources = [c for c in COMPANY_SOURCES if c["ats"] == "lever"]
+
+    if greenhouse_sources:
+        jobs.extend(fetch_greenhouse_jobs(greenhouse_sources))
+
+    if lever_sources:
+        jobs.extend(fetch_lever_jobs(lever_sources))
 
     return jobs
