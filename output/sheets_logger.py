@@ -25,48 +25,72 @@ def get_sheet():
 
 
 def append_jobs(jobs):
-
     sheet = get_sheet()
 
-    # Read existing links from column K
-    existing_links = set(sheet.col_values(11)[1:])  # skip header
-
+    all_values = sheet.get_all_values()
     today = datetime.utcnow().strftime("%Y-%m-%d")
 
+    # Build map of existing links -> row number
+    # Row 1 is the header, so sheet rows start at 2 for data
+    existing_link_to_row = {}
+    for i, row in enumerate(all_values[1:], start=2):
+        if len(row) >= 11:
+            link = row[10].strip()  # column K
+            if link:
+                existing_link_to_row[link] = i
+
     rows_to_add = []
+    updated_count = 0
 
     for job in jobs:
-
         link = job.get("link")
-
-        if not link or link in existing_links:
+        if not link:
             continue
 
-        rows_to_add.append([
-            today,
-            job.get("title"),
-            job.get("company"),
-            job.get("location"),
-            job.get("source"),
-            job.get("rank_score"),
-            job.get("score"),
-            job.get("action"),
-            ", ".join(job.get("why_match", [])),
-            ", ".join(job.get("concerns", [])),
-            link,
-            "",
-            "",
-            "",
-        ])
+        if link in existing_link_to_row:
+            row_num = existing_link_to_row[link]
+
+            # Update only rank_score, ai_score, action, why_match, concerns
+            # Columns F:J
+            update_values = [[
+                job.get("rank_score"),
+                job.get("score"),
+                job.get("action"),
+                ", ".join(job.get("why_match", [])),
+                ", ".join(job.get("concerns", [])),
+            ]]
+
+            sheet.update(f"F{row_num}:J{row_num}", update_values)
+            updated_count += 1
+
+        else:
+            rows_to_add.append([
+                today,  # A: first-seen date
+                job.get("title"),  # B
+                job.get("company"),  # C
+                job.get("location"),  # D
+                job.get("source"),  # E
+                job.get("rank_score"),  # F
+                job.get("score"),  # G
+                job.get("action"),  # H
+                ", ".join(job.get("why_match", [])),  # I
+                ", ".join(job.get("concerns", [])),  # J
+                link,  # K
+                "",  # L reviewed
+                "",  # M applied
+                "",  # N notes
+            ])
 
     if rows_to_add:
         sheet.append_rows(rows_to_add)
         print(f"Added {len(rows_to_add)} new jobs to sheet")
     else:
-        print("No new jobs to add (all duplicates)")
+        print("No new jobs to add")
 
-        # --- Export job summary for AI ops system ---
+    if updated_count:
+        print(f"Updated {updated_count} existing jobs in sheet")
 
+    # --- Export job summary for AI ops system ---
     output_dir = Path("output")
     output_dir.mkdir(exist_ok=True)
 
