@@ -75,6 +75,11 @@
     "slug": "calm"
   },
   {
+    "name": "Carta",
+    "ats": "greenhouse",
+    "slug": "carta"
+  },
+  {
     "name": "Checkr",
     "ats": "greenhouse",
     "slug": "checkr"
@@ -200,6 +205,11 @@
     "slug": "intercom"
   },
   {
+    "name": "Lattice",
+    "ats": "greenhouse",
+    "slug": "lattice"
+  },
+  {
     "name": "LaunchDarkly",
     "ats": "greenhouse",
     "slug": "launchdarkly"
@@ -263,6 +273,11 @@
     "name": "Postman",
     "ats": "greenhouse",
     "slug": "postman"
+  },
+  {
+    "name": "Ramp Network",
+    "ats": "greenhouse",
+    "slug": "rampnetwork"
   },
   {
     "name": "Reddit",
@@ -333,6 +348,11 @@
     "name": "Webflow",
     "ats": "greenhouse",
     "slug": "webflow"
+  },
+  {
+    "name": "ZoomInfo",
+    "ats": "greenhouse",
+    "slug": "zoominfo"
   },
   {
     "name": "Clari",
