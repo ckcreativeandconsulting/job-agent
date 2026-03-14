@@ -5,6 +5,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MAX_AI_JOBS = int(os.getenv("MAX_AI_JOBS", 10))
+COLLECTOR_MAX_WORKERS = int(os.getenv("COLLECTOR_MAX_WORKERS", 10))
+SCORER_MAX_WORKERS = int(os.getenv("SCORER_MAX_WORKERS", 5))
+EMBED_CANDIDATE_LIMIT = int(os.getenv("EMBED_CANDIDATE_LIMIT", 30))
+EMBEDDING_CACHE_ENABLED = os.getenv("EMBEDDING_CACHE_ENABLED", "true").lower() == "true"
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-haiku-4-5")
 
 AI_MODE = os.getenv("AI_MODE", "openai_only")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
@@ -29,6 +34,7 @@ DATA_DIR = BASE_DIR / "data"
 RAW_JOBS_FILE = DATA_DIR / "raw_jobs.json"
 FILTERED_JOBS_FILE = DATA_DIR / "filtered_jobs.json"
 SCORED_JOBS_FILE = DATA_DIR / "scored_jobs.json"
+EMBEDDING_CACHE_FILE = DATA_DIR / "embedding_cache.json"
 MANUAL_LINKEDIN_JOBS_FILE = DATA_DIR / "manual_linkedin_jobs.json"
 
 PROFILE_FILE = BASE_DIR / "profile.txt"

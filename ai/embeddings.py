@@ -2,7 +2,8 @@ import math
 import requests
 from functools import lru_cache
 
-from config import OLLAMA_EMBED_URL, OLLAMA_EMBED_MODEL, OLLAMA_TIMEOUT, PROFILE_FILE
+from config import OLLAMA_EMBED_URL, OLLAMA_EMBED_MODEL, OLLAMA_TIMEOUT, PROFILE_FILE, EMBEDDING_CACHE_ENABLED
+from ai import embedding_cache
 
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
@@ -69,5 +70,14 @@ def job_semantic_similarity(job: dict) -> float:
     if not job_text:
         return 0.0
 
-    job_embedding = embed_text(job_text)
+    if EMBEDDING_CACHE_ENABLED:
+        key = embedding_cache.cache_key(job_text)
+        cached = embedding_cache.get(key)
+        if cached is not None:
+            return cosine_similarity(profile_embedding, cached)
+        job_embedding = embed_text(job_text)
+        embedding_cache.put(key, job_embedding)
+    else:
+        job_embedding = embed_text(job_text)
+
     return cosine_similarity(profile_embedding, job_embedding)
