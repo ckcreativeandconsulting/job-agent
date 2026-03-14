@@ -1,6 +1,8 @@
 from collections import defaultdict
 from datetime import datetime, timezone
 from utils.company_learning import learned_company_boost
+from ai.embeddings import job_semantic_similarity
+from config import SEMANTIC_WEIGHT, SEMANTIC_MIN_SIM
 
 from config import (
     RANKING_TITLE_WEIGHTS,
@@ -72,6 +74,17 @@ def compute_rank_score(job: dict) -> int:
     score += learned_company_boost(company)
     score += freshness_boost(posted_date)
 
+    try:
+        semantic_similarity = job_semantic_similarity(job)
+    except Exception as e:
+        semantic_similarity = 0.0
+        job["semantic_similarity_error"] = str(e)
+
+    job["semantic_similarity"] = round(semantic_similarity, 4)
+
+    if semantic_similarity >= SEMANTIC_MIN_SIM:
+        score += int((semantic_similarity - SEMANTIC_MIN_SIM) * SEMANTIC_WEIGHT * 10)
+    
     return score
 
 
