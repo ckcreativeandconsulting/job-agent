@@ -1,15 +1,24 @@
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 from collectors.job_loader import load_all_jobs
 from filters.keyword_filter import keyword_filter
 from filters.ranker import rank_jobs
-from ai.scorer import score_job
+from ai.scorer import score_job, load_profile_text
+from ai import embedding_cache
 from output.digest import build_digest
 from utils.file_utils import save_json
-from config import FILTERED_JOBS_FILE, SCORED_JOBS_FILE, MAX_AI_JOBS, MIN_RANK_SCORE
+from config import (
+    FILTERED_JOBS_FILE, SCORED_JOBS_FILE, MAX_AI_JOBS, MIN_RANK_SCORE,
+    SCORER_MAX_WORKERS, EMBEDDING_CACHE_FILE, EMBEDDING_CACHE_ENABLED,
+)
 from output.sheets_logger import append_jobs
 from utils.dedupe import dedupe_same_company_title
 
 
 def main():
+    if EMBEDDING_CACHE_ENABLED:
+        embedding_cache.load(EMBEDDING_CACHE_FILE)
+
     jobs = load_all_jobs()
     print(f"\nCollected {len(jobs)} total jobs")
 
@@ -34,38 +43,45 @@ def main():
 
     print(f"Scoring top {len(jobs_to_score)} ranked jobs with AI (limit: {MAX_AI_JOBS})")
 
+    load_profile_text()  # pre-warm before threads to avoid lazy-load race
+
     scored_jobs = []
-    for job in jobs_to_score:
-        try:
-            result = score_job(job)
-        except Exception as e:
-            result = {
-                "score": 50,
-                "why_match": ["Scoring failed"],
-                "concerns": [str(e)],
-                "employment_type_label": job.get("employment_type", "Unknown"),
-                "action": "Ignore",
-                "backend": "error",
-                "model": "none",
-            }
+    with ThreadPoolExecutor(max_workers=SCORER_MAX_WORKERS) as executor:
+        future_to_job = {executor.submit(score_job, job): job for job in jobs_to_score}
+        for future in as_completed(future_to_job):
+            job = future_to_job[future]
+            try:
+                result = future.result()
+            except Exception as e:
+                result = {
+                    "score": 50,
+                    "why_match": ["Scoring failed"],
+                    "concerns": [str(e)],
+                    "employment_type_label": job.get("employment_type", "Unknown"),
+                    "action": "Ignore",
+                    "backend": "error",
+                    "model": "none",
+                }
 
-        backend = result.get("backend", "unknown")
-        pre_backend = result.get("pre_backend")
-        score = result.get("score")
+            backend = result.get("backend", "unknown")
+            pre_backend = result.get("pre_backend")
+            score = result.get("score")
 
-        if pre_backend:
-            print(
-                f"[AI] {job.get('company', 'Unknown')} — {job.get('title', 'Unknown')} "
-                f"=> final={backend}, pre={pre_backend}, score={score}, pre_score={result.get('pre_score')}"
-            )
-        else:
-            print(
-                f"[AI] {job.get('company', 'Unknown')} — {job.get('title', 'Unknown')} "
-                f"=> backend={backend}, score={score}"
-            )
+            if pre_backend:
+                print(
+                    f"[AI] {job.get('company', 'Unknown')} — {job.get('title', 'Unknown')} "
+                    f"=> final={backend}, pre={pre_backend}, score={score}, pre_score={result.get('pre_score')}"
+                )
+            else:
+                print(
+                    f"[AI] {job.get('company', 'Unknown')} — {job.get('title', 'Unknown')} "
+                    f"=> backend={backend}, score={score}"
+                )
 
-        scored_job = {**job, **result}
-        scored_jobs.append(scored_job)
+            scored_jobs.append({**job, **result})
+
+    if EMBEDDING_CACHE_ENABLED:
+        embedding_cache.flush(EMBEDDING_CACHE_FILE)
 
     from utils.company_learning import update_company_outcomes
     update_company_outcomes(scored_jobs)

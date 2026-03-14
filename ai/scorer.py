@@ -15,12 +15,22 @@ from config import (
     OLLAMA_MODEL,
     OLLAMA_URL,
     OLLAMA_TIMEOUT,
+    CLAUDE_MODEL,
 )
 
 load_dotenv()
 
 client = OpenAI()
+_claude_client = None
 _PROFILE_TEXT = None
+
+
+def get_claude_client():
+    global _claude_client
+    if _claude_client is None:
+        import anthropic
+        _claude_client = anthropic.Anthropic()
+    return _claude_client
 
 
 def load_profile_text() -> str:
@@ -181,6 +191,24 @@ def score_job_ollama(job: dict, profile_text: str) -> dict:
     return normalize_parsed_result(parsed)
 
 
+def score_job_claude(job: dict, profile_text: str) -> dict:
+    prompt = build_prompt(job, profile_text)
+
+    claude = get_claude_client()
+    response = claude.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=1024,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    raw_text = response.content[0].text
+    parsed = extract_json(raw_text)
+    parsed["backend"] = "claude"
+    parsed["model"] = CLAUDE_MODEL
+
+    return normalize_parsed_result(parsed)
+
+
 def score_job_hybrid(job: dict, profile_text: str) -> dict:
     try:
         rough = score_job_ollama(job, profile_text)
@@ -219,5 +247,8 @@ def score_job(job: dict) -> dict:
 
     if AI_MODE == "hybrid":
         return score_job_hybrid(job, profile_text)
+
+    if AI_MODE == "claude":
+        return score_job_claude(job, profile_text)
 
     return score_job_openai(job, profile_text)
