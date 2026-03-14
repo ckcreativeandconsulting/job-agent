@@ -76,17 +76,27 @@ def learned_company_boost(company: str) -> int:
     scored = record.get("scored", 0)
     apply_count = record.get("apply", 0)
     avg_score = record.get("average_score", 0)
+    apply_rate = apply_count / scored if scored else 0
 
     if scored < 4:
         return 0
 
     boost = 0
 
+# strong history of good matches
     if apply_count >= 2:
         boost += 1
+
+# high average score
     if avg_score >= 80:
         boost += 2
     elif avg_score >= 70:
         boost += 1
 
-    return min(boost, 3)
+# NEW: strong apply rate
+    if apply_rate >= 0.5:
+        boost += 1
+    elif apply_rate >= 0.3:
+        boost += 0.5
+
+    return min(int(boost), 3)
