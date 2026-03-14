@@ -2,7 +2,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from utils.company_learning import learned_company_boost
 from ai.embeddings import job_semantic_similarity
-from config import SEMANTIC_WEIGHT, SEMANTIC_MIN_SIM
+from config import SEMANTIC_WEIGHT, SEMANTIC_MIN_SIM, EMBED_CANDIDATE_LIMIT
 
 from config import (
     RANKING_TITLE_WEIGHTS,
@@ -37,7 +37,8 @@ def freshness_boost(posted_date):
         return 0
 
 
-def compute_rank_score(job: dict) -> int:
+def compute_rank_score_fast(job: dict) -> int:
+    """Keyword/rule-based rank score without semantic embedding (fast pass)."""
     title = job.get("title", "").lower()
     summary = job.get("summary", "").lower()
     location = job.get("location", "").lower()
@@ -74,34 +75,35 @@ def compute_rank_score(job: dict) -> int:
     score += learned_company_boost(company)
     score += freshness_boost(posted_date)
 
-    try:
-        semantic_similarity = job_semantic_similarity(job)
-    except Exception as e:
-        semantic_similarity = 0.0
-        job["semantic_similarity_error"] = str(e)
-
-    job["semantic_similarity"] = round(semantic_similarity, 4)
-
-    if semantic_similarity >= SEMANTIC_MIN_SIM:
-        score += int((semantic_similarity - SEMANTIC_MIN_SIM) * SEMANTIC_WEIGHT * 10)
-    
     return score
 
 
 def rank_jobs(jobs: list[dict]) -> list[dict]:
-    ranked_jobs = []
-
+    # Pass 1: fast keyword/rule-based scoring for all jobs
     for job in jobs:
-        rank_score = compute_rank_score(job)
-        ranked_job = {**job, "rank_score": rank_score}
-        ranked_jobs.append(ranked_job)
+        job["rank_score"] = compute_rank_score_fast(job)
+        job["semantic_similarity"] = None
 
-    ranked_jobs.sort(key=lambda job: job["rank_score"], reverse=True)
+    jobs.sort(key=lambda j: j["rank_score"], reverse=True)
+
+    # Pass 2: semantic boost for top EMBED_CANDIDATE_LIMIT candidates only
+    for job in jobs[:EMBED_CANDIDATE_LIMIT]:
+        try:
+            sim = job_semantic_similarity(job)
+        except Exception as e:
+            sim = 0.0
+            job["semantic_similarity_error"] = str(e)
+
+        job["semantic_similarity"] = round(sim, 4)
+        if sim >= SEMANTIC_MIN_SIM:
+            job["rank_score"] += int((sim - SEMANTIC_MIN_SIM) * SEMANTIC_WEIGHT * 10)
+
+    jobs.sort(key=lambda j: j["rank_score"], reverse=True)
 
     company_counts = defaultdict(int)
     diversified_jobs = []
 
-    for job in ranked_jobs:
+    for job in jobs:
         company = job.get("company", "Unknown")
         if company_counts[company] < MAX_JOBS_PER_COMPANY:
             diversified_jobs.append(job)

@@ -40,6 +40,7 @@ def append_jobs(jobs):
                 existing_link_to_row[link] = i
 
     rows_to_add = []
+    pending_updates = []
     updated_count = 0
 
     for job in jobs:
@@ -52,15 +53,16 @@ def append_jobs(jobs):
 
             # Update only rank_score, ai_score, action, why_match, concerns
             # Columns F:J
-            update_values = [[
-                job.get("rank_score"),
-                job.get("score"),
-                job.get("action"),
-                ", ".join(job.get("why_match", [])),
-                ", ".join(job.get("concerns", [])),
-            ]]
-
-            sheet.update(f"F{row_num}:J{row_num}", update_values)
+            pending_updates.append({
+                "range": f"F{row_num}:J{row_num}",
+                "values": [[
+                    job.get("rank_score"),
+                    job.get("score"),
+                    job.get("action"),
+                    ", ".join(job.get("why_match", [])),
+                    ", ".join(job.get("concerns", [])),
+                ]],
+            })
             updated_count += 1
 
         else:
@@ -80,6 +82,9 @@ def append_jobs(jobs):
                 "",  # M applied
                 "",  # N notes
             ])
+
+    if pending_updates:
+        sheet.batch_update(pending_updates)
 
     if rows_to_add:
         sheet.append_rows(rows_to_add)
