@@ -11,7 +11,16 @@ OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.1:8b")
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
 OLLAMA_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", 90))
+# embeddings
+OLLAMA_EMBED_URL = os.getenv("OLLAMA_EMBED_URL", "http://localhost:11434/api/embed")
+OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "all-minilm")
+
+SEMANTIC_WEIGHT = float(os.getenv("SEMANTIC_WEIGHT", 12))
+SEMANTIC_MIN_SIM = float(os.getenv("SEMANTIC_MIN_SIM", 0.30))
+
+
 HYBRID_OPENAI_THRESHOLD = int(os.getenv("HYBRID_OPENAI_THRESHOLD", 90))
+
 
 # Base paths
 BASE_DIR = Path(__file__).resolve().parent
