@@ -1,0 +1,73 @@
+import math
+import requests
+from functools import lru_cache
+
+from config import OLLAMA_EMBED_URL, OLLAMA_EMBED_MODEL, OLLAMA_TIMEOUT, PROFILE_FILE
+
+
+def cosine_similarity(a: list[float], b: list[float]) -> float:
+    if not a or not b or len(a) != len(b):
+        return 0.0
+
+    dot = sum(x * y for x, y in zip(a, b))
+    norm_a = math.sqrt(sum(x * x for x in a))
+    norm_b = math.sqrt(sum(y * y for y in b))
+
+    if norm_a == 0 or norm_b == 0:
+        return 0.0
+
+    return dot / (norm_a * norm_b)
+
+
+def embed_text(text: str) -> list[float]:
+    payload = {
+        "model": OLLAMA_EMBED_MODEL,
+        "prompt": text,   # works with older /api/embeddings
+        "input": text,    # works with newer /api/embed
+    }
+
+    response = requests.post(
+        OLLAMA_EMBED_URL,
+        json=payload,
+        timeout=OLLAMA_TIMEOUT,
+    )
+
+    if response.status_code != 200:
+        raise RuntimeError(f"Embedding request failed: {response.status_code} {response.text}")
+
+    data = response.json()
+
+    # newer /api/embed shape
+    if "embeddings" in data and data["embeddings"]:
+        return data["embeddings"][0]
+
+    # older /api/embeddings shape
+    if "embedding" in data and data["embedding"]:
+        return data["embedding"]
+
+    raise RuntimeError(f"Unexpected embedding response: {data}")
+
+
+@lru_cache(maxsize=1)
+def get_profile_embedding() -> list[float]:
+    with open(PROFILE_FILE, "r", encoding="utf-8") as f:
+        profile_text = f.read()
+
+    return embed_text(profile_text)
+
+
+def job_semantic_similarity(job: dict) -> float:
+    profile_embedding = get_profile_embedding()
+
+    job_text = " ".join([
+        job.get("title", ""),
+        job.get("company", ""),
+        job.get("location", ""),
+        job.get("summary", "")[:3000],
+    ]).strip()
+
+    if not job_text:
+        return 0.0
+
+    job_embedding = embed_text(job_text)
+    return cosine_similarity(profile_embedding, job_embedding)
