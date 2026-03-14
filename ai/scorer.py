@@ -89,8 +89,13 @@ Respond ONLY with JSON like this:
   "transformation_fit_score": 90,
   "domain_fit_score": 75,
   "scope_fit_score": 80,
-  "why_match": ["reason1", "reason2"],
-  "concerns": ["issue1"],
+  "why_match": [
+  "Role focuses on platform modernization across multiple systems",
+  "Cross-functional scope aligns with enterprise transformation experience"
+],
+"concerns": [
+  "Role may be embedded in a narrower functional domain"
+]
   "employment_type_label": "Full-time"
 }}
 
@@ -100,6 +105,8 @@ Rules:
 - transformation_fit_score from 0 to 100
 - domain_fit_score from 0 to 100
 - scope_fit_score from 0 to 100
+- why_match and concerns must be concrete and job-specific
+- never return placeholder text like "reason1", "reason2", or "issue1"
 - prefer enterprise platform transformation, modernization, system consolidation, governance, and operating model roles
 - prefer remote roles
 - slightly favor contract roles

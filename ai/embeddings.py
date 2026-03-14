@@ -20,28 +20,28 @@ def cosine_similarity(a: list[float], b: list[float]) -> float:
 
 
 def embed_text(text: str) -> list[float]:
-    payload = {
-        "model": OLLAMA_EMBED_MODEL,
-        "prompt": text,   # works with older /api/embeddings
-        "input": text,    # works with newer /api/embed
-    }
+    clean_text = (text or "").strip()
+
+    if not clean_text:
+        return []
+
+    # keep prompts short for stability
+    clean_text = clean_text[:1200]
+
+    print(f"[EMBED] model={OLLAMA_EMBED_MODEL} chars={len(clean_text)}")
 
     response = requests.post(
         OLLAMA_EMBED_URL,
-        json=payload,
+        json={
+            "model": OLLAMA_EMBED_MODEL,
+            "prompt": clean_text,
+        },
         timeout=OLLAMA_TIMEOUT,
     )
-
-    if response.status_code != 200:
-        raise RuntimeError(f"Embedding request failed: {response.status_code} {response.text}")
+    response.raise_for_status()
 
     data = response.json()
 
-    # newer /api/embed shape
-    if "embeddings" in data and data["embeddings"]:
-        return data["embeddings"][0]
-
-    # older /api/embeddings shape
     if "embedding" in data and data["embedding"]:
         return data["embedding"]
 
@@ -53,17 +53,17 @@ def get_profile_embedding() -> list[float]:
     with open(PROFILE_FILE, "r", encoding="utf-8") as f:
         profile_text = f.read()
 
-    return embed_text(profile_text)
+    return embed_text(profile_text[:1200])
 
 
 def job_semantic_similarity(job: dict) -> float:
     profile_embedding = get_profile_embedding()
 
-    job_text = " ".join([
+    job_text = " | ".join([
         job.get("title", ""),
         job.get("company", ""),
         job.get("location", ""),
-        job.get("summary", "")[:3000],
+        job.get("summary", "")[:1200],
     ]).strip()
 
     if not job_text:
