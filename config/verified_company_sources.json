@@ -15,6 +15,11 @@
     "slug": "airbnb"
   },
   {
+    "name": "Airtable",
+    "ats": "greenhouse",
+    "slug": "airtable"
+  },
+  {
     "name": "Alchemy",
     "ats": "greenhouse",
     "slug": "alchemy"
@@ -165,6 +170,11 @@
     "slug": "glossier"
   },
   {
+    "name": "Grafana Labs",
+    "ats": "greenhouse",
+    "slug": "grafanalabs"
+  },
+  {
     "name": "Grammarly",
     "ats": "greenhouse",
     "slug": "grammarly"
@@ -173,6 +183,11 @@
     "name": "Gusto",
     "ats": "greenhouse",
     "slug": "gusto"
+  },
+  {
+    "name": "Hex",
+    "ats": "greenhouse",
+    "slug": "hextechnologies"
   },
   {
     "name": "Hightouch",
@@ -275,11 +290,6 @@
     "slug": "postman"
   },
   {
-    "name": "Ramp Network",
-    "ats": "greenhouse",
-    "slug": "rampnetwork"
-  },
-  {
     "name": "Reddit",
     "ats": "greenhouse",
     "slug": "reddit"
@@ -288,6 +298,11 @@
     "name": "Robinhood",
     "ats": "greenhouse",
     "slug": "robinhood"
+  },
+  {
+    "name": "Rubrik",
+    "ats": "greenhouse",
+    "slug": "rubrik"
   },
   {
     "name": "Salesloft",
@@ -345,6 +360,21 @@
     "slug": "vercel"
   },
   {
+    "name": "Verkada",
+    "ats": "greenhouse",
+    "slug": "verkada"
+  },
+  {
+    "name": "Warp",
+    "ats": "greenhouse",
+    "slug": "warp"
+  },
+  {
+    "name": "Watershed",
+    "ats": "greenhouse",
+    "slug": "watershed"
+  },
+  {
     "name": "Webflow",
     "ats": "greenhouse",
     "slug": "webflow"
@@ -383,5 +413,50 @@
     "name": "Spotify",
     "ats": "lever",
     "slug": "spotify"
+  },
+  {
+    "name": "Benchling",
+    "ats": "ashby",
+    "slug": "benchling"
+  },
+  {
+    "name": "Cursor",
+    "ats": "ashby",
+    "slug": "cursor"
+  },
+  {
+    "name": "Ironclad",
+    "ats": "ashby",
+    "slug": "ironcladhq"
+  },
+  {
+    "name": "Linear",
+    "ats": "ashby",
+    "slug": "linear"
+  },
+  {
+    "name": "Notion",
+    "ats": "ashby",
+    "slug": "notion"
+  },
+  {
+    "name": "OpenAI",
+    "ats": "ashby",
+    "slug": "openai"
+  },
+  {
+    "name": "Ramp",
+    "ats": "ashby",
+    "slug": "ramp"
+  },
+  {
+    "name": "Snowflake",
+    "ats": "ashby",
+    "slug": "snowflake"
+  },
+  {
+    "name": "Vanta",
+    "ats": "ashby",
+    "slug": "vanta"
   }
 ]

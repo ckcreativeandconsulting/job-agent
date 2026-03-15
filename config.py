@@ -39,6 +39,17 @@ MANUAL_LINKEDIN_JOBS_FILE = DATA_DIR / "manual_linkedin_jobs.json"
 
 PROFILE_FILE = BASE_DIR / "profile.txt"
 
+# The Muse API — set to False to disable
+THEMUSE_ENABLED = os.getenv("THEMUSE_ENABLED", "true").lower() == "true"
+
+# Indeed RSS search feeds — set to [] to disable
+RSS_URLS = [
+    "https://www.indeed.com/rss?q=senior+product+manager+platform&l=remote&sort=date",
+    "https://www.indeed.com/rss?q=program+manager+transformation&l=remote&sort=date",
+    "https://www.indeed.com/rss?q=enterprise+platform+program+manager&l=remote&sort=date",
+    "https://www.indeed.com/rss?q=contract+interim+product+manager&l=remote&sort=date",
+]
+
 # Job filtering keywords
 INCLUDE_KEYWORDS = [
     "platform",
@@ -210,6 +221,7 @@ COMPANY_PRIORITY = {
     "cloudflare": 12,
     "okta": 12,
     "confluent": 12,
+    "snowflake": 12,
 
     # Tier 3 – strong tech companies
     "figma": 10,
@@ -222,6 +234,9 @@ COMPANY_PRIORITY = {
     "brex": 10,
     "affirm": 10,
     "plaid": 10,
+    "ramp": 10,
+    "linear": 10,
+    "cursor": 10,
 
     # Tier 4 – solid companies
     "chime": 7,
@@ -232,6 +247,10 @@ COMPANY_PRIORITY = {
     "new relic": 7,
     "checkr": 7,
     "scale ai": 7,
+    "ironclad": 7,
+    "vanta": 7,
+    "rubrik": 7,
+    "grafana labs": 7,
 
     # Tier 5 – neutral companies
     # (anything not listed gets 0)
