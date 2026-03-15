@@ -88,7 +88,6 @@ REMOTE_KEYWORDS = [
 ]
 
 NEGATIVE_LOCATION_KEYWORDS = [
-    "hybrid",
     "onsite",
     "on-site",
     "in office",
@@ -108,6 +107,10 @@ RANKING_TITLE_WEIGHTS = {
     "operations": 1,
     "infrastructure": 5,
     "internal systems": 5,
+    "group product manager": 6,
+    "product lead": 5,
+    "principal product": 4,
+    "advisor": 3,
 }
 
 RANKING_SUMMARY_WEIGHTS = {
@@ -118,9 +121,10 @@ RANKING_SUMMARY_WEIGHTS = {
     "integration": 4,
     "enterprise": 3,
     "cross-functional": 3,
-    "regulated": 3,
+    "regulated": 4,
     "financial services": 4,
     "wealth": 3,
+    "wealth management": 4,
     "platform": 3,
     "transformation": 4,
     "internal systems": 5,
@@ -129,6 +133,9 @@ RANKING_SUMMARY_WEIGHTS = {
     "control plane": 6,
     "harmonize": 5,
     "unify": 4,
+    "decommission": 4,
+    "legacy modernization": 4,
+    "advisor": 3,
 }
 
 RANKING_EMPLOYMENT_WEIGHTS = {
@@ -158,7 +165,6 @@ RANKING_NEGATIVE_TITLE_WEIGHTS = {
     "alliances": -5,
     "channels": -5,
     "claims": -6,
-    "delivery lead": -2,
 }
 
 RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
