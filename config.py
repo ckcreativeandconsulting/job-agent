@@ -44,10 +44,13 @@ THEMUSE_ENABLED = os.getenv("THEMUSE_ENABLED", "true").lower() == "true"
 
 # Indeed RSS search feeds — set to [] to disable
 RSS_URLS = [
+    # Indeed RSS — currently blocked (returns 0 entries); kept for if it recovers
     "https://www.indeed.com/rss?q=senior+product+manager+platform&l=remote&sort=date",
     "https://www.indeed.com/rss?q=program+manager+transformation&l=remote&sort=date",
     "https://www.indeed.com/rss?q=enterprise+platform+program+manager&l=remote&sort=date",
     "https://www.indeed.com/rss?q=contract+interim+product+manager&l=remote&sort=date",
+    # We Work Remotely — product + management categories (working)
+    "https://weworkremotely.com/categories/remote-product-jobs.rss",
 ]
 
 # Job filtering keywords
@@ -238,6 +241,10 @@ COMPANY_PRIORITY = {
     "linear": 10,
     "cursor": 10,
 
+    # Tier 3 (continued) – strong AI/product companies
+    "cohere": 10,
+    "perplexity": 10,
+
     # Tier 4 – solid companies
     "chime": 7,
     "bill.com": 7,
@@ -251,6 +258,12 @@ COMPANY_PRIORITY = {
     "vanta": 7,
     "rubrik": 7,
     "grafana labs": 7,
+    "deel": 7,
+    "zapier": 7,
+    "supabase": 7,
+    "pagerduty": 5,
+    "modal": 5,
+    "airbyte": 5,
 
     # Tier 5 – neutral companies
     # (anything not listed gets 0)

@@ -458,5 +458,50 @@
     "name": "Vanta",
     "ats": "ashby",
     "slug": "vanta"
+  },
+  {
+    "name": "Airbyte",
+    "ats": "ashby",
+    "slug": "airbyte"
+  },
+  {
+    "name": "Cohere",
+    "ats": "ashby",
+    "slug": "cohere"
+  },
+  {
+    "name": "Deel",
+    "ats": "ashby",
+    "slug": "deel"
+  },
+  {
+    "name": "Modal",
+    "ats": "ashby",
+    "slug": "modal"
+  },
+  {
+    "name": "Perplexity",
+    "ats": "ashby",
+    "slug": "perplexity"
+  },
+  {
+    "name": "Supabase",
+    "ats": "ashby",
+    "slug": "supabase"
+  },
+  {
+    "name": "Zapier",
+    "ats": "ashby",
+    "slug": "zapier"
+  },
+  {
+    "name": "Faire",
+    "ats": "greenhouse",
+    "slug": "faire"
+  },
+  {
+    "name": "PagerDuty",
+    "ats": "greenhouse",
+    "slug": "pagerduty"
   }
 ]
