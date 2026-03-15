@@ -46,7 +46,7 @@ def append_jobs(jobs):
 
     all_values = sheet.get_all_values()
     _ensure_header(sheet, all_values)
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    today = datetime.now().strftime("%Y-%m-%d")
 
     # Build map of existing links -> row number
     # Row 1 is the header, so sheet rows start at 2 for data
@@ -83,7 +83,7 @@ def append_jobs(jobs):
             })
             pending_updates.append({
                 "range": f"O{row_num}",
-                "values": [[job.get("employment_type_label", "Unknown")]],
+                "values": [[job.get("employment_type_label", "unknown").lower()]],
             })
             updated_count += 1
 
@@ -103,7 +103,7 @@ def append_jobs(jobs):
                 "",  # L reviewed
                 "",  # M applied
                 "",  # N notes
-                job.get("employment_type_label", "Unknown"),  # O employment type
+                job.get("employment_type_label", "unknown").lower(),  # O employment type
             ])
 
     if pending_updates:
