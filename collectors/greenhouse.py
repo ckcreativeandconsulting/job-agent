@@ -21,6 +21,19 @@ def clean_html_text(raw_html: str) -> str:
     return text
 
 
+def infer_employment_type(title: str, summary: str) -> str:
+    text = f"{title} {summary}".lower()
+    if any(w in text for w in ["contract", "interim", "temp ", "temporary"]):
+        return "Contract"
+    if "fractional" in text:
+        return "Fractional"
+    if "part-time" in text or "part time" in text:
+        return "Part-time"
+    if "full-time" in text or "full time" in text or "permanent" in text:
+        return "Full-time"
+    return "Unknown"
+
+
 def _fetch_one_greenhouse(source: dict) -> list[dict]:
     slug = source["slug"]
     company_name = source["name"]
@@ -43,7 +56,7 @@ def _fetch_one_greenhouse(source: dict) -> list[dict]:
                 "link": job.get("absolute_url", "").strip(),
                 "source": "greenhouse",
                 "location": location,
-                "employment_type": "Unknown",
+                "employment_type": infer_employment_type(job.get("title", ""), summary),
                 "posted_date": job.get("updated_at") or job.get("created_at"),
             })
         return jobs

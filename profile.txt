@@ -1,0 +1,79 @@
+Charles Kang
+Enterprise Platform Transformation Leader | Senior Product Manager | Group Product Manager
+Platform Consolidation | Legacy Modernization | Operating Model Design | Regulated Financial Services
+
+Available for: remote and remote-friendly hybrid roles (contract, interim, fractional, part-time, and full-time)
+
+---
+
+CANDIDATE SUMMARY
+
+Enterprise platform transformation leader and senior product manager with 12+ years of experience modernizing complex, regulated systems in financial services. Deep background in platform consolidation, legacy system decommissioning, operating model design, and governance. Proven ability to align product, engineering, data, and risk across large-scale enterprise programs at JPMorgan Wealth Management.
+
+Targets: Senior Product Manager, Group Product Manager, Product Lead, Principal Product Manager (IC roles); and Enterprise Transformation Lead, Program Director, Interim Product Leader, or Fractional Executive (contract/interim roles). Open to people management roles where scope includes enterprise platform execution.
+
+---
+
+CORE CAPABILITIES
+
+Platform Consolidation & Modernization | Legacy System Decommissioning | Enterprise Transformation Programs | Operating Model Design & Governance | Cross-Functional Program Execution | Regulatory & Risk Alignment | Platform Architecture Modernization | Product Strategy & Roadmap | Execution Frameworks | Regulated Financial Services | Wealth Management & Financial Platforms | Advisor Platform Modernization | Internal Platform Ownership | AI-Enabled Innovation | Executive Stakeholder Alignment | Agile Operating Models | Product Organization Leadership
+
+---
+
+KEY ACHIEVEMENTS
+
+- Platform Consolidation: Consolidated fragmented third-party managed account systems into a unified in-house platform, enabling 300× growth in account openings and assets under management while strengthening governance and compliance.
+- Legacy System Rationalization: Directed decommissioning of 40+ legacy applications, simplifying platform topology and materially reducing long-term operational and support risk.
+- Advisor Platform Modernization: Architected and launched a next-generation advisor desktop integrating CRM, trading, and analytics tools; improved advisor satisfaction by 20% and reduced workflow inefficiencies by approximately 200,000 hours annually.
+- Operating Model Design: Designed scalable prioritization and execution frameworks aligning product, engineering, data, and risk across interconnected enterprise programs supporting 9,000+ financial professionals.
+- Product Organization Leadership: Built and led a 15-person product organization, scaling leadership capability, establishing roadmap discipline, and strengthening cross-functional execution standards.
+- AI-Driven Innovation: Piloted and executed go-to-market for an internal AI chatbot delivering market insights, analytics, and compliance support, establishing the foundation for firmwide AI adoption.
+
+---
+
+PROFESSIONAL EXPERIENCE
+
+JPMorgan Wealth Management — Irvine, CA
+Executive Director / Senior Product Manager | Advisor Platform and Experiences | 2018 – May 2025
+
+Led end-to-end product strategy, vision, and execution for advisor platforms supporting 9,000+ financial professionals across Wealth Management in a highly regulated environment. Owned multi-year platform roadmap and managed a 15-person product organization.
+
+- Consolidated fragmented managed-account systems into a unified in-house platform: 300× growth in account openings and AUM; strengthened governance, data controls, and compliance workflows.
+- Architected and launched a next-generation advisor desktop (CRM + trading + analytics integration): 20% improvement in advisor satisfaction, ~200,000 hours of annual workflow savings.
+- Directed decommissioning of 40+ legacy systems: reduced platform complexity, improved reliability, and lowered long-term support costs.
+- Partnered with engineering, data, and risk leadership to modernize regulated platform architecture, balancing innovation with auditability, risk controls, and operational resilience.
+- Established prioritization frameworks and execution operating models improving roadmap coherence and delivery predictability across enterprise-wide initiatives.
+- Piloted internal AI chatbot for market insights, analytics, and compliance support; established foundation for firmwide AI adoption.
+
+Principal — Product Strategy & Execution (Independent) | 2025 – Present
+
+Interim advisory and execution support for platform modernization and digital product initiatives.
+- Conceived and launched a paid, privacy-first mobile application end-to-end (Flutter; offline-first architecture): full ownership of product strategy, UX, engineering coordination, release management, billing configuration, and store compliance.
+- Advise on product strategy and platform execution for principle-driven digital products.
+
+JPMorgan Wealth Management, Private Bank & Asset Management — Irvine, CA; New York, NY | 2000 – 2018
+
+Held progressively senior roles across product management, platform support, and business operations within wealth management, private banking, and asset management. Developed deep expertise in enterprise financial services platforms, advisor workflows, and regulated operating environments.
+
+---
+
+DOMAIN EXPERTISE
+
+Financial Services: wealth management, private banking, asset management, financial platforms, advisor technology, regulated environments, compliance, risk governance, FINRA-regulated products, managed accounts, trading systems, CRM integration.
+
+Platform Work: internal platforms, enterprise platform consolidation, legacy modernization, system migration, system rationalization, platform topology simplification, API-first architecture, data governance, operating model redesign.
+
+---
+
+EDUCATION & CREDENTIALS
+
+B.S. Biology — Stony Brook University (State University of New York) | Dean's List, Golden Key National Honor Society
+
+- FINRA Series 7 & 63 (current)
+- Agile Project Management Professional Certificate (Atlassian)
+- Agile Transformation for Leaders and Managers (Pluralsight)
+- Artificial Intelligence Fundamentals (IBM SkillsBuild)
+- Career Essentials in Generative AI (Microsoft & LinkedIn)
+- Data Fundamentals (IBM SkillsBuild)
+- Product Masterclass (Silicon Valley Product Group)
+- User Experience Design Fundamentals (IBM SkillsBuild)

@@ -81,6 +81,7 @@ def append_jobs(jobs):
                 "",  # L reviewed
                 "",  # M applied
                 "",  # N notes
+                job.get("employment_type_label", "Unknown"),  # O employment type
             ])
 
     if pending_updates:
