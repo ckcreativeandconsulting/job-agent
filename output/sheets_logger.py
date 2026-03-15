@@ -24,11 +24,29 @@ def get_sheet():
     return client.open(SHEET_NAME).worksheet(TAB_NAME)
 
 
+HEADER_ROW = [
+    "date_found", "title", "company", "location", "source",
+    "rank_score", "ai_score", "action", "why_match", "concerns",
+    "link", "reviewed", "applied", "notes", "employment_type",
+]
+
+
+def _ensure_header(sheet, all_values: list) -> None:
+    """Write the header row if column O is missing or the sheet is empty."""
+    if not all_values:
+        sheet.insert_row(HEADER_ROW, 1)
+        return
+    header = all_values[0]
+    if len(header) < 15 or header[14].strip().lower() not in ("employment_type", "employment type"):
+        sheet.update("O1", [["employment_type"]])
+
+
 def append_jobs(jobs):
     sheet = get_sheet()
 
     all_values = sheet.get_all_values()
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    _ensure_header(sheet, all_values)
+    today = datetime.now().strftime("%Y-%m-%d")
 
     # Build map of existing links -> row number
     # Row 1 is the header, so sheet rows start at 2 for data
@@ -51,8 +69,8 @@ def append_jobs(jobs):
         if link in existing_link_to_row:
             row_num = existing_link_to_row[link]
 
-            # Update only rank_score, ai_score, action, why_match, concerns
-            # Columns F:J
+            # Update rank_score, ai_score, action, why_match, concerns (F:J)
+            # and employment_type_label (O) separately (non-contiguous ranges)
             pending_updates.append({
                 "range": f"F{row_num}:J{row_num}",
                 "values": [[
@@ -62,6 +80,10 @@ def append_jobs(jobs):
                     ", ".join(job.get("why_match", [])),
                     ", ".join(job.get("concerns", [])),
                 ]],
+            })
+            pending_updates.append({
+                "range": f"O{row_num}",
+                "values": [[job.get("employment_type_label", "unknown").lower()]],
             })
             updated_count += 1
 
@@ -81,6 +103,7 @@ def append_jobs(jobs):
                 "",  # L reviewed
                 "",  # M applied
                 "",  # N notes
+                job.get("employment_type_label", "unknown").lower(),  # O employment type
             ])
 
     if pending_updates:

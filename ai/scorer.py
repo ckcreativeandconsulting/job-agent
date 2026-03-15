@@ -115,25 +115,27 @@ Rules:
 - transformation_fit_score from 0 to 100
 - domain_fit_score from 0 to 100
 - scope_fit_score from 0 to 100
+- employment_type_label: infer from the job posting — one of "Contract", "Interim", "Fractional", "Part-time", "Full-time", or "Unknown"
 - why_match and concerns must be concrete and job-specific
 - never return placeholder text like "reason1", "reason2", or "issue1"
 - prefer enterprise platform transformation, modernization, system consolidation, governance, and operating model roles
-- prefer remote roles
-- slightly favor contract roles
-- score remote full-time roles well if they strongly match platform transformation work
+- remote roles are preferred; remote-friendly hybrid roles (a few days in office) are also acceptable — do not penalize hybrid if the posting signals remote-first or flexible
+- all employment types are acceptable (contract, interim, fractional, part-time, full-time); contract and interim receive a slight preference over full-time
+- candidate has deep wealth management and financial services domain expertise — score domain_fit_score higher for fintech, financial platforms, advisor technology, and regulated environments
+- advisor platform modernization, legacy system decommissioning, and operating model design are core strengths — weight these heavily in transformation_fit_score
+- candidate is targeting mid-senior IC roles in tech (Senior Product Manager, Group Product Manager, Product Lead, Principal PM) and interim/fractional transformation leadership roles externally — this is the right level benchmark for scope_fit_score
+- do not over-score pure people-manager Director+ roles at large tech companies unless they explicitly involve hands-on platform transformation execution and the scope matches a senior IC or transformation leader, not a large org lead
 - penalize customer implementation, client delivery, onboarding, services, or post-sales roles unless they clearly involve enterprise platform transformation at scale
 - penalize junior, sales, or heavily customer-support-oriented roles
-- be conservative: only assign scores above 85 for strong matches
-- penalize roles that are primarily embedded within a single business function (for example claims, customer operations, or customer implementation) unless they clearly involve enterprise-wide platform transformation, large-scale system modernization, or operating model redesign across multiple teams or systems
+- penalize roles that are primarily embedded within a single business function (for example claims, customer operations) unless they clearly involve enterprise-wide platform transformation, large-scale system modernization, or operating model redesign across multiple teams or systems
 - do not over-score roles solely because they mention AI
-- for prescoring, be strict and avoid scores above 85 unless the role is an unusually strong fit
+- be conservative: only assign scores above 85 for strong matches, and above 90 for unusually strong fits
+- use 70-85 for decent but not exceptional fits
 - resume_fit_score: how well the candidate's background matches the role overall
 - transformation_fit_score: fit for enterprise platform transformation, modernization, system consolidation, governance, and operating model work
-- domain_fit_score: fit for the company/domain/problem space
-- scope_fit_score: fit for level, complexity, and cross-functional scale
-- overall score should reflect the total opportunity, but do not inflate it solely because one subscore is high
-- be especially strict: only assign scores above 90 for unusually strong matches, and use 70-85 for decent but not exceptional fits
-- AI-related roles should only receive high scores if they involve enterprise platform transformation, operating model redesign, governance, or large-scale system modernization
+- domain_fit_score: fit for the company/domain/problem space (score higher for financial services, fintech, regulated environments, advisor platforms)
+- scope_fit_score: fit for level, complexity, and cross-functional scale (benchmark: Senior PM / Group PM / Product Lead at a mid-to-large tech company, or senior interim transformation leader)
+- overall score should reflect the total opportunity; do not inflate solely because one subscore is high
 """.strip()
 
 
