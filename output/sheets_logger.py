@@ -151,12 +151,13 @@ def append_jobs(jobs):
     print("Exported jobs summary for AI ops")
 
 
-def get_applied_data() -> tuple[set, set]:
+def get_applied_data() -> tuple[set, set, set]:
     """
-    Read the sheet and return (applied_links, applied_companies).
-    applied_links: set of link values (col K) where col M is "yes" (case-insensitive).
-    applied_companies: set of lowercased company names (col C) where col M is "yes".
-    Returns (set(), set()) on any error so the pipeline degrades gracefully.
+    Read the sheet and return (applied_links, applied_companies, rejected_links).
+    applied_links:    col K where col M is "yes" (case-insensitive) — already applied.
+    applied_companies: col C (lowercased) where col M is "yes" — used for rank boost.
+    rejected_links:   col K where col M is "no"  — reviewed and decided not to apply.
+    Returns (set(), set(), set()) on any error so the pipeline degrades gracefully.
     """
     try:
         sheet = get_sheet()
@@ -164,10 +165,11 @@ def get_applied_data() -> tuple[set, set]:
     except Exception as e:
         print(f"[sheets] WARNING: Could not read applied data: {e}")
         print("[sheets] Continuing without applied boost.")
-        return set(), set()
+        return set(), set(), set()
 
     applied_links: set = set()
     applied_companies: set = set()
+    rejected_links: set = set()
 
     for row in all_values[1:]:  # skip header row
         if len(row) < 13:
@@ -176,10 +178,14 @@ def get_applied_data() -> tuple[set, set]:
         company = row[2].strip()    # col C
         applied = row[12].strip()   # col M
 
-        is_applied = applied.lower() == "yes"
+        is_applied  = applied.lower() == "yes"
+        is_rejected = applied.lower() == "no"
+
         if is_applied and link:
             applied_links.add(link)
         if is_applied and company:
             applied_companies.add(company.lower())
+        if is_rejected and link:
+            rejected_links.add(link)
 
-    return applied_links, applied_companies
+    return applied_links, applied_companies, rejected_links

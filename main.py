@@ -28,8 +28,9 @@ def main():
     print(f"Jobs after filtering: {len(filtered_jobs)}")
     print(f"Jobs ignored before scoring: {len(ignored_jobs)}")
 
-    applied_links, applied_companies = get_applied_data()
-    print(f"Applied: {len(applied_links)} links, {len(applied_companies)} companies loaded from sheet")
+    applied_links, applied_companies, rejected_links = get_applied_data()
+    seen_links = applied_links | rejected_links  # all previously-reviewed jobs
+    print(f"Sheet feedback: {len(applied_links)} applied ('Yes'), {len(rejected_links)} rejected ('No')")
 
     ranked_jobs = rank_jobs(filtered_jobs, applied_companies)
     after_rank_count = len(ranked_jobs)
@@ -42,10 +43,10 @@ def main():
     jobs_to_score = [
         job for job in ranked_jobs
         if job.get("rank_score", 0) >= MIN_RANK_SCORE
-        and job.get("link") not in applied_links
+        and job.get("link") not in seen_links
     ][:MAX_AI_JOBS]
 
-    print(f"Scoring top {len(jobs_to_score)} ranked jobs with AI (limit: {MAX_AI_JOBS})")
+    print(f"Scoring top {len(jobs_to_score)} fresh ranked jobs with AI (limit: {MAX_AI_JOBS})")
 
     load_profile_text()  # pre-warm before threads to avoid lazy-load race
 

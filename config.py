@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MAX_AI_JOBS = int(os.getenv("MAX_AI_JOBS", 10))
+MAX_AI_JOBS = int(os.getenv("MAX_AI_JOBS", 20))
 COLLECTOR_MAX_WORKERS = int(os.getenv("COLLECTOR_MAX_WORKERS", 10))
 SCORER_MAX_WORKERS = int(os.getenv("SCORER_MAX_WORKERS", 5))
 EMBED_CANDIDATE_LIMIT = int(os.getenv("EMBED_CANDIDATE_LIMIT", 30))
