@@ -154,8 +154,8 @@ def append_jobs(jobs):
 def get_applied_data() -> tuple[set, set]:
     """
     Read the sheet and return (applied_links, applied_companies).
-    applied_links: set of link values (col K) where col M is non-empty.
-    applied_companies: set of lowercased company names (col C) where col M is non-empty.
+    applied_links: set of link values (col K) where col M is "yes" (case-insensitive).
+    applied_companies: set of lowercased company names (col C) where col M is "yes".
     Returns (set(), set()) on any error so the pipeline degrades gracefully.
     """
     try:
@@ -176,9 +176,10 @@ def get_applied_data() -> tuple[set, set]:
         company = row[2].strip()    # col C
         applied = row[12].strip()   # col M
 
-        if applied and link:
+        is_applied = applied.lower() == "yes"
+        if is_applied and link:
             applied_links.add(link)
-        if applied and company:
+        if is_applied and company:
             applied_companies.add(company.lower())
 
     return applied_links, applied_companies
