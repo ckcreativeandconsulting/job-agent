@@ -12,6 +12,7 @@ from config import (
     RANKING_NEGATIVE_SUMMARY_WEIGHTS,
     MAX_JOBS_PER_COMPANY,
     COMPANY_PRIORITY,
+    APPLIED_COMPANY_BOOST,
 )
 
 
@@ -37,7 +38,7 @@ def freshness_boost(posted_date):
         return 0
 
 
-def compute_rank_score_fast(job: dict) -> int:
+def compute_rank_score_fast(job: dict, applied_companies: set = None) -> int:
     """Keyword/rule-based rank score without semantic embedding (fast pass)."""
     title = job.get("title", "").lower()
     summary = job.get("summary", "").lower()
@@ -72,16 +73,18 @@ def compute_rank_score_fast(job: dict) -> int:
             score += weight
 
     score += COMPANY_PRIORITY.get(company, 0)
+    if applied_companies and company in applied_companies:
+        score += APPLIED_COMPANY_BOOST
     score += learned_company_boost(company)
     score += freshness_boost(posted_date)
 
     return score
 
 
-def rank_jobs(jobs: list[dict]) -> list[dict]:
+def rank_jobs(jobs: list[dict], applied_companies: set = None) -> list[dict]:
     # Pass 1: fast keyword/rule-based scoring for all jobs
     for job in jobs:
-        job["rank_score"] = compute_rank_score_fast(job)
+        job["rank_score"] = compute_rank_score_fast(job, applied_companies)
         job["semantic_similarity"] = None
 
     jobs.sort(key=lambda j: j["rank_score"], reverse=True)

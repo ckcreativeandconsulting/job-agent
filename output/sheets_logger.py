@@ -149,3 +149,36 @@ def append_jobs(jobs):
         json.dump(export_data, f, indent=2)
 
     print("Exported jobs summary for AI ops")
+
+
+def get_applied_data() -> tuple[set, set]:
+    """
+    Read the sheet and return (applied_links, applied_companies).
+    applied_links: set of link values (col K) where col M is non-empty.
+    applied_companies: set of lowercased company names (col C) where col M is non-empty.
+    Returns (set(), set()) on any error so the pipeline degrades gracefully.
+    """
+    try:
+        sheet = get_sheet()
+        all_values = sheet.get_all_values()
+    except Exception as e:
+        print(f"[sheets] WARNING: Could not read applied data: {e}")
+        print("[sheets] Continuing without applied boost.")
+        return set(), set()
+
+    applied_links: set = set()
+    applied_companies: set = set()
+
+    for row in all_values[1:]:  # skip header row
+        if len(row) < 13:
+            continue
+        link    = row[10].strip()   # col K
+        company = row[2].strip()    # col C
+        applied = row[12].strip()   # col M
+
+        if applied and link:
+            applied_links.add(link)
+        if applied and company:
+            applied_companies.add(company.lower())
+
+    return applied_links, applied_companies

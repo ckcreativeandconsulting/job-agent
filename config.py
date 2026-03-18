@@ -269,6 +269,9 @@ COMPANY_PRIORITY = {
     # (anything not listed gets 0)
 }
 
+# Boost applied to companies where the user has already applied (read from sheet col M)
+APPLIED_COMPANY_BOOST = 10
+
 GREENHOUSE_COMPANIES = [
     "stripe",
     "brex",
