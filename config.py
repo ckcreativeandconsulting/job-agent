@@ -105,6 +105,29 @@ HYBRID_KEYWORDS = [
     "hybrid",
 ]
 
+HYBRID_ALLOWED_LOCATIONS = [
+    # General Bay Area terms
+    "bay area", "silicon valley", "east bay", "tri-valley", "sf bay",
+    # San Francisco
+    "san francisco", "south san francisco", "daly city",
+    # Peninsula
+    "san mateo", "foster city", "redwood city", "menlo park", "palo alto",
+    # South Bay
+    "san jose", "santa clara", "sunnyvale", "cupertino", "mountain view",
+    "milpitas",
+    # East Bay — Dublin commute corridor
+    "dublin", "pleasanton", "livermore", "san ramon", "danville",
+    "fremont", "hayward", "union city", "newark", "san leandro",
+    "oakland", "berkeley", "emeryville", "alameda",
+    # Contra Costa
+    "walnut creek", "concord", "pleasant hill", "lafayette", "orinda",
+    "richmond",
+    # State-level catch-all (CA jobs without specific city)
+    "california",
+    # Remote in location (hybrid + remote signal = always ok)
+    "remote",
+]
+
 NEGATIVE_LOCATION_KEYWORDS = [
     "onsite",
     "on-site",

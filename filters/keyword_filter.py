@@ -3,6 +3,7 @@ from config import (
     EXCLUDE_KEYWORDS,
     REMOTE_KEYWORDS,
     HYBRID_KEYWORDS,
+    HYBRID_ALLOWED_LOCATIONS,
     ENGINEERING_EXCLUDE_TITLE_KEYWORDS,
     NEGATIVE_LOCATION_KEYWORDS,
 )
@@ -45,6 +46,17 @@ def keyword_filter(jobs: list[dict]) -> list[dict]:
         )
         if not (remote_match or is_hybrid):
             continue
+
+        # Hybrid-only jobs must be in a commutable Bay Area location.
+        # Blank location or bare "hybrid" (no city) → ambiguous, let AI scorer decide.
+        if is_hybrid and not remote_match:
+            location_ok = (
+                not location
+                or location.strip() == "hybrid"
+                or any(city in location for city in HYBRID_ALLOWED_LOCATIONS)
+            )
+            if not location_ok:
+                continue
 
         if any(word in title for word in ENGINEERING_EXCLUDE_TITLE_KEYWORDS):
             continue
