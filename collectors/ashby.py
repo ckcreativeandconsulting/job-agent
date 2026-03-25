@@ -50,9 +50,13 @@ def _fetch_one_ashby(source: dict) -> list[dict]:
             if job.get("isRemote") or workplace in ("Remote", "Distributed"):
                 if not location or location.lower() in ("remote", ""):
                     location = "Remote"
-                # Append Remote signal if not already present
                 elif "remote" not in location.lower():
                     location = f"{location} (Remote)"
+            elif workplace == "Hybrid":
+                if not location or location.lower() == "hybrid":
+                    location = "Hybrid"
+                elif "hybrid" not in location.lower():
+                    location = f"{location} (Hybrid)"
 
             summary = _clean_html(job.get("descriptionHtml") or job.get("descriptionPlain") or "")
             employment_type = _EMPLOYMENT_TYPE_MAP.get(job.get("employmentType", ""), "Unknown")

@@ -2,6 +2,7 @@ from config import (
     INCLUDE_KEYWORDS,
     EXCLUDE_KEYWORDS,
     REMOTE_KEYWORDS,
+    HYBRID_KEYWORDS,
     ENGINEERING_EXCLUDE_TITLE_KEYWORDS,
     NEGATIVE_LOCATION_KEYWORDS,
 )
@@ -35,21 +36,27 @@ def keyword_filter(jobs: list[dict]) -> list[dict]:
         if any(word in text for word in EXCLUDE_KEYWORDS):
             continue
 
-        # Require remote signal in either location or summary
+        # Require remote or hybrid signal in either location or summary
         remote_match = any(word in location for word in REMOTE_KEYWORDS) or any(
             word in summary for word in REMOTE_KEYWORDS
         )
-        if not remote_match:
+        is_hybrid = any(word in location for word in HYBRID_KEYWORDS) or any(
+            word in summary for word in HYBRID_KEYWORDS
+        )
+        if not (remote_match or is_hybrid):
             continue
 
         if any(word in title for word in ENGINEERING_EXCLUDE_TITLE_KEYWORDS):
             continue
 
-        negative_location_match = any(word in location for word in NEGATIVE_LOCATION_KEYWORDS) or any(
-            word in summary for word in NEGATIVE_LOCATION_KEYWORDS
-        )
-        if negative_location_match:
-            continue
+        # Only apply negative location filter to non-hybrid jobs —
+        # a hybrid posting saying "2 days in office" should not be blocked
+        if not is_hybrid:
+            negative_location_match = any(word in location for word in NEGATIVE_LOCATION_KEYWORDS) or any(
+                word in summary for word in NEGATIVE_LOCATION_KEYWORDS
+            )
+            if negative_location_match:
+                continue
 
         # Require at least one strong keyword in title
         title_match = any(word in title for word in strong_title_keywords)

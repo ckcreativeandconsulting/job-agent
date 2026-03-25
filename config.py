@@ -101,6 +101,10 @@ REMOTE_KEYWORDS = [
     "distributed",
 ]
 
+HYBRID_KEYWORDS = [
+    "hybrid",
+]
+
 NEGATIVE_LOCATION_KEYWORDS = [
     "onsite",
     "on-site",
@@ -264,6 +268,9 @@ COMPANY_PRIORITY = {
     "pagerduty": 5,
     "modal": 5,
     "airbyte": 5,
+    "betterment": 10,   # wealth management platform, direct domain overlap
+    "sofi": 7,
+    "marqeta": 7,
 
     # Tier 5 – neutral companies
     # (anything not listed gets 0)

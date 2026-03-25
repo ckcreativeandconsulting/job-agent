@@ -503,5 +503,20 @@
     "name": "PagerDuty",
     "ats": "greenhouse",
     "slug": "pagerduty"
+  },
+  {
+    "name": "Betterment",
+    "ats": "greenhouse",
+    "slug": "betterment"
+  },
+  {
+    "name": "Marqeta",
+    "ats": "greenhouse",
+    "slug": "marqeta"
+  },
+  {
+    "name": "SoFi",
+    "ats": "greenhouse",
+    "slug": "sofi"
   }
 ]

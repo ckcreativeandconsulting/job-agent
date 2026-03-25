@@ -63,6 +63,8 @@ def compute_rank_score_fast(job: dict, applied_companies: set = None) -> int:
 
     if "remote" in location or "remote" in summary:
         score += 4
+    elif "hybrid" in location or "hybrid" in summary:
+        score += 2
 
     for keyword, weight in RANKING_NEGATIVE_TITLE_WEIGHTS.items():
         if keyword in title:
