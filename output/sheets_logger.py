@@ -169,13 +169,15 @@ def append_jobs(jobs):
     print("Exported jobs summary for AI ops")
 
 
-def get_applied_data() -> tuple[set, set, set]:
+def get_applied_data() -> tuple[set, set, set, set]:
     """
-    Read the sheet and return (applied_links, applied_companies, rejected_links).
-    applied_links:    col K where col M is "yes" (case-insensitive) — already applied.
-    applied_companies: col C (lowercased) where col M is "yes" — used for rank boost.
-    rejected_links:   col K where col M is "no"  — reviewed and decided not to apply.
-    Returns (set(), set(), set()) on any error so the pipeline degrades gracefully.
+    Read the sheet and return (applied_links, applied_companies, rejected_links, scored_manual_links).
+    applied_links:       col K where col M is "yes" — already applied.
+    applied_companies:   col C (lowercased) where col M is "yes" — used for rank boost.
+    rejected_links:      col K where col M is "no" — reviewed, decided not to apply.
+    scored_manual_links: col K where col E is "linkedin" AND col G is non-empty
+                         (already scored — skip to avoid paying OpenAI again).
+    Returns (set(), set(), set(), set()) on any error so the pipeline degrades gracefully.
     """
     try:
         sheet = get_sheet()
@@ -183,18 +185,21 @@ def get_applied_data() -> tuple[set, set, set]:
     except Exception as e:
         print(f"[sheets] WARNING: Could not read applied data: {e}")
         print("[sheets] Continuing without applied boost.")
-        return set(), set(), set()
+        return set(), set(), set(), set()
 
     applied_links: set = set()
     applied_companies: set = set()
     rejected_links: set = set()
+    scored_manual_links: set = set()
 
     for row in all_values[1:]:  # skip header row
-        if len(row) < 13:
+        if len(row) < 11:
             continue
-        link    = row[10].strip()   # col K
-        company = row[2].strip()    # col C
-        applied = row[12].strip()   # col M
+        link    = row[10].strip()                       # col K
+        company = row[2].strip()                        # col C
+        applied = row[12].strip() if len(row) > 12 else ""  # col M
+        source  = row[4].strip()  if len(row) > 4  else ""  # col E
+        ai_score = row[6].strip() if len(row) > 6  else ""  # col G
 
         is_applied  = applied.lower() == "yes"
         is_rejected = applied.lower() == "no"
@@ -205,5 +210,7 @@ def get_applied_data() -> tuple[set, set, set]:
             applied_companies.add(company.lower())
         if is_rejected and link:
             rejected_links.add(link)
+        if source.lower() == "linkedin" and ai_score and link:
+            scored_manual_links.add(link)
 
-    return applied_links, applied_companies, rejected_links
+    return applied_links, applied_companies, rejected_links, scored_manual_links

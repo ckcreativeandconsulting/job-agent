@@ -33,9 +33,13 @@ def main():
     print(f"Manual LinkedIn picks: {len(manual_jobs)} loaded")
     print(f"Automated jobs after keyword filter: {len(filtered_auto)} (ignored: {len(ignored_jobs)})")
 
-    applied_links, applied_companies, rejected_links = get_applied_data()
+    applied_links, applied_companies, rejected_links, scored_manual_links = get_applied_data()
     seen_links = applied_links | rejected_links  # all previously-reviewed jobs
-    print(f"Sheet feedback: {len(applied_links)} applied ('Yes'), {len(rejected_links)} rejected ('No')")
+    print(
+        f"Sheet feedback: {len(applied_links)} applied ('Yes'), "
+        f"{len(rejected_links)} rejected ('No'), "
+        f"{len(scored_manual_links)} LinkedIn already scored"
+    )
 
     # Rank all jobs together (manual jobs benefit from rank_score display on sheet)
     all_for_ranking = filtered_auto + manual_jobs
@@ -47,11 +51,14 @@ def main():
 
     save_json(FILTERED_JOBS_FILE, ranked_jobs)
 
-    # Manual picks: always score regardless of rank threshold, still skip seen links
+    # Manual picks: always score regardless of rank threshold.
+    # Skip already-reviewed (seen_links) AND already-scored (scored_manual_links)
+    # to avoid paying OpenAI again for the same URL.
     manual_to_score = [
         job for job in ranked_jobs
         if job.get("source") == "LinkedIn"
         and job.get("link") not in seen_links
+        and job.get("link") not in scored_manual_links
     ][:MAX_MANUAL_SCORE]
 
     # Automated: normal rank threshold + cap
