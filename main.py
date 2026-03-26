@@ -8,7 +8,7 @@ from ai import embedding_cache
 from output.digest import build_digest
 from utils.file_utils import save_json
 from config import (
-    FILTERED_JOBS_FILE, SCORED_JOBS_FILE, MAX_AI_JOBS, MIN_RANK_SCORE,
+    FILTERED_JOBS_FILE, SCORED_JOBS_FILE, MAX_AI_JOBS, MAX_MANUAL_SCORE, MIN_RANK_SCORE,
     SCORER_MAX_WORKERS, EMBEDDING_CACHE_FILE, EMBEDDING_CACHE_ENABLED,
 )
 from output.sheets_logger import append_jobs, get_applied_data
@@ -19,20 +19,27 @@ def main():
     if EMBEDDING_CACHE_ENABLED:
         embedding_cache.load(EMBEDDING_CACHE_FILE)
 
-    jobs = load_all_jobs()
-    print(f"\nCollected {len(jobs)} total jobs")
+    all_jobs = load_all_jobs()
+    print(f"\nCollected {len(all_jobs)} total jobs")
 
-    filtered_jobs = keyword_filter(jobs)
-    ignored_jobs = [job for job in jobs if job not in filtered_jobs]
+    # Separate manual LinkedIn picks (pre-screened by user) from automated sources.
+    # Manual jobs bypass keyword filter and MIN_RANK_SCORE — they're always AI-scored.
+    manual_jobs = [j for j in all_jobs if j.get("source") == "LinkedIn"]
+    auto_jobs   = [j for j in all_jobs if j.get("source") != "LinkedIn"]
 
-    print(f"Jobs after filtering: {len(filtered_jobs)}")
-    print(f"Jobs ignored before scoring: {len(ignored_jobs)}")
+    filtered_auto = keyword_filter(auto_jobs)
+    ignored_jobs  = [j for j in auto_jobs if j not in filtered_auto]
+
+    print(f"Manual LinkedIn picks: {len(manual_jobs)} loaded")
+    print(f"Automated jobs after keyword filter: {len(filtered_auto)} (ignored: {len(ignored_jobs)})")
 
     applied_links, applied_companies, rejected_links = get_applied_data()
     seen_links = applied_links | rejected_links  # all previously-reviewed jobs
     print(f"Sheet feedback: {len(applied_links)} applied ('Yes'), {len(rejected_links)} rejected ('No')")
 
-    ranked_jobs = rank_jobs(filtered_jobs, applied_companies)
+    # Rank all jobs together (manual jobs benefit from rank_score display on sheet)
+    all_for_ranking = filtered_auto + manual_jobs
+    ranked_jobs = rank_jobs(all_for_ranking, applied_companies)
     after_rank_count = len(ranked_jobs)
 
     ranked_jobs = dedupe_same_company_title(ranked_jobs)
@@ -40,13 +47,28 @@ def main():
 
     save_json(FILTERED_JOBS_FILE, ranked_jobs)
 
-    jobs_to_score = [
+    # Manual picks: always score regardless of rank threshold, still skip seen links
+    manual_to_score = [
         job for job in ranked_jobs
-        if job.get("rank_score", 0) >= MIN_RANK_SCORE
+        if job.get("source") == "LinkedIn"
+        and job.get("link") not in seen_links
+    ][:MAX_MANUAL_SCORE]
+
+    # Automated: normal rank threshold + cap
+    normal_to_score = [
+        job for job in ranked_jobs
+        if job.get("source") != "LinkedIn"
+        and job.get("rank_score", 0) >= MIN_RANK_SCORE
         and job.get("link") not in seen_links
     ][:MAX_AI_JOBS]
 
-    print(f"Scoring top {len(jobs_to_score)} fresh ranked jobs with AI (limit: {MAX_AI_JOBS})")
+    # Manual jobs listed first so they always appear in the digest
+    jobs_to_score = manual_to_score + normal_to_score
+
+    print(
+        f"Queued for AI scoring: {len(manual_to_score)} manual + "
+        f"{len(normal_to_score)} automated = {len(jobs_to_score)} total"
+    )
 
     load_profile_text()  # pre-warm before threads to avoid lazy-load race
 
