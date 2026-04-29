@@ -33,7 +33,7 @@ def main():
     print(f"Manual LinkedIn picks: {len(manual_jobs)} loaded")
     print(f"Automated jobs after keyword filter: {len(filtered_auto)} (ignored: {len(ignored_jobs)})")
 
-    applied_links, applied_companies, rejected_links, scored_manual_links = get_applied_data()
+    applied_links, applied_companies, rejected_links, scored_manual_links, rejected_companies_count = get_applied_data()
     seen_links = applied_links | rejected_links  # all previously-reviewed jobs
     print(
         f"Sheet feedback: {len(applied_links)} applied ('Yes'), "
@@ -50,6 +50,17 @@ def main():
     after_dedupe_count = len(ranked_jobs)
 
     save_json(FILTERED_JOBS_FILE, ranked_jobs)
+
+    # Log why any loaded manual jobs are being skipped before scoring
+    for job in ranked_jobs:
+        if job.get("source") != "LinkedIn":
+            continue
+        link = job.get("link", "")
+        label = job.get("title") or job.get("company") or link
+        if link in seen_links:
+            print(f"  [Manual] SKIP (already reviewed in sheet): {label}")
+        elif link in scored_manual_links:
+            print(f"  [Manual] SKIP (already scored — exists in sheet): {label}")
 
     # Manual picks: always score regardless of rank threshold.
     # Skip already-reviewed (seen_links) AND already-scored (scored_manual_links)
@@ -117,8 +128,9 @@ def main():
     if EMBEDDING_CACHE_ENABLED:
         embedding_cache.flush(EMBEDDING_CACHE_FILE)
 
-    from utils.company_learning import update_company_outcomes
+    from utils.company_learning import update_company_outcomes, sync_company_rejections
     update_company_outcomes(scored_jobs)
+    sync_company_rejections(rejected_companies_count)
     append_jobs(scored_jobs)
 
     save_json(SCORED_JOBS_FILE, scored_jobs)
@@ -131,8 +143,8 @@ def main():
 
     print("\nRUN SUMMARY")
     print("--------------------------------------------------")
-    print(f"Collected: {len(jobs)}")
-    print(f"After keyword filter: {len(filtered_jobs)}")
+    print(f"Collected: {len(all_jobs)}")
+    print(f"After keyword filter: {len(filtered_auto)}")
     print(f"Ignored before scoring: {len(ignored_jobs)}")
     print(f"After ranking/company cap: {after_rank_count}")
     print(f"After dedupe: {after_dedupe_count}")

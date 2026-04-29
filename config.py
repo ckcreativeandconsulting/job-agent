@@ -67,6 +67,16 @@ INCLUDE_KEYWORDS = [
     "systems",
     "migration",
     "consolidation",
+    # builder / applied AI signal
+    "agentic",
+    "agents",
+    "llm",
+    "automation",
+    "workflow",
+    "prototyping",
+    "experimentation",
+    "innovation",
+    "incubation",
 ]
 
 EXCLUDE_KEYWORDS = [
@@ -153,6 +163,23 @@ RANKING_TITLE_WEIGHTS = {
     "product lead": 5,
     "principal product": 4,
     "advisor": 3,
+    # builder / applied AI signal
+    "applied ai": 8,
+    "ai product": 6,
+    "ai platform": 6,
+    "agentic": 6,
+    "innovation": 4,
+    # AI × FinTech intersection titles (Tier 1 — highest priority)
+    "genai": 9,
+    "ai enablement": 9,
+    "ai strategy": 8,
+    "ai transformation": 8,
+    "advisor technology": 8,
+    "wealthtech": 8,
+    "financial technology": 7,
+    # Adjacent / supporting titles (Tier 2)
+    "product operations": 5,
+    "digital transformation": 5,
 }
 
 RANKING_SUMMARY_WEIGHTS = {
@@ -178,6 +205,36 @@ RANKING_SUMMARY_WEIGHTS = {
     "decommission": 4,
     "legacy modernization": 4,
     "advisor": 3,
+    # builder / applied AI signal
+    "agentic": 8,
+    "llm": 6,
+    "large language model": 5,
+    "ai agent": 6,
+    "agents": 4,
+    "automation": 3,
+    "0 to 1": 8,
+    "0-1": 8,
+    "zero to one": 7,
+    "prototype": 5,
+    "prototyping": 5,
+    "mvp": 4,
+    "experimentation": 4,
+    "incubation": 5,
+    "innovation": 3,
+    "workflow": 3,
+    "applied ai": 6,
+    "ai-native": 7,
+    # AI × FinTech domain intersection (highest weight — dual signal)
+    "wealthtech": 8,
+    "advisor platform": 7,
+    "investment platform": 7,
+    "financial platform": 7,
+    "ai enablement": 8,
+    "genai": 7,
+    "generative ai": 7,
+    "fintech": 5,
+    "financial services transformation": 8,
+    "advisor technology": 7,
 }
 
 RANKING_EMPLOYMENT_WEIGHTS = {
@@ -235,6 +292,24 @@ RANKING_NEGATIVE_SUMMARY_WEIGHTS = {
     "risk operations": -4,
     "content solutions": -5,
     "alliances and channels": -6,
+    # generic PM noise signals
+    "backlog grooming": -4,
+    "bau": -5,
+    "sprint ceremonies": -3,
+    # ML research / deep engineering exclusions
+    "ml research": -7,
+    "machine learning research": -7,
+    "research scientist": -7,
+    "deep learning": -5,
+    "neural network": -5,
+    "computer vision": -5,
+    "model training": -6,
+    "phd preferred": -6,
+    "phd required": -8,
+    # Engineering-heavy startup noise
+    "founding engineer": -7,
+    "backend infrastructure": -5,
+    "distributed systems": -4,
 }
 
 COMPANY_PRIORITY = {
@@ -295,6 +370,8 @@ COMPANY_PRIORITY = {
     "betterment": 10,   # wealth management platform, direct domain overlap
     "sofi": 7,
     "marqeta": 7,
+    "block": 12,        # Square/Cash App — major fintech, financial platform relevance
+    "robinhood": 10,
 
     # Tier 5 – neutral companies
     # (anything not listed gets 0)

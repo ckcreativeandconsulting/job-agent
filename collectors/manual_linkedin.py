@@ -39,19 +39,35 @@ def _clean_html(text: str) -> str:
 
 def _enrich_from_linkedin(url: str) -> dict:
     """
-    Fetch a LinkedIn public job page and extract structured data.
-    Tries JSON-LD first (full detail), then falls back to <title> tag.
+    Fetch a job page and extract structured data.
+    Accepts LinkedIn URLs or direct company ATS URLs (Greenhouse, Ashby, Lever, etc.).
+    Tries JSON-LD first, then OG tags, then <title> tag.
     Returns a partial dict with whatever could be extracted, or {} on failure.
     """
+    # Strip tracking parameters from known ATS platforms before fetching.
+    # Greenhouse board URLs: drop everything after the numeric job ID
+    if "greenhouse.io" in url:
+        gh_match = re.search(r'(https://(?:boards|job-boards)\.greenhouse\.io/[^/]+/jobs/\d+)', url)
+        if gh_match:
+            url = gh_match.group(1)
+    # Lever: drop query string (tracking params after ?)
+    elif "lever.co" in url:
+        url = url.split("?")[0]
+    # LinkedIn: strip tracking parameters that cause login-wall redirects
+    elif "linkedin.com" in url:
+        job_id_match = re.search(r'/jobs/view/(\d+)', url)
+        if job_id_match:
+            url = f"https://www.linkedin.com/jobs/view/{job_id_match.group(1)}/"
+
     try:
         resp = requests.get(url, headers=_LI_HEADERS, timeout=12, allow_redirects=True)
         resp.raise_for_status()
         page = resp.text
     except Exception as e:
-        print(f"[LinkedIn] Could not fetch {url}: {e}")
+        print(f"[Manual] Could not fetch {url}: {e}")
         return {}
 
-    # Strategy 1: JSON-LD structured data — best quality
+    # Strategy 1: JSON-LD structured data — best quality (Greenhouse, Ashby, LinkedIn)
     for match in re.finditer(
         r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
         page,
@@ -90,14 +106,36 @@ def _enrich_from_linkedin(url: str) -> dict:
         except (json.JSONDecodeError, KeyError, TypeError):
             continue
 
-    # Strategy 2: <title> tag — "Job Title at Company | LinkedIn"
+    # Strategy 2: OG tags — reliable on ATS pages (Greenhouse, Ashby, Lever)
+    # og:title is typically "Job Title at Company"
+    og_title_m = re.search(
+        r'<meta\s+property=["\']og:title["\']\s+content=["\'](.*?)["\']', page, re.IGNORECASE
+    )
+    og_desc_m = re.search(
+        r'<meta\s+property=["\']og:description["\']\s+content=["\'](.*?)["\']', page, re.IGNORECASE
+    )
+    if og_title_m:
+        raw = html.unescape(og_title_m.group(1)).strip()
+        if " at " in raw:
+            parts = raw.split(" at ", 1)
+            print(f"[Manual] Enriched from OG tags: {raw!r}")
+            return {
+                "title": parts[0].strip(),
+                "company": parts[1].strip(),
+                "location": "",
+                "summary": _clean_html(html.unescape(og_desc_m.group(1))) if og_desc_m else "",
+                "employment_type": "Unknown",
+                "posted_date": None,
+            }
+
+    # Strategy 3: <title> tag — strip any trailing "| Something" suffix, then parse "X at Y"
     title_match = re.search(r"<title[^>]*>(.*?)</title>", page, re.IGNORECASE | re.DOTALL)
     if title_match:
         raw_title = html.unescape(title_match.group(1)).strip()
-        raw_title = re.sub(r"\s*\|\s*LinkedIn\s*$", "", raw_title, flags=re.IGNORECASE).strip()
+        raw_title = re.sub(r"\s*\|[^|]+$", "", raw_title).strip()  # strip "| Greenhouse Job Board" etc.
         if " at " in raw_title:
             parts = raw_title.split(" at ", 1)
-            print(f"[LinkedIn] Partial enrichment from title tag: {raw_title!r}")
+            print(f"[Manual] Partial enrichment from title tag: {raw_title!r}")
             return {
                 "title": parts[0].strip(),
                 "company": parts[1].strip(),
@@ -107,20 +145,22 @@ def _enrich_from_linkedin(url: str) -> dict:
                 "posted_date": None,
             }
 
-    print(f"[LinkedIn] Could not extract job data from page: {url}")
+    print(f"[Manual] Could not extract job data from page: {url}")
     return {}
 
 
 def load_manual_linkedin_jobs() -> list[dict]:
     """
-    Load manual LinkedIn jobs from JSON file.
+    Load manual job picks from JSON file.
 
-    Minimum required field per entry: "link".
+    Minimum required field per entry: "link" — any job page URL works:
+        Greenhouse:  https://boards.greenhouse.io/company/jobs/1234567
+        Ashby:       https://jobs.ashbyhq.com/company/job-id
+        Lever:       https://jobs.lever.co/company/job-id
+        LinkedIn:    https://www.linkedin.com/jobs/view/1234567890/
+
     All other fields (title, company, location, summary, employment_type)
-    are auto-enriched from the LinkedIn public page if missing.
-
-    Example minimal entry:
-        [{"link": "https://www.linkedin.com/jobs/view/1234567890/"}]
+    are auto-enriched from the job page if missing.
     """
     try:
         with open(MANUAL_LINKEDIN_JOBS_FILE, "r", encoding="utf-8") as f:

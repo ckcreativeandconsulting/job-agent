@@ -75,12 +75,13 @@ def extract_json(text: str) -> dict:
             "why_match": ["Model response parsing failed"],
             "concerns": ["Could not parse JSON"],
             "employment_type_label": "Unknown",
+            "builder_signal": "Low",
         }
 
 
 def build_prompt(job: dict, profile_text: str) -> str:
     return f"""
-Evaluate this job for candidate Charles Kang.
+Evaluate this job for candidate Charles Kang. Your goal is to assess the PROBABILITY OF CALLBACK — not theoretical fit, but whether a real hiring manager at this specific company would bring this candidate in for an interview based on this posting.
 
 Candidate profile:
 {profile_text}
@@ -100,13 +101,14 @@ Respond ONLY with JSON like this:
   "domain_fit_score": 75,
   "scope_fit_score": 80,
   "why_match": [
-  "Role focuses on platform modernization across multiple systems",
-  "Cross-functional scope aligns with enterprise transformation experience"
+  "<specific reason tied to this job's actual requirements>",
+  "<specific reason 2>"
 ],
 "concerns": [
-  "Role may be embedded in a narrower functional domain"
-]
-  "employment_type_label": "Full-time"
+  "<specific concern about this particular role>"
+],
+  "employment_type_label": "Full-time",
+  "builder_signal": "Medium — <one sentence on this specific role's 0→1 or AI builder characteristics>"
 }}
 
 Rules:
@@ -121,21 +123,39 @@ Rules:
 - prefer enterprise platform transformation, modernization, system consolidation, governance, and operating model roles
 - remote roles are preferred; remote-friendly hybrid roles (a few days in office) are also acceptable — do not penalize hybrid if the posting signals remote-first or flexible
 - all employment types are acceptable (contract, interim, fractional, part-time, full-time); contract and interim receive a slight preference over full-time
-- candidate has deep wealth management and financial services domain expertise — score domain_fit_score higher for fintech, financial platforms, advisor technology, and regulated environments
-- advisor platform modernization, legacy system decommissioning, and operating model design are core strengths — weight these heavily in transformation_fit_score
-- candidate is targeting mid-senior IC roles in tech (Senior Product Manager, Group Product Manager, Product Lead, Principal PM) and interim/fractional transformation leadership roles externally — this is the right level benchmark for scope_fit_score
+The candidate's value proposition has three anchors — ALL THREE must be present in a strong match:
+  ANCHOR 1 (Financial Services Domain): 12+ years in wealth management, advisor platforms, regulated financial systems. This is the primary differentiator. Weight domain_fit_score highest for: WealthTech, FinTech, Payments, Banking Tech, Investment Platforms, Advisor Technology, Financial Infrastructure SaaS.
+  ANCHOR 2 (AI Product Builder): Hands-on builder of AI agents, LLM pipelines, and agentic workflows — not a PM who managed AI features, but someone who built systems. Weight transformation_fit_score highest for roles that require building AI-native products, GenAI workflows, or 0→1 AI platforms from scratch.
+  ANCHOR 3 (Independent Senior Execution): Operates as a senior IC, fractional leader, or interim executive — not a large org manager. Weight scope_fit_score highest for roles suited to a hands-on leader who can own a product or program independently.
+
+INTERSECTION RULE — this is critical for the overall score:
+  - Dual fit (BOTH Anchor 1 strong AND Anchor 2 strong): overall score can reach 80–95
+  - Single-dimension only (strong on ONE anchor, weak on the other): cap overall score at 75 max
+  - Neither anchor strong: score 65 or below
+  - The overall score must reflect callback probability, not theoretical interest
+BEFORE returning your JSON: check domain_fit_score and transformation_fit_score. If domain_fit_score is below 65, overall score MUST be 65 or lower. If EITHER domain_fit_score OR transformation_fit_score is below 70, overall score MUST be 75 or lower. Adjust score before outputting if needed.
 - do not over-score pure people-manager Director+ roles at large tech companies unless they explicitly involve hands-on platform transformation execution and the scope matches a senior IC or transformation leader, not a large org lead
-- penalize customer implementation, client delivery, onboarding, services, or post-sales roles unless they clearly involve enterprise platform transformation at scale
+- penalize customer implementation, client delivery, onboarding, services, or post-sales roles — these are not product leadership roles
+- penalize roles that require a deep CS or engineering background: model training, ML infrastructure, distributed systems engineering, or roles where a CS/engineering degree is listed as required or strongly preferred
+- penalize pure AI/ML research roles (research scientist, ML researcher, deep learning) — no practitioner fit
+- penalize roles at general tech companies with no financial services context unless Anchor 2 is exceptionally strong (score AI-only roles without FS overlap at 65 max)
+- penalize "Founding X" or early-stage startup roles that require broad technical generalist depth — these do not fit the senior PM / fractional leader profile
+- penalize roles embedded in a single narrow business function (claims, customer ops) with no cross-functional transformation scope
+- penalize generic PM roles that only mention AI in passing ("we use AI tools") without substantive AI product ownership
 - penalize junior, sales, or heavily customer-support-oriented roles
-- penalize roles that are primarily embedded within a single business function (for example claims, customer operations) unless they clearly involve enterprise-wide platform transformation, large-scale system modernization, or operating model redesign across multiple teams or systems
-- do not over-score roles solely because they mention AI
-- be conservative: only assign scores above 85 for strong matches, and above 90 for unusually strong fits
-- use 70-85 for decent but not exceptional fits
+- Score calibration (callback-oriented):
+  90–100: Exceptional dual fit (AI + FS) — clear match on both anchors, scope is right — apply immediately
+  80–89: Strong dual fit — one or both anchors is solid, minor gaps — strong maybe / apply
+  72–79: Single-dimension fit only — acceptable match on one anchor, weak on the other — maybe, with reservations
+  65–71: Weak fit overall — surface only if specifically notable — lean ignore
+  Below 65: Do not score above this for roles with no FS context, deep engineering requirements, or research roles
+- be conservative: when uncertain, score lower — a 75 should mean "real probability of interest," not "theoretically possible"
 - resume_fit_score: how well the candidate's background matches the role overall
 - transformation_fit_score: fit for enterprise platform transformation, modernization, system consolidation, governance, and operating model work
 - domain_fit_score: fit for the company/domain/problem space (score higher for financial services, fintech, regulated environments, advisor platforms)
 - scope_fit_score: fit for level, complexity, and cross-functional scale (benchmark: Senior PM / Group PM / Product Lead at a mid-to-large tech company, or senior interim transformation leader)
 - overall score should reflect the total opportunity; do not inflate solely because one subscore is high
+- builder_signal: start with "High", "Medium", or "Low" then 1 sentence explaining the 0→1 / applied AI builder characteristics of the role (or lack thereof)
 """.strip()
 
 
@@ -156,6 +176,9 @@ def normalize_parsed_result(parsed: dict) -> dict:
 
     if not parsed.get("employment_type_label"):
         parsed["employment_type_label"] = "Unknown"
+
+    if not parsed.get("builder_signal"):
+        parsed["builder_signal"] = "Low"
 
     return parsed
 

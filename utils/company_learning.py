@@ -66,6 +66,37 @@ def update_company_outcomes(scored_jobs: list[dict]) -> None:
     save_company_outcomes(data)
 
 
+def sync_company_rejections(rejected_companies_count: dict) -> None:
+    """
+    Update human_rejected_count for every company in company_outcomes.json
+    using the counts read from the Google Sheet (col M = "No", col C = company).
+    The sheet is the source of truth — any company not in rejected_companies_count
+    gets its human_rejected_count reset to 0.
+    """
+    data = load_company_outcomes()
+
+    # Reset counts for all tracked companies (sheet is source of truth)
+    for company_key in data:
+        data[company_key]["human_rejected_count"] = rejected_companies_count.get(company_key, 0)
+
+    # Also create stub records for companies rejected on the sheet but not yet tracked
+    for company_key, count in rejected_companies_count.items():
+        if company_key not in data:
+            data[company_key] = {
+                "seen": 0,
+                "scored": 0,
+                "apply": 0,
+                "maybe": 0,
+                "average_score": 0.0,
+                "last_seen": None,
+                "human_rejected_count": count,
+            }
+
+    save_company_outcomes(data)
+    total_rejections = sum(rejected_companies_count.values())
+    print(f"[company] Synced rejection counts: {len(rejected_companies_count)} companies, {total_rejections} total 'No' decisions")
+
+
 def learned_company_boost(company: str) -> int:
     data = load_company_outcomes()
     record = data.get(company.strip().lower())
@@ -77,26 +108,31 @@ def learned_company_boost(company: str) -> int:
     apply_count = record.get("apply", 0)
     avg_score = record.get("average_score", 0)
     apply_rate = apply_count / scored if scored else 0
+    human_rejected = record.get("human_rejected_count", 0)
 
-    if scored < 4:
+    if scored < 4 and human_rejected < 3:
         return 0
 
     boost = 0
 
-# strong history of good matches
+    # Strong history of good matches
     if apply_count >= 2:
         boost += 1
 
-# high average score
+    # High average score
     if avg_score >= 80:
         boost += 2
     elif avg_score >= 70:
         boost += 1
 
-# NEW: strong apply rate
+    # Strong apply rate
     if apply_rate >= 0.5:
         boost += 1
     elif apply_rate >= 0.3:
         boost += 0.5
 
-    return min(int(boost), 3)
+    # Human rejection penalty: 3+ "No" decisions with zero applies → rank penalty
+    if human_rejected >= 3 and apply_count == 0:
+        boost -= 2
+
+    return max(-2, min(int(boost), 3))

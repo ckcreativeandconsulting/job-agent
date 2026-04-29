@@ -24,6 +24,21 @@ def keyword_filter(jobs: list[dict]) -> list[dict]:
         "product manager",
         "program manager",
         "program director",
+        # builder / applied AI signal
+        "innovation",
+        "applied ai",
+        "ai product",
+        "ai platform",
+        # AI × FinTech Tier 1 titles
+        "genai",
+        "ai enablement",
+        "advisor technology",
+        "ai strategy",
+        "ai transformation",
+        "wealthtech",
+        # Tier 2 adjacent titles
+        "digital transformation",
+        "product operations",
     ]
 
     for job in jobs:
