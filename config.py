@@ -146,6 +146,32 @@ NEGATIVE_LOCATION_KEYWORDS = [
     "office-based",
 ]
 
+# Country/region keywords checked against the location field only — blocks non-US jobs.
+# Applied to ALL jobs (remote, hybrid, onsite) regardless of work type.
+# Intentionally NOT "dublin" — conflicts with Dublin, CA in HYBRID_ALLOWED_LOCATIONS.
+NEGATIVE_LOCATION_COUNTRY_KEYWORDS = [
+    # India
+    "india", "bangalore", "bengaluru", "hyderabad", "mumbai", "delhi",
+    "gurugram", "gurgaon", "pune", "chennai", "noida", "kolkata",
+    # United Kingdom (" uk" with leading space catches ", uk" without matching "truck" etc.)
+    " uk", "united kingdom", "london", "manchester", "edinburgh", "bristol",
+    # Canada
+    "canada", "toronto", "ontario", "vancouver", "montreal", "calgary",
+    # Europe
+    "ireland", "germany", "berlin", "france", "paris", "netherlands", "amsterdam",
+    "spain", "madrid", "italy", "poland", "sweden", "norway", "denmark",
+    "finland", "switzerland", "austria", "belgium", "portugal",
+    # Asia Pacific
+    "singapore", "australia", "sydney", "melbourne", "japan", "tokyo",
+    "china", "beijing", "shanghai", "hong kong", "south korea", "seoul",
+    # Latin America
+    "brazil", "mexico", "argentina", "colombia", "latam",
+    # Middle East / Africa
+    "israel", "uae", "dubai", "saudi arabia", "south africa",
+    # Region tags used in job postings
+    "emea", "apac",
+]
+
 RANKING_TITLE_WEIGHTS = {
     "program manager": 7,
     "program director": 8,

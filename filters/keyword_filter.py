@@ -6,6 +6,7 @@ from config import (
     HYBRID_ALLOWED_LOCATIONS,
     ENGINEERING_EXCLUDE_TITLE_KEYWORDS,
     NEGATIVE_LOCATION_KEYWORDS,
+    NEGATIVE_LOCATION_COUNTRY_KEYWORDS,
 )
 
 
@@ -60,6 +61,11 @@ def keyword_filter(jobs: list[dict]) -> list[dict]:
             word in summary for word in HYBRID_KEYWORDS
         )
         if not (remote_match or is_hybrid):
+            continue
+
+        # Block non-US locations regardless of work type (remote, hybrid, or onsite).
+        # Checks location field only — summary mentions of foreign countries are not a reliable signal.
+        if location and any(word in location for word in NEGATIVE_LOCATION_COUNTRY_KEYWORDS):
             continue
 
         # Hybrid-only jobs must be in a commutable Bay Area location.

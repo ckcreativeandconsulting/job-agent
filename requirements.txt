@@ -1,7 +1,7 @@
-feedparser
-openai
-python-dotenv
-gspread
-oauth2client
-requests
-anthropic  # optional: required only when AI_MODE=claude
+feedparser==6.0.12
+openai==2.26.0
+python-dotenv==1.2.2
+gspread==6.2.1
+oauth2client==4.1.3
+requests==2.32.5
+anthropic==0.103.1  # optional: required only when AI_MODE=claude
