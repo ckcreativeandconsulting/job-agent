@@ -10,7 +10,7 @@ Job searching is one of the most repetitive knowledge-work tasks that exists —
 
 I built Job Agent as a hands-on exploration of multi-model LLM orchestration: what does it look like to coordinate a local model, a cloud model, and a semantic search layer around a real decision problem with immediate feedback? The job search domain was a perfect forcing function — the stakes are real, the signal is clear (callback or not), and the volume of input data is large enough to make filtering non-trivial.
 
-This project is also part of a broader personal AI ops system ([AI Ops](https://github.com/ckcreativeandconsulting/ai-ops)) that can schedule and trigger Job Agent automatically as part of a unified agent pipeline.
+This project is also part of a broader personal AI ops system ([AI Ops](https://github.com/ckcreativeandconsulting/ai_ops)) that can schedule and trigger Job Agent automatically as part of a unified agent pipeline.
 
 ---
 
