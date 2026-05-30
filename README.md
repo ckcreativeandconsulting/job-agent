@@ -158,7 +158,7 @@ AI Ops (Orchestrator)
 └── Ops Briefing       (aggregated daily digest)
 ```
 
-[AI Ops](https://github.com/ckcreativeandconsulting/ai-ops) can schedule Job Agent on a cadence, collect its output, and route results — so the full pipeline runs with minimal manual intervention.
+[AI Ops](https://github.com/ckcreativeandconsulting/ai_ops) can schedule Job Agent on a cadence, collect its output, and route results — so the full pipeline runs with minimal manual intervention.
 
 ---
 
