@@ -11,6 +11,7 @@ SCORER_MAX_WORKERS = int(os.getenv("SCORER_MAX_WORKERS", 5))
 EMBED_CANDIDATE_LIMIT = int(os.getenv("EMBED_CANDIDATE_LIMIT", 30))
 EMBEDDING_CACHE_ENABLED = os.getenv("EMBEDDING_CACHE_ENABLED", "true").lower() == "true"
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-haiku-4-5")
+GOOGLE_CREDENTIALS_FILE = os.getenv("GOOGLE_CREDENTIALS_FILE", "google_credentials.json")
 
 AI_MODE = os.getenv("AI_MODE", "openai_only")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")

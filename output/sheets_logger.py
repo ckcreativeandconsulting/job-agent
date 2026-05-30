@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 
+from config import GOOGLE_CREDENTIALS_FILE
 
 SHEET_NAME = "Job Agent Tracker"
 TAB_NAME = "jobs"
@@ -16,7 +17,7 @@ def get_sheet():
     ]
 
     creds = ServiceAccountCredentials.from_json_keyfile_name(
-        "google_credentials.json", scope
+        GOOGLE_CREDENTIALS_FILE, scope
     )
 
     client = gspread.authorize(creds)
