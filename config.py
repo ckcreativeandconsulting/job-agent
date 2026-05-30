@@ -117,6 +117,8 @@ HYBRID_KEYWORDS = [
     "hybrid",
 ]
 
+# Customize to your own commutable area — this example covers the SF Bay Area from Dublin, CA.
+# Any hybrid job whose location matches one of these strings (case-insensitive substring) will pass.
 HYBRID_ALLOWED_LOCATIONS = [
     # General Bay Area terms
     "bay area", "silicon valley", "east bay", "tri-valley", "sf bay",

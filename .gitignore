@@ -2,6 +2,9 @@
 .env
 google_credentials.json
 
+# Personal information — copy profile.example.txt → profile.txt and fill in your own details
+profile.txt
+
 # Claude Code
 .claude/
 

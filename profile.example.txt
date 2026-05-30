@@ -1,0 +1,66 @@
+Your Full Name
+Your Title | Your Specialty | Your Other Specialty
+Domain Area 1  |  Domain Area 2  |  Domain Area 3
+
+Available for: [your availability — e.g. remote and remote-friendly hybrid roles (contract, interim, fractional, full-time)]
+
+---
+
+CANDIDATE SUMMARY
+
+[2-3 sentences describing your background, years of experience, domain expertise, key metrics, and current focus.
+Include specific numbers where possible: "12+ years in X", "consolidated Y platforms enabling Z× growth", etc.
+This section appears within the embedding window — front-load your most differentiating metrics here.]
+
+Targets: [your target role types — e.g. Senior PM, Group PM, Product Lead (IC); Enterprise Transformation Lead, interim/fractional executive]
+
+---
+
+CORE CAPABILITIES
+
+[Skill 1] | [Skill 2] | [Skill 3] | [Skill 4] | [Skill 5] | [Skill 6] | [Skill 7] | [Skill 8]
+
+(Use pipe-separated values — these are used as keywords by the AI scorer)
+
+---
+
+KEY ACHIEVEMENTS
+
+- [Achievement 1: name the initiative, describe the outcome with metrics, e.g. "Led platform consolidation enabling 10× growth in X"]
+- [Achievement 2: similar format]
+- [Achievement 3]
+- [Achievement 4]
+- [Achievement 5]
+- [Achievement 6]
+
+---
+
+PROFESSIONAL EXPERIENCE
+
+[Most Recent Company] | [Title] | [Start Year – End Year or Present]
+[1-2 sentences on role scope]
+- [Key outcome 1 with metric]
+- [Key outcome 2 with metric]
+- [Key outcome 3]
+
+[Previous Company] | [Title(s)] | [Start Year – End Year]
+[1-2 sentences on role scope]
+
+---
+
+DOMAIN EXPERTISE
+
+[Domain 1 — e.g. Financial Services]: [comma-separated relevant skills, platforms, environments, tools]
+
+[Domain 2 — e.g. Platform Work]: [comma-separated relevant skills, tools, methodologies]
+
+[Domain 3 — e.g. AI & Technology]: [comma-separated tools, languages, frameworks, platforms]
+
+---
+
+EDUCATION & CREDENTIALS
+
+[Degree] — [University Name]
+
+Licenses: [relevant professional licenses, e.g. FINRA Series 7]
+Certificates: [relevant certifications]

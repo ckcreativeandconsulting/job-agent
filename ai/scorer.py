@@ -80,8 +80,9 @@ def extract_json(text: str) -> dict:
 
 
 def build_prompt(job: dict, profile_text: str) -> str:
+    candidate_name = profile_text.split('\n')[0].strip()
     return f"""
-Evaluate this job for candidate Charles Kang. Your goal is to assess the PROBABILITY OF CALLBACK — not theoretical fit, but whether a real hiring manager at this specific company would bring this candidate in for an interview based on this posting.
+Evaluate this job for candidate {candidate_name}. Your goal is to assess the PROBABILITY OF CALLBACK — not theoretical fit, but whether a real hiring manager at this specific company would bring this candidate in for an interview based on this posting.
 
 Candidate profile:
 {profile_text}
